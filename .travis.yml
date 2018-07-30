@@ -1,0 +1,20 @@
+language: python
+python: 2.7
+
+branches:
+  only:
+  - master
+
+install:
+  - curl -L https://raw.githubusercontent.com/seisman/install/master/install-hugo.sh | bash
+  - pip install pygments
+  - git submodule update --remote
+
+script:
+  - ./hugo
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: ${GH_TOKEN}
+  local_dir: public

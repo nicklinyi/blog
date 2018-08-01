@@ -6,10 +6,10 @@ categories: ['安装']
 slug: seismic-unix
 ---
 
-Seismic Unix是Colorado School of Mines开发的一款地震数据处理软件。最新的版本代号为44R1。
-这里选择43R8版本进行安装。
+Seismic Unix是Colorado School of Mines开发的一款地震数据处理软件。最新的版本代号为44R2。
+这里选择44R2版本进行安装。
 
-下载地址：<http://www.cwp.mines.edu/cwpcodes/index.html>
+下载地址：https://github.com/JohnWStockwellJr/SeisUnix
 
 ## 安装依赖包
 
@@ -44,8 +44,7 @@ $ mkdir opt
 $ cd opt
 $ mkdir cwp
 $ cd cwp
-$ wget ftp://ftp.cwp.mines.edu/pub/cwpcodes/cwp_su_all_44R1.tgz
-$ tar -xvf cwp_su_all_44R1.tgz
+$ git clone https://github.com/JohnWStockwellJr/SeisUnix src
 ```
 
 ## 编译，安装
@@ -63,5 +62,9 @@ $ make xtinstall
 $ make finstall
 $ make mglinstall
 ```
+
+## 修订历史
+- 2016-05-12：初稿；
+- 2018-08-01：更新无效的链接；
 
 

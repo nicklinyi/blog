@@ -8,7 +8,9 @@ categories: [macOS]
 Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持NTFS写入的考量。
 
 <!-- more -->
-方法一：
+
+## 方法一：
+
 1.在terminal下使用命令`diskutil list`查询要挂载的NTFS硬盘名称
 ```
 $ diskutil list
@@ -100,17 +102,27 @@ $ ln -s /Volumes/data ~/Desktop/data
 ```
 在桌面上，我们就能看到其快捷方式了。
 
-方法二.
+## 方法二.
+
 https://blog.plcent.com/archives/209
 目前暂未测试该方法，所以没有把详细过程记录下来。
 
-##补充说明
+## 补充说明
+
 方法一对于最新的系统macOS High Sierra是有效的。
 
 
-##参考资料
+## 参考资料
+
 https://techsviewer.com/write-ntfs-driver-macos-high-sierra/
 
 https://blog.plcent.com/archives/209
 
 [aijiv提供的答案](https://www.zhihu.com/question/19571334)
+
+## 修订历史
+
+- 2018-04-06： 初稿；
+- 2018-08-05： 重排格式； 
+
+

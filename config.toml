@@ -1,4 +1,4 @@
-baseURL = "https://nicklinyi.github.io"
+baseURL = "http://blog.nickwhyy.top"
 languageCode = "en"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "Lloyd"

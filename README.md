@@ -4,6 +4,6 @@
 
 
 Powered by [Hugo](https://gohugo.io/).
-Theme by [hugo-theme-even](https://github.com/seismic/hugo-theme-even)
+Theme by [hugo-theme-even](https://github.com/nicklinyi/hugo-theme-even)
 
 

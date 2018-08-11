@@ -23,4 +23,6 @@ HIT 公开的数据: <http://pan.baidu.com/s/1qYwI1IG>
 
 Open Seismic Repository: <http://opendtect.org/osr/>
 
+Equinor 公开的数据(几乎涵盖了勘探领域的所有研究方向的数据)：<https://www.equinor.com/en/how-and-why/digitalisation-in-our-dna.html>
+
 

@@ -123,6 +123,6 @@ source $RSFROOT/share/madagascar/etc/env.sh
 - 2018-04-28: 更新 macOS High Sierra 下安装 Madagascar;
 - 2018-05-20: 更新 Linux 安装 Matlab API;
 - 2018-05-22: 更新 macOS High Sierra 下安装 Matlab API;
-- 2018-08-12：新增 
+- 2018-08-12：新增 Octave API
 
 

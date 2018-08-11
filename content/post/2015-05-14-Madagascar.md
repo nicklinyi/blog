@@ -1,7 +1,7 @@
 ---
 title: Madagascar 的安装
 date: 2015-05-14
-lastmod: 2018-05-22
+lastmod: 2018-08-12
 tags: [Madagascar]
 categories: ['安装']
 slug: madagascar
@@ -21,25 +21,27 @@ slug: madagascar
 
 ``` {.console}
 # 必须安装的依赖包
-$ sudo apt-get install libxaw7-dev
+$ sudo apt install libxaw7-dev
 # 建议安装的依赖包
-$ sudo apt-get install freeglut3-dev
-$ sudo apt-get install libnetpbm10-dev
-$ sudo apt-get install libgd-dev  
-$ sudo apt-get install libplplot-dev
-$ sudo apt-get install libavcodec-dev
-$ sudo apt-get install libcairo2-dev
-$ sudo apt-get install libjpeg-dev
-$ sudo apt-get install swig
-$ sudo apt-get install python-dev
-$ sudo apt-get install python-numpy
-$ sudo apt-get install g++
-$ sudo apt-get install gfortran
-$ sudo apt-get install libopenmpi-dev
-$ sudo apt-get install libfftw3-dev
-$ sudo apt-get install libsuitesparse-dev
+$ sudo apt install freeglut3-dev
+$ sudo apt install libnetpbm10-dev
+$ sudo apt install libgd-dev  
+$ sudo apt install libplplot-dev
+$ sudo apt install libavcodec-dev
+$ sudo apt install libcairo2-dev
+$ sudo apt install libjpeg-dev
+$ sudo apt install swig
+$ sudo apt install python-dev
+$ sudo apt install python-numpy
+$ sudo apt install g++
+$ sudo apt install gfortran
+$ sudo apt install libopenmpi-dev
+$ sudo apt install libfftw3-dev
+$ sudo apt install libsuitesparse-dev
 # 不建议安装的包
-$ sudo apt-get install python-epydoc
+$ sudo apt install python-epydoc
+# 安装 octave API 需要下面的包
+$ sudo apt install octave liboctave-dev
 ```
 
 ### 编译，安装
@@ -47,10 +49,13 @@ $ sudo apt-get install python-epydoc
 ``` {.console}
 $ git clone https://github.com/ahay/src.git madagascar-2.0
 $ cd madagascar-2.0
-$ ./configure API=c++,f90,python,matlab --prefix=/home/lloyd/rsf2.0 # 额外安装C++，Fortran, Python, Matlab四个API
+$ ./configure API=c++,f90,python,matlab,octave --prefix=/home/lloyd/rsf2.0 # 额外安装C++，Fortran, Python, Matlab, Octave 五个API
 $ make
 $ make install
 ```
+
+>
+若出现`checking for mkoctfile ... (cached) no`的错误，主要原因是缺`liboctave-dev`,重新安装`liboctave-dev`即可。
 
 ### 配置环境变量
 
@@ -88,7 +93,7 @@ export PATH=$PATH:/Applications/MATLAB_R20XXX.app/bin
 
 ``` {.console}
 ## 在Madagascar 源码的根目录下执行下列操作
-$ ./configure CC=clang CXX=clang++ API=python,f90,matlab --prefix=/Users/lloyd/rsf # 额外安装python，Fortran两个API
+$ ./configure CC=clang CXX=clang++ API=python,f90,matlab,octave --prefix=/Users/lloyd/rsf # 额外安装C++,Python,Fortran,Matlab,Octave五个API
 $ make
 $ make install
 ```
@@ -118,5 +123,6 @@ source $RSFROOT/share/madagascar/etc/env.sh
 - 2018-04-28: 更新 macOS High Sierra 下安装 Madagascar;
 - 2018-05-20: 更新 Linux 安装 Matlab API;
 - 2018-05-22: 更新 macOS High Sierra 下安装 Matlab API;
+- 2018-08-12：新增 
 
 

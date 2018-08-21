@@ -17,6 +17,7 @@ Madagascar 本身自带了绘图功能，但其绘图字体并非主流杂志所
 Madagascar 的绘图效果。
 
 采用 Matplotlib 绘图有以下好处
+
 - 符合 Geophysics 等主流杂志的图片要求；
 - 解决 Madagascar sfgraph 命令无法绘制 legend 的缺陷；
 - 可直接生成各种图片格式，无需再进行各种转换。

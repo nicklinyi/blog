@@ -6,7 +6,7 @@ branches:
   - master
 
 install:
-  - curl -L https://raw.githubusercontent.com/seisman/install/master/install-hugo.sh | bash
+  - curl -L https://raw.githubusercontent.com/nicklinyi/install/master/install-hugo.sh | bash
   - pip install pygments
   - git submodule update --remote
 

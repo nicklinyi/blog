@@ -1,0 +1,78 @@
+---
+title: Matlab GMT 绘图指南
+date: 2018-10-01
+tags: ["GMT","Matlab","绘图"]
+author: Lloyd
+categories: ["绘图"]
+slug: gmtmex
+---
+
+## 前言
+在 Matlab 中调用 GMT 十分简单，前提是 GMT 已安装在自己的电脑下的某一目录中，比如`C:\programs\gmt5`。然后在使用的过程中，只需要在脚本的开头添加 GMT 
+的执行路径即可。
+
+## 绘图
+以绘制盐丘速度模型为例，采用在脚本中进行注释的方式来讲解绘图的过程。
+
+```
+clear; close all; clc; 
+%% 添加 GMT 可执行二进制文件的路径
+addpath('C:\programs\gmt5\bin\');
+
+%% 模型的尺寸，
+n1 = 300;  % 深度方向
+n2 = 1290; % x 方向
+
+% 简单地读入盐丘速度模型
+d1 = readBin('velocity.dat',[n1,n2],'float');
+%% 归一化速度为 km/s
+d1 = d1/1000;
+%% 下面的 y 表示深度方向
+xmin = 0;
+ymin = 0;
+dx   = 0.012192; % km
+dy   = dx;
+xmax = (n2-1) * 0.012192;
+ymax = (n1-1) * 0.012192;
+zmin = 1.5240; % km/s 最小速度
+zmax = 4.4806; % km/s 最大速度
+reg  = 0;
+%%
+filename = 'velocity.ps';    % 绘图结果文件
+xlab     = 'Distance (km)';  % xlabel
+ylab     = 'Depth (km)';     % ylabel
+R        = sprintf('-R%f/%f/%f/%f',xmin,xmax,ymin,ymax);
+psxy     = sprintf('psxy -JX8.46c/-5c %s -P -K > %s',R,filename);
+str_X    = sprintf('"%s"',xlab);
+str_Y    = sprintf('"%s"',ylab);
+%%
+psbasemap1 = sprintf('psbasemap -JX8.46c/-5c %s -Bxa+l%s -Bya+l%s -BWN -K -O >> %s',R,str_X,str_Y,filename);
+psbasemap2 = sprintf('psbasemap -JX8.46c/-5c %s -B0 -Bes -K -O >> %s',R,filename);
+
+% https://modules.gmt-china.org/psconvert/ 查看具体的转换文件的指令
+psconvert  = sprintf('psconvert %s -E600 -A -TF -Fout -P', filename);   % 将结果转化为多页 PDF 文件，且输出的文件名为 out.pdf
+% psconvert  = sprintf('psconvert %s -A -Tf  -P', filename);   % 将结果转化为单页 PDF 文件, PDF 默认 720 dpi
+% psconvert  = sprintf('psconvert %s -E600 -A -Tg  -P', filename);   % 将结果转化为单页 PNG 文件
+% psconvert  = sprintf('psconvert %s -E600 -A -Tt  -P', filename);   % 将结果转化为单页 TIFF 文件
+
+grdimage   = sprintf('grdimage -JX8.46c/-5c  -P -C -G -O >> %s',filename);
+%%
+head = [xmin xmax ymin ymax zmin zmax reg dx dy];
+
+G    = gmt('wrapgrid',d1,head);  % 将 d1 数据转化为 GMT 的 GRD 格式.
+cpt  = gmt('grd2cpt -Cjet', G);  % 设置 colormap 为 jet
+%cpt  = gmt('grd2cpt -Cgray', G);  % 设置 colormap 为 gray
+
+gmt('gmtset FONT_ANNOT_PRIMARY +8p') % 设置 tic 字号为 8 pt
+gmt('gmtset FONT_LABEL +8p')         % 设置 label 字号为 8 pt
+gmt(psxy);
+gmt(psbasemap1);
+gmt(psbasemap2);
+gmt(grdimage, G, cpt);
+
+gmt(psconvert)
+gmt('destroy'); % 每次调用完采用该命名终止 GMT 进程。
+```
+
+## 结果
+![velocity.png](https://upload-images.jianshu.io/upload_images/1703880-29302356c8a01001.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

@@ -1,6 +1,6 @@
 ---
 title: 采用 GMT 绘制 SPECFEM2D 波场快照
-date: 2017-10-28 12:47:24
+date: 2017-10-28
 author: Nick
 categories: [绘图]
 tags: [GMT, SPECFEM2D]

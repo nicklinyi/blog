@@ -1,6 +1,6 @@
 ---
 title: Linux /boot 重新分区
-date: 2018-02-04 08:57:57
+date: 2018-02-04
 author: Lloyd
 tags: [Linux]
 categories: [编程]
@@ -67,3 +67,5 @@ $ sudo gparted
 #### 参考资料：
 - <http://forum.ubuntu.org.cn/viewtopic.php?t=481011>
 - <http://blog.csdn.net/caz28/article/details/50827904>
+
+

@@ -1,7 +1,6 @@
 ---
 title: Linux下复制单个文件到多个文件夹
-date: 2016-12-17 16:45:30
-updated: 2016-12-17 16:45:30
+date: 2016-12-17
 author: Nick
 categories: [Linux]
 tags: [Linux]

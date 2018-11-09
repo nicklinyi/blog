@@ -1,6 +1,6 @@
 ---
 title: Vim 高亮 SConstruct
-date: 2016-05-24
+date: 2016-05-25
 tags: ["SConstruct",  "Vim"]
 categories: ["编程"]
 slug: vim-scons-highlight
@@ -23,3 +23,5 @@ Vim高亮文件一般只对含后缀的文件名有效，对于经常使用 Mada
 " Filetype related
 au BufNewFile,BufRead SConstruct,sconstruct,SConscript,sconscript set ft=python
 ```
+
+

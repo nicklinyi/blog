@@ -1,6 +1,6 @@
 ---
 title: macOS 挂载 NTFS 格式硬盘
-date: 2018-04-06 08:57:57
+date: 2018-04-06
 tags: [macOS, NTFS]
 categories: [macOS]
 ---

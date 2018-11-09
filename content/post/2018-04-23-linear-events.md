@@ -1,6 +1,6 @@
 ---
 title: 合成地震事件
-date: 2018-04-24 13:08:28
+date: 2018-04-24
 author: Lloyd
 categories: [地震学]
 tags: [合成数据]

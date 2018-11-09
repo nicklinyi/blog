@@ -1,6 +1,6 @@
 ---
 title: 优化 Madagascar 程序
-date: 2017-08-13 12:47:24
+date: 2017-08-13
 author: Nick
 categories: [地震学软件]
 tags: [Madagascar]
@@ -91,3 +91,5 @@ GNU C Compiler (GCC) 自带了一个通用的 Profile 工具 `gprof`， 用于�
 * [Gprof官方文档](https://sourceware.org/binutils/docs/gprof/Executing.html#Executing)
 * [SCons官方文档](http://scons.org/doc/production/HTML/scons-user.html#sect-external-environments)
 * [使用 GNU profile 来提高代码运行速度](https://www.ibm.com/developerworks/cn/linux/l-gnuprof.html)
+
+

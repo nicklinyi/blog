@@ -1,6 +1,6 @@
 ---
 title: 合并 Madagascar 道头与数据
-date: 2016-06-15 13:43:37
+date: 2016-06-15
 author: Nick
 categories: [地震学软件]
 tags: [Madagascar]

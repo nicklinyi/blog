@@ -1,7 +1,6 @@
 ---
 title: Debug Madagascar程序
-date: 2016-06-23 16:45:30
-updated: 2016-06-23 12:38:00
+date: 2016-06-23
 author: Nick
 categories: [地震学软件]
 tags: [Madagascar, gdb]

@@ -1,6 +1,6 @@
 ---
 title: Madagascar下使用 LaTeX
-date: 2016-05-24 08:57:57
+date: 2016-05-24
 tags: ["Madagascar", "LaTeX", "Paper"]
 categories: [地震学软件]
 ---

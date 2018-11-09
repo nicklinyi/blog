@@ -1,6 +1,6 @@
 ---
 title: Matlab 拟合数据体类型解读
-date: 2018-05-14 08:57:57
+date: 2018-05-14
 tags: [Matlab]
 author: Lloyd
 categories: [编程]

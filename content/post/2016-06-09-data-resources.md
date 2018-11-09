@@ -1,7 +1,7 @@
 ---
 title: 勘探数据获取
-date: 2016-06-09 13:08:28
-update: 2018-03-30 10:16:15
+date: 2016-06-09
+update: 2018-03-30
 author: Nick
 categories: [地震学]
 tags: [数据]

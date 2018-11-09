@@ -1,6 +1,6 @@
 ---
 title: Hoare's algorithm
-date: 2018-04-30 13:08:28
+date: 2018-04-30
 author: Lloyd
 categories: [算法]
 tags: [快速选择]

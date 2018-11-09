@@ -1,6 +1,6 @@
 ---
 title: Matlab 绘制4D数据
-date: 2018-05-17 08:57:57
+date: 2018-05-17
 tags: [Matlab]
 author: Lloyd
 categories: [绘图]

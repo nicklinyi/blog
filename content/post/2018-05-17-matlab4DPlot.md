@@ -4,6 +4,7 @@ date: 2018-05-17 08:57:57
 tags: [Matlab]
 author: Lloyd
 categories: [绘图]
+slug: matlab4d
 ---
 
 ### 绘图基础

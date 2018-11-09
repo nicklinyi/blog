@@ -1,6 +1,6 @@
 ---
 title: Matlab如何绘制美观的colorbar
-date: 2018-05-09 08:57:57
+date: 2018-05-09
 tags: [Matlab, colorbar]
 categories: [绘图]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Madagascar Matlab 混合编程
-date: 2018-05-20 08:57:57
+date: 2018-05-20
 tags: ['Matlab', 'Madagascar']
 author: Lloyd
 categories: ['编程']

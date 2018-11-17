@@ -42,3 +42,6 @@ comments: false
 
 - [CUDA](http://blog.nickwhyy.top/cuda)
 - [MPICH](http://blog.nickwhyy.top/mpich)
+
+## 机器学习
+- [TensorFlow](http://blog.nickwhyy.top/installtensorflow)

@@ -1,6 +1,6 @@
 ---
 title: Windows 10 安装 tensorflow 1.4.0
-date: 2018-11-11
+date: 2018-11-17
 tags: ["tensorflow"]
 author: Lloyd
 categories: ["安装"]
@@ -121,8 +121,8 @@ b'Hello! Tensorflow'
 
 
 ### 参考资料
-https://zhuanlan.zhihu.com/p/30528874
-https://wiki.seisman.info/python/install-python/
-https://www.tensorflow.org/install/source_windows?hl=zh-cn
+- [前期准备安装](https://zhuanlan.zhihu.com/p/30528874)
+- [Anaconda和pip配置](https://wiki.seisman.info/python/install-python/)
+- [不同版本tensorflow和其所对应的CUDA和cuDNN](https://www.tensorflow.org/install/source_windows?hl=zh-cn)
 
 

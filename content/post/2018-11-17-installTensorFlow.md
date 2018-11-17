@@ -38,7 +38,9 @@ tensorflow 从发布到现在(写此文的时间)已经经历过多次的升级�
 参见 https://zhuanlan.zhihu.com/p/30528874
 
 #### MSVC 2015 update3
-下载地址 https://www.microsoft.com/en-us/download/confirmation.aspx?id=53587，选择自己对应的版本和系统位数，然后下载，安装即可。
+下载地址： https://www.microsoft.com/en-us/download/confirmation.aspx?id=53587
+
+选择自己对应的版本和系统位数，然后下载，安装即可。
 
 #### Anaconda
 参见 https://zhuanlan.zhihu.com/p/30528874

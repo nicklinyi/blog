@@ -14,6 +14,7 @@ slug: installPyCurvelab
 
 ### 依赖软件项
 参考官网网站的安装说明和我实际安装的情况，其依赖软件包有：
+
 1. Python
 	-> version 2.3 or above
 	-> http://www.python.org

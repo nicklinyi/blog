@@ -12,6 +12,7 @@ comments: false
 - [DENISE](http://blog.nickwhyy.top/denise)
 - [Madagascar](http://blog.nickwhyy.top/madagascar)
 - [MinesJTK](http://blog.nickwhyy.top/jtkinstall)
+- [PyCurvelab](http://blog.nickwhyy.top/installpycurvelab)
 - [SeismicJulia](http://blog.nickwhyy.top/seismicjulia)
 - [Seismic Unix](http://blog.nickwhyy.top/seismic-unix)
 - [SEPlib](http://blog.nickwhyy.top/seplib)

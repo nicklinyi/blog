@@ -1,8 +1,8 @@
 ---
 title: 勘探数据获取
 date: 2016-06-09
-update: 2018-03-30
-author: Nick
+update: 2018-12-18
+author: Lloyd
 categories: [地震学]
 tags: [数据]
 ---
@@ -26,4 +26,8 @@ Open Seismic Repository: <http://opendtect.org/osr/>
 Equinor 公开的数据(几乎涵盖了勘探领域的所有研究方向的数据)：<https://www.equinor.com/en/how-and-why/digitalisation-in-our-dna.html>
 
 IEDA: Marine Geoscience <http://www.marine-geo.org/tools/search/Files.php?data_set_uid=24554>
+
+free USP: 2D_Land_data_2ms.tgz <https://www.freeusp.org/RaceCarWebsite/TechTransfer/Tutorials/Processing_2D/Data>
+
+OBS data: http://www.jamstec.go.jp/obsmcs_db/e/data-e/
 

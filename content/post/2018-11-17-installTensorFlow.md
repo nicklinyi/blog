@@ -1,5 +1,5 @@
 ---
-title: Windows 10 安装 tensorflow 1.4.0
+title: Windows 10 安装 tensorflow 1.5.0
 date: 2018-11-17
 tags: ["tensorflow"]
 author: Lloyd
@@ -18,16 +18,18 @@ tensorflow 从发布到现在(写此文的时间)已经经历过多次的升级�
 
 ![tensorflow-gpu.PNG](https://upload-images.jianshu.io/upload_images/1703880-6739053ccdf29cc3.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这里插播一下我选择安装 tensorflow 1.4.0 的原因，并不是说该版本最稳定，毕竟我也是第一次用 tensorflow ，在此没有话语权。在安装 tensorflow 的时候，我
+这里插播一下我选择安装 tensorflow 1.5.0 的原因，并不是说该版本最稳定，毕竟我也是第一次用 tensorflow ，在此没有话语权。在安装 tensorflow 的时候，我
 还不知道有这个表格，我甚至都不知道还要安装 CUDA 和 cuDNN。我上来就知道用 `pip install tensorflow-gpu`，安装的过程中也没报错，我就天真的以为安装成
 功了。接着，用官方提供的简单例子跑了一下，才提示我`ImportError: DLL load failed: 找不到指定的模块。`. 然后，我搜索了一下问题，发现我没有装 CUDA。
 然后我就上 NVIDIA 官网，下载并安装了最新的 CUDA 10。安装，运行例子，还是同样的错误。然后，我搜索了一下问题，发现我没有装 cuDNN。接着，我就上 NVIDIA
 官网，下载并安装了 cuDNN。然而，还是没解决该问题。后来经过一次偶然的发现，找到了一个算是半官方的一个用来检测原因的脚本
 (https://gist.github.com/mrry/ee5dbcfdd045fa48a27d56664411d41c)，经过测试还知道有不同版本的 tensorflow 会依赖于不同版本 的 CUDA 和 cuDNN 这一
-说。但我当时并知道有上面这个表格，所以只能瞎试了一通。等我发现有这个表格的时候，我电脑里 CUDA 的版本是 8，cuDNN 的版本是 6，因此符合条件的 tensorflow
-的版本是 1.4.0 和 1.3.0。一般新版本比旧版本肯定是更新了新的功能，修复了一定的bug。所以我就选择了 1.4.0 。建议大家直接安装 1.12.0 。
+说。但我当时并知道有上面这个表格，所以只能瞎试了一通。等我发现有这个表格的时候，我电脑里 CUDA 的版本是 9，cuDNN 的版本是 7，因此符合条件的 tensorflow的版本是 1.5.0 - 1.12.0。 我选择了1.5.0版本，主要由于之前成功安装过1.4.0版本。
 
 各种依赖项在 windows 下安装都比较简单，在此我不再赘述如何具体一步步安装了。不过，我提供一些我觉得讲的比较细致的安装策略供大家参考。
+
+***安装CUDA前请先在`设置->应用`中删除所有文件名开头为NVIDIA的软件，并将之前在C盘或其他盘安装的NVIDIA软件目录删除！！！***
+
 #### CUDA
 参见 https://zhuanlan.zhihu.com/p/30528874
 
@@ -48,11 +50,16 @@ tensorflow 从发布到现在(写此文的时间)已经经历过多次的升级�
 添加 conda 镜像源：https://wiki.seisman.info/python/install-python/
 添加 pip 镜像源：https://wiki.seisman.info/python/install-python/
 
-### 安装 tensorflow 1.4.0
-查看表格我们知道，tensorflow 1.4.0 支持的 Python 版本为 3.5-3.6, 我本人选择的是 3.5.4 的版本。因此，打开 Anaconda Prompt, 输入下面命令
+### CUDA环境变量设置
+在Cortana中的搜索框中输入`env`，并选择`编辑账户的环境变量`，然后编辑`Path`变量，并在最后一个路径下方添加下面两个路径：
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin
+- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\libnvvp
+
+### 安装 tensorflow 1.5.0
+查看表格我们知道，tensorflow 1.5.0 支持的 Python 版本为 3.5-3.6, 我本人选择的是 3.5.4 的版本。因此，打开 Anaconda Prompt, 输入下面命令
 
 ```
-conda create -n tensorflow-gpu-py35 python=3.5
+conda create -n tensorflow python=3.5
 ```
 
 创建一个 Python 3.5 的环境，然后激活该环境，
@@ -61,42 +68,37 @@ conda create -n tensorflow-gpu-py35 python=3.5
 activate tensorflow
 ```
 
-接着安装 tensorflow 1.4.0,并制定具体的版本号
+接着安装 tensorflow 1.5.0,并制定具体的版本号
 
 ```
-pip install tensorflow-gou==1.4.0
+pip install tensorflow-gou==1.5.0
 ```
 
 下面显示了一个成功安装的案例：
 
 ```
-(tensorflow) C:\Users\Admin>pip install tensorflow-gpu==1.4.0
-Collecting tensorflow-gpu==1.4.0
-  Downloading https://files.pythonhosted.org/packages/0a/0d/1a52e775e490f2fcb0eba08b3df773e6e6d64934c77346b351f6df2ed8df/tensorflow_gpu-1.4.0-cp35-cp35m-win_amd64.whl (67.6MB)
-    100% |████████████████████████████████| 67.6MB 336kB/s
-Requirement already satisfied: six>=1.10.0 in g:\program\conda\envs\tensorflow\lib\site-packages (from tensorflow-gpu==1.4.0) (1.11.0)
-Requirement already satisfied: numpy>=1.12.1 in g:\program\conda\envs\tensorflow\lib\site-packages (from tensorflow-gpu==1.4.0) (1.15.4)
-Collecting tensorflow-tensorboard<0.5.0,>=0.4.0rc1 (from tensorflow-gpu==1.4.0)
-  Downloading https://files.pythonhosted.org/packages/e9/9f/5845c18f9df5e7ea638ecf3a272238f0e7671e454faa396b5188c6e6fc0a/tensorflow_tensorboard-0.4.0-py3-none-any.whl (1.7MB)
-    100% |████████████████████████████████| 1.7MB 2.9MB/s
-Collecting enum34>=1.1.6 (from tensorflow-gpu==1.4.0)
-  Downloading https://files.pythonhosted.org/packages/af/42/cb9355df32c69b553e72a2e28daee25d1611d2c0d9c272aa1d34204205b2/enum34-1.1.6-py3-none-any.whl
-Requirement already satisfied: wheel>=0.26 in g:\program\conda\envs\tensorflow\lib\site-packages (from tensorflow-gpu==1.4.0) (0.32.2)
-Requirement already satisfied: protobuf>=3.3.0 in g:\program\conda\envs\tensorflow\lib\site-packages (from tensorflow-gpu==1.4.0) (3.6.1)
-Requirement already satisfied: markdown>=2.6.8 in g:\program\conda\envs\tensorflow\lib\site-packages (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow-gpu==1.4.0) (3.0.1)
-Collecting html5lib==0.9999999 (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow-gpu==1.4.0)
-  Downloading https://files.pythonhosted.org/packages/ae/ae/bcb60402c60932b32dfaf19bb53870b29eda2cd17551ba5639219fb5ebf9/html5lib-0.9999999.tar.gz (889kB)
-    100% |████████████████████████████████| 890kB 2.8MB/s
-Requirement already satisfied: werkzeug>=0.11.10 in g:\program\conda\envs\tensorflow\lib\site-packages (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow-gpu==1.4.0) (0.14.1)
-Collecting bleach==1.5.0 (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow-gpu==1.4.0)
-  Downloading https://files.pythonhosted.org/packages/33/70/86c5fec937ea4964184d4d6c4f0b9551564f821e1c3575907639036d9b90/bleach-1.5.0-py2.py3-none-any.whl
-Requirement already satisfied: setuptools in g:\program\conda\envs\tensorflow\lib\site-packages (from protobuf>=3.3.0->tensorflow-gpu==1.4.0) (40.6.2)
-Building wheels for collected packages: html5lib
-  Running setup.py bdist_wheel for html5lib ... done
-  Stored in directory: C:\Users\Admin\AppData\Local\pip\Cache\wheels\50\ae\f9\d2b189788efcf61d1ee0e36045476735c838898eef1cad6e29
-Successfully built html5lib
-Installing collected packages: html5lib, bleach, tensorflow-tensorboard, enum34, tensorflow-gpu
-Successfully installed bleach-1.5.0 enum34-1.1.6 html5lib-0.9999999 tensorflow-gpu-1.4.0 tensorflow-tensorboard-0.4.0
+(tensorflow) C:\Users\Admin>pip install tensorflow-gpu==1.5.0
+Collecting tensorflow-gpu==1.5.0
+  Downloading https://files.pythonhosted.org/packages/00/63/068c81e5f50cdbbb30ca4be611979633c5591a7452c6c60ffbf675fac6fe/tensorflow_gpu-1.5.0-cp35-cp35m-win_amd64.whl (82.1MB)
+    100% |████████████████████████████████| 82.1MB 17kB/s
+Requirement already satisfied: wheel>=0.26 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-gpu==1.5.0)
+Requirement already satisfied: six>=1.10.0 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-gpu==1.5.0)
+Requirement already satisfied: protobuf>=3.4.0 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-gpu==1.5.0)
+Requirement already satisfied: absl-py>=0.1.6 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-gpu==1.5.0)
+Collecting tensorflow-tensorboard<1.6.0,>=1.5.0 (from tensorflow-gpu==1.5.0)
+  Downloading https://files.pythonhosted.org/packages/cc/fa/91c06952517b4f1bc075545b062a4112e30cebe558a6b962816cb33efa27/tensorflow_tensorboard-1.5.1-py3-none-any.whl (3.0MB)
+    100% |████████████████████████████████| 3.0MB 362kB/s
+Requirement already satisfied: numpy>=1.12.1 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-gpu==1.5.0)
+Requirement already satisfied: setuptools in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from protobuf>=3.4.0->tensorflow-gpu==1.5.0)
+Requirement already satisfied: bleach==1.5.0 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-tensorboard<1.6.0,>=1.5.0->tensorflow-gpu==1.5.0)
+Requirement already satisfied: werkzeug>=0.11.10 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-tensorboard<1.6.0,>=1.5.0->tensorflow-gpu==1.5.0)
+Requirement already satisfied: html5lib==0.9999999 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-tensorboard<1.6.0,>=1.5.0->tensorflow-gpu==1.5.0)
+Requirement already satisfied: markdown>=2.6.8 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from tensorflow-tensorboard<1.6.0,>=1.5.0->tensorflow-gpu==1.5.0)
+Installing collected packages: tensorflow-tensorboard, tensorflow-gpu
+  Found existing installation: tensorflow-tensorboard 0.4.0
+    Uninstalling tensorflow-tensorboard-0.4.0:
+      Successfully uninstalled tensorflow-tensorboard-0.4.0
+Successfully installed tensorflow-gpu-1.5.0 tensorflow-tensorboard-1.5.1
 ```
 
 ### 测试
@@ -106,16 +108,15 @@ Successfully installed bleach-1.5.0 enum34-1.1.6 html5lib-0.9999999 tensorflow-g
 (tensorflow) C:\Users\Admin>python
 Python 3.5.4 |Continuum Analytics, Inc.| (default, Aug 14 2017, 13:41:13) [MSC v.1900 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
->>> import tensorflow
 >>> import tensorflow as tf
 >>> hello = tf.constant("Hello! Tensorflow")
 >>> sess = tf.Session()
-2018-11-17 11:01:26.751687: I C:\tf_jenkins\home\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\platform\cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
-2018-11-17 11:01:27.021386: I C:\tf_jenkins\home\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1030] Found device 0 with properties:
+2019-05-17 08:29:00.873019: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\platform\cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2019-05-17 08:29:01.227407: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1105] Found device 0 with properties:
 name: GeForce GTX 1060 3GB major: 6 minor: 1 memoryClockRate(GHz): 1.7465
 pciBusID: 0000:01:00.0
-totalMemory: 3.00GiB freeMemory: 2.46GiB
-2018-11-17 11:01:27.034342: I C:\tf_jenkins\home\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1060 3GB, pci bus id: 0000:01:00.0, compute capability: 6.1)
+totalMemory: 3.00GiB freeMemory: 2.42GiB
+2019-05-17 08:29:01.233815: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1060 3GB, pci bus id: 0000:01:00.0, compute capability: 6.1)
 >>> print(sess.run(hello))
 b'Hello! Tensorflow'
 >>> quit()
@@ -127,4 +128,7 @@ b'Hello! Tensorflow'
 - [Anaconda和pip配置](https://wiki.seisman.info/python/install-python/)
 - [不同版本tensorflow和其所对应的CUDA和cuDNN](https://www.tensorflow.org/install/source_windows?hl=zh-cn)
 
+### 修订历史
+ - 2018-11-17， 初稿；
+ - 2019-05-17， 增加安装CUDA Computing Toolkit注意事项，增加CUDA环境变量设置，升级Tensorflow为1.5.0；
 

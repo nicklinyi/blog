@@ -52,8 +52,9 @@ tensorflow 从发布到现在(写此文的时间)已经经历过多次的升级�
 
 ### CUDA环境变量设置
 在Cortana中的搜索框中输入`env`，并选择`编辑账户的环境变量`，然后编辑`Path`变量，并在最后一个路径下方添加下面两个路径：
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin
-- C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\libnvvp
+
+- `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin`
+- `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\libnvvp`
 
 ### 安装 tensorflow 1.5.0
 查看表格我们知道，tensorflow 1.5.0 支持的 Python 版本为 3.5-3.6, 我本人选择的是 3.5.4 的版本。因此，打开 Anaconda Prompt, 输入下面命令

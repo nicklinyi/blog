@@ -37,6 +37,7 @@ sudo apt-get install --no-install-recommends libboost-all-dev
  $ make -j8
 ```
 此时，可能会出现错误一：
+
 >
 `.build_release/src/caffe/proto/caffe.pb.h:9:42: fatal error: google/protobuf/stubs/common.h: No such file or directory`
 
@@ -47,6 +48,7 @@ $ sudo apt-get install libprotobuf-dev protobuf-compiler
 $ make -j8
 ```
 此时，可能会出现错误二：
+
 >
 `./include/caffe/common.hpp:5:27: fatal error: gflags/gflags.h: No such file or directory`
 
@@ -58,6 +60,7 @@ $ make -j8
 ```
 
 此时，可能会出现错误三：
+
 >
 `./include/caffe/common.hpp:6:26: fatal error: glog/logging.h: No such file or directory`
 
@@ -68,10 +71,12 @@ $ sudo apt-get install libgoogle-glog-dev
 $ make -j8
 ```
 此时，可能会出现错误四：
+
 >
 `./include/caffe/util/device_alternate.hpp:34:23: fatal error: cublas_v2.h: No such file or directory`
 
 错误四产生原因：
+
 >
 没有把cuda的头文件、库的路径放置到caffe的`Makefile.config`中
 
@@ -85,6 +90,7 @@ LIBRARY_DIRS += /usr/local/cuda-8.0/lib64
 修改完后，继续编译`make -j8`
 
 此时，可能会出现错误五：
+
 >
 `./include/caffe/util/mkl_alternate.hpp:14:19: fatal error: cblas.h: No such file or directory`
 
@@ -96,6 +102,7 @@ $ make -j8
 ```
 
 此时，可能会出现错误六：
+
 > `src/caffe/layers/hdf5_data_layer.cpp:13:18: fatal error: hdf5.h: No such file or directory`
 
 错误六解决方案：
@@ -128,6 +135,7 @@ LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl
 修改完后，继续编译`make -j8`
 
 此时，可能会出现错误七：
+
 >
 `./include/caffe/util/db_leveldb.hpp:7:24: fatal error: leveldb/db.h: No such file or directory`
 
@@ -139,6 +147,7 @@ $ make -j8
 ```
 
 此时，可能会出现错误八：
+
 >
 `./include/caffe/util/db_lmdb.hpp:8:18: fatal error: lmdb.h: No such file or directory`
 
@@ -150,6 +159,7 @@ $ make -j8
 ```
 
 此时，可能会出现错误九：
+
 >
 `/usr/bin/ld: cannot find -lsnappy`
 
@@ -169,11 +179,9 @@ $ make runtest -j8
 ```
 
 此时，可能会出现错误十：
->
-`
-.build_release/tools/caffe: error while loading shared libraries: libcudart.so.8.0: cannot open shared object file: No such file or directory
 
-`
+>
+`.build_release/tools/caffe: error while loading shared libraries: libcudart.so.8.0: cannot open shared object file: No such file or directory`
 
 错误十解决方案：
 在`~/.bashrc`文件中添加

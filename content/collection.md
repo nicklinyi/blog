@@ -47,5 +47,5 @@ comments: false
 
 ## 机器学习
 - [TensorFlow](https://blog.nickwhyy.top/installtensorflow)
-- [Keras](https://blog.nickwhyy.top/installKeras)
-- [caffe](https://blog.nickwhyy.top/installCaffe)
+- [Keras](https://blog.nickwhyy.top/installkeras)
+- [caffe](https://blog.nickwhyy.top/installcaffe)

@@ -1,7 +1,7 @@
 ---
 title: 目标检测算法 SSD 在 Linux 上的配置
 date: 2019-06-16
-tags: ["caffe"，"SSD"]
+tags: ["caffe", "SSD"]
 author: Lloyd
 categories: ["安装"]
 slug: installssd

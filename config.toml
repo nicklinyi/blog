@@ -9,7 +9,7 @@ theme = "even"
 preserveTaxonomyNames = true
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
 paginate = 5                                              # 首页每页显示的文章数
-disqusShortname = ""      # disqus_shortname
+disqusShortname = "githubnick"      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
@@ -120,10 +120,10 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     clientSecret = ""       # Your client secret
 
   [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
-    owner = "nicklinyi"              # Your GitHub ID
-    repo = "blog"               # The repo to store comments
-    clientId = "4b21248e335bd376c04d"           # Your client ID
-    clientSecret = "8b159b0ef1dd0f2a53ab0fe0c6f58e22b5123ea6"       # Your client secret
+    #owner = "nicklinyi"              # Your GitHub ID
+    #repo = "blog"               # The repo to store comments
+    #clientId = "4b21248e335bd376c04d"           # Your client ID
+    #clientSecret = "8b159b0ef1dd0f2a53ab0fe0c6f58e22b5123ea6"       # Your client secret
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
     enable = false

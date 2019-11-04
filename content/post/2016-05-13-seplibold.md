@@ -5,12 +5,12 @@ lastmod: 2019-09-17
 author: Lloyd
 categories: ['安装']
 tags: [SEPlib, Linux, 地震学软件]
-slug: seplib
+slug: seplibold
 ---
 
 ## 前言
 SEPlib的源码已托管在GitLab上，具体链接为http://cees-gitlab.stanford.edu/bob/SEPlib 
-，为最新版本的官方源码，估计本文所记录的一些bug已经不存在了。请参考官方的链接进行安装。 
+，为最新版本的官方源码。本文所安装的是6.5.3版本的SEPlib,最新版本的安装请参考另一篇博文。 
 
 
 ## 软件下载

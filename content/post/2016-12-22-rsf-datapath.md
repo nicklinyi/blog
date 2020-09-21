@@ -20,8 +20,13 @@ slug: rsf-datapath
 - 查看系统的环境变量是否含`DATAPATH`变量，如果有，则按该环境变量指定的路径进行存储，没有则继续进行下面的操作
 - 以上都没有的话，会直接将二进制存在当前工作路径下。
 
-因此，为了保证项目的完整型，选择第二种方式进行处理。即首先进入当前工作路径，然后在该路径下建立一个`data/`目录，用于存放数据。其次，在当前目录下新建一个`.datapath`文件，并在该文件中输入如下内容
+因此，为了保证项目的完整型，选择第二种方式进行处理。修改$RSFROOT/share/madagascar/etc/env.sh文件中的`DATAPATH`变量：
 ```
-datapath=./data/ # 注意data后面必须跟一个/,表示这个是一个目录文件。
+# Path for binary data files part of RSF datasets
+export DATAPATH=./
 ```
-最后写SConstruct脚本的时候就不需要在每个命令里添加`--out=stdout`了。所有的数据文件都会存储至data/目录下。
+最后在终端运行`source ~/.bashrc`即可。
+
+## 修订历史
+- 2016.12.02:  初稿；
+- 2020.09.21： 新增修改环境变量模式；

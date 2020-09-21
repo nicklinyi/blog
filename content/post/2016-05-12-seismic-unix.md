@@ -63,8 +63,24 @@ $ make finstall
 $ make mglinstall
 ```
 
+> 采用新的编译器如Ubuntu 20.04中的gfortran 9.3.0来编译时，可能出现以下错误：
+```
+gfortran -g  -ffixed-line-length-none -c ./vzestf.f -o ./vzestf.o
+./vzestf.f:271:10:
+
+  271 |      +    fnames)
+      |          1
+Error: Actual argument contains too few elements for dummy argument ‘fnames’ (240/360) at (1)
+```
+解决方案是在`src/Makefile.config`文件中`FFLAGS`变量后面添加`-std=legacy`，重新运行`make finstall`即可。
+
+
 ## 修订历史
 - 2016-05-12：初稿；
 - 2018-08-01：更新无效的链接；
+- 2020-09-21：高版本gfortran编译器编译出错修正方案
+
+## 参考资料
+- [高版本gfortran编译器编译出错修正方案](https://github.com/spacepy/spacepy/pull/204)
 
 

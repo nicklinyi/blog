@@ -6,6 +6,8 @@
 Powered by [Hugo](https://gohugo.io/).
 Theme by [hugo-theme-even](https://github.com/nicklinyi/hugo-theme-even)
 
+Search engine by [hugo-theme-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js.git)
+
 
 # Install hugo
 ```

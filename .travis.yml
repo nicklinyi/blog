@@ -1,15 +1,15 @@
 language: python
 python: 3.7
 
-branches:
-  only:
-  - master
+before_install:
+  - cd ..
+  - git clone --depth=50 --branch=master https://github.com/nicklinyi/blog.git
+  - cd blog
+  - git submodule update --init --recursive --remote
 
 install:
   - curl -L https://raw.githubusercontent.com/nicklinyi/install/master/install-hugo.sh | bash
   - pip install pygments
-  - git submodule update --remote
-
 
 script:
   - ./hugo
@@ -18,4 +18,4 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: ${GH_TOKEN}
-  local_dir: public
+  local_dir: ../blog/public

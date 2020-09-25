@@ -4,7 +4,7 @@ defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... 
 title = "Lloyd"
 enableRobotsTXT = true
 enableEmoji = true
-theme = "even"
+theme = ["hugo-search-fuse-js","even"]
 
 preserveTaxonomyNames = true
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
@@ -38,9 +38,15 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   url = "/tags/"
 [[menu.main]]
   name = "分类"
-  weight = 40
+  weight = 30
   identifier = "categories"
   url = "/categories/"
+
+[[menu.main]]
+  name = "搜索"
+  weight = 70
+  identifier = "search"
+  url = "/search/"
 # [[menu.main]]
 #   name = "合集"
 #   weight = 50

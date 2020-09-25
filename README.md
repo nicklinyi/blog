@@ -12,9 +12,13 @@ $ sudo apt install hugo
 
 # Clone the code
 $ git clone https://github.com/nicklinyi/blog.git 
+
 $ cd blog
+
 $ git submodule init
+
 $ git submodule update
+
 $ git submodule update --remote
 
 # view the blog at local browser

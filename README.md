@@ -1,4 +1,4 @@
-# Source code for My Blog
+# Source code for [My Blog](https://blog.nickwhyy.top)
 
 [![Build Status](https://travis-ci.org/nicklinyi/blog.svg?branch=master)](https://travis-ci.org/nicklinyi/blog)
 

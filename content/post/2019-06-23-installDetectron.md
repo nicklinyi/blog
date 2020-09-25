@@ -53,7 +53,7 @@ $ sudo apt-get install -y --no-install-recommends \
       cmake
 ```
 #### 安装CUDA
-参见另外一篇[博文](https://blog.nickwhyy.top/cuda/)
+参见另外一篇[博文](https://blog.nickwhyy.top/post/cuda/)
 
 #### 复制Pytorch仓库代码并安装
 ```

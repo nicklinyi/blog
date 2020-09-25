@@ -7,7 +7,7 @@ categories: ['安装']
 slug: madagascar_noRoot
 ---
 
-在有 root 的权限下安装 Madagascar 比较容易，请参考 <https://blog.nickwhyy.top/madagascar/>。
+在有 root 的权限下安装 Madagascar 比较容易，请参考 <https://blog.nickwhyy.top/post/madagascar/>。
 本文主要探讨在没有 root 权限的场合下（比如服务器上）安装 Madagascar。
 
 本人所用的服务器是 CentOS 7.5 系统，正常安装依赖包直接用 yum 安装即可，但在没有 root 的权限下
@@ -54,7 +54,7 @@ export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig
 进入Madagascar的源文件根目录，输入`configure API=c++,f90,matlab,python --prefix=/home/lloyd/.local/rsf`
 ,结果发现configure的结果中`X11`是 no，但是刚才的那步确实是安装了libXaw，这时需要修改`framework/configure.py`,
 找到里面的xinc, xlib， 将自己刚才安装libXaw的路径补充进去，然后重新configure, 即可解决刚才的问题，从而安装
-一个比较完整的Madagascar，剩下的安装步骤见<https://blog.nickwhyy.top/madagascar/>。
+一个比较完整的Madagascar，剩下的安装步骤见<https://blog.nickwhyy.top/post/madagascar/>。
 
 ### libXaw安装方式2
 上这个https://centos.pkgs.org/7/centos-x86_64/libXaw-devel-1.0.13-4.el7.x86_64.rpm.html下载libXaw-devel*.rpm

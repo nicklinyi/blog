@@ -13,7 +13,7 @@ slug: installssd
 - Python 3.6
 - CUDA 8.0
 
-由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe， 具体见另一篇[博文](https://blog.nickwhyy.top/installcaffe/). 
+由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe， 具体见另一篇[博文](https://blog.nickwhyy.top/post/installcaffe/). 
 成功安装caffe后，我们进入到 SSD 的配置。
 
 ### 数据准备

@@ -12,7 +12,7 @@ Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow
 
 ### 安装 tensorflow 1.5.0
 并不是说Keras 2.2.4版本一定要安装tensorflow 1.5.0，只不过是我之前装好了tensorflow-1.5.0，并在此基础上成功的安装了Keras 2.2.4. 所以
-这两个版本在我电脑上是能正常工作的。安装tensorflow 1.5.0 可参考我的另外一篇博文https://blog.nickwhyy.top/installtensorflow/
+这两个版本在我电脑上是能正常工作的。安装tensorflow 1.5.0 可参考我的另外一篇博文https://blog.nickwhyy.top/post/installtensorflow/
 
 ### 安装 keras 2.2.4
 

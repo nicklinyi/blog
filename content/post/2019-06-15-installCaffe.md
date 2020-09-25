@@ -19,7 +19,7 @@ sudo apt-get install --no-install-recommends libboost-all-dev
 ```
 #### 特殊依赖软件
 
-- CUDA 安装见另外一篇[博文](https://blog.nickwhyy.top/cuda/)
+- CUDA 安装见另外一篇[博文](https://blog.nickwhyy.top/post/cuda/)
 
 ### 安装
 #### 下载caffe

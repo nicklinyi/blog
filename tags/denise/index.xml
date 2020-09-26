@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DENISE on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/denise/</link>
+    <description>Recent content in DENISE on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 May 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/denise/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 下安装 DENISE</title>
+      <link>https://blog.nickwhyy.top/post/denise/</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/denise/</guid>
+      <description>DENISE是一个KIT开发的用于全波形反演的软件。 下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中。 官网</description>
+    </item>
+    
+  </channel>
+</rss>

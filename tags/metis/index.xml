@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>METIS on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/metis/</link>
+    <description>Recent content in METIS on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 20 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/metis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 下安装 METIS</title>
+      <link>https://blog.nickwhyy.top/post/metis/</link>
+      <pubDate>Fri, 20 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/metis/</guid>
+      <description>下载 选择最新版本(5.1.0)进行下载： 源码链接：http://glaros.dtc.umn.edu/gkhome/metis/metis/</description>
+    </item>
+    
+  </channel>
+</rss>

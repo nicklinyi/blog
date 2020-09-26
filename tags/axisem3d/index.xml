@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AxiSEM3D on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/axisem3d/</link>
+    <description>Recent content in AxiSEM3D on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/axisem3d/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 下安装 AxiSEM3D</title>
+      <link>https://blog.nickwhyy.top/post/axisem3d/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/axisem3d/</guid>
+      <description>下载 要下载AxiSEM3D，可以在终端中输入以下命令： 1 $ git clone https://github.com/kuangdai/AxiSEM3D 安装依赖包 mpi并行环境，可安装不带 MPI 加速的版本 METIS 安装版本大于5.1， 只需安</description>
+    </item>
+    
+  </channel>
+</rss>

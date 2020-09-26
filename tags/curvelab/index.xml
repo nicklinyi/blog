@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CurveLab on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/curvelab/</link>
+    <description>Recent content in CurveLab on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/curvelab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 安装 PyCurvelab</title>
+      <link>https://blog.nickwhyy.top/post/installpycurvelab/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/installpycurvelab/</guid>
+      <description>前言 PyCurvelab 是对于著名的曲波变换工具 CurveLab 采用 Python 进行封装调用的一 个软件包。目前只支持 Python2，感兴趣的朋友可将其升级至 Python3。其软件虽小</description>
+    </item>
+    
+  </channel>
+</rss>

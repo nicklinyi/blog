@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux 下安装 SEPlib - Lloyd</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Lloyd" /><meta name="description" content="前言 SEPlib的源码已托管在GitLab上，具体链接为http://cees-gitlab.stanford.edu/bob/SEPlib" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.nickwhyy.top/post/seplibold/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux 下安装 SEPlib" />
+<meta property="og:description" content="前言 SEPlib的源码已托管在GitLab上，具体链接为http://cees-gitlab.stanford.edu/bob/SEPlib" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.nickwhyy.top/post/seplibold/" />
+<meta property="article:published_time" content="2016-05-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-17T00:00:00+00:00" />
+<meta itemprop="name" content="Linux 下安装 SEPlib">
+<meta itemprop="description" content="前言 SEPlib的源码已托管在GitLab上，具体链接为http://cees-gitlab.stanford.edu/bob/SEPlib">
+<meta itemprop="datePublished" content="2016-05-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2381">
+
+
+
+<meta itemprop="keywords" content="SEPlib,Linux,地震学软件," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux 下安装 SEPlib"/>
+<meta name="twitter:description" content="前言 SEPlib的源码已托管在GitLab上，具体链接为http://cees-gitlab.stanford.edu/bob/SEPlib"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Lloyd</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/collection/">
+        <li class="mobile-menu-item">安装</li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a><a href="/search/">
+        <li class="mobile-menu-item">搜索</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Lloyd</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collection/">安装</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/links/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/search/">搜索</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+    
+    <main id="main" class="main">
+      
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux 下安装 SEPlib</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-05-13 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%AE%89%E8%A3%85/"> 安装 </a>
+            </div>
+          <span class="more-meta"> 约 2381 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#软件下载">软件下载</a></li>
+        <li><a href="#安装依赖包">安装依赖包</a></li>
+        <li><a href="#基础安装">基础安装</a></li>
+        <li><a href="#环境变量的设置">环境变量的设置</a></li>
+        <li><a href="#安装更多功能的seplib">安装更多功能的SEPlib</a></li>
+        <li><a href="#修订历史">修订历史</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>SEPlib的源码已托管在GitLab上，具体链接为http://cees-gitlab.stanford.edu/bob/SEPlib
+，为最新版本的官方源码。本文所安装的是6.5.3版本的SEPlib,最新版本的安装请参考另一篇博文。</p>
+<h2 id="软件下载">软件下载</h2>
+<p>下载最新版本的 SEPlib，目前为6.5.3. 实际有7.0.5，但官网上没有链接了，估计人都转向 Madagascar 了。</p>
+<p>下载地址： <a href="http://sepwww.stanford.edu/doku.php?id=sep:software:seplib">http://sepwww.stanford.edu/doku.php?id=sep:software:seplib</a></p>
+<h2 id="安装依赖包">安装依赖包</h2>
+<p>安装 SEPlib-6.5.3，需要一些依赖包，由于笔者之前安装过 Madagascar 以及SU，因此 大部分的依赖包基本安装完毕，但还需要安装下列依赖包:</p>
+<pre><code>$ sudo apt-get install flex  # lex
+$ sudo apt-get install libpawlib-lesstif3-dev # lesstif
+</code></pre>
+<p>这里需要注意的是<code>lesstif</code>包。不同版本的Debian系统可能含有的软件包不一样，具体以自己版本为主。</p>
+<h2 id="基础安装">基础安装</h2>
+<p>最好使用<code>ifort</code>来编译代码，在<code>configure</code>前需要显式指出下列环境变量:</p>
+<pre><code>$ export CC=icc      # C 编译器
+$ export FC=ifort    # Fortran 编译器
+$ export CFCDEFINES=-DpgiFortran # 如果不设置此项，后面链接finitpar会出错
+</code></pre>
+<p>另外，一点需要注意的是，如果使用<code>ifort</code>来编译，运行下面的命令后，需要查看<code>ifort</code>是否已经设置为Fortran编译器，这点很重要，因为一般如果将 SEPlib 安装在<code>/opt</code>下的话，需要使用<code>root</code>权限，而我们一般将<code>ifort</code>的环境变量设置在自己的用户目录下，因此<code>configure</code>时检查<code>ifort</code>会出现没有<code>ifort</code>而采用系统的一些Fortran编译器。</p>
+<pre><code>$ ./configure --prefix=/opt/SEPlib --with-su=/su/installed/dir --with-local
+</code></pre>
+<p><code>configure</code>完成后，在终端键入下面命令，将编译 SEPlib，并将其安装至指定地文件目录下</p>
+<pre><code>$ make
+$ make install
+</code></pre>
+<p>在编译的过程中可能出现哑元类型不匹配的问题，主要原因是因为源程序<code>super_chain_mod.f90</code>部分代码输入参数定义不严谨所致，修改该程序中部分代码即可解决此类问题。需要修改的部分如下所示.</p>
+<pre><code>integer function flat_chain_exec( adj, add, model, data) ! W Grad K
+  integer       ::stat
+  logical,intent(in)      :: adj, add                                ! 28
+  real          :: data(:), model(:)
+integer function flat_chain_adj_exec( adj, add, model, data) ! K' Grad' W'
+  integer       ::stat
+  ! logical       :: adj, add,adj_new
+  logical,intent(in)        :: adj, add                              ! 51
+  logical       :: adj_new                                           ! 52
+  real          :: data(:), model(:)
+integer function flat3_chain_exec( adj, add, model, data)
+  integer       ::stat
+  logical,intent(in)        :: adj, add                              ! 115
+  real          :: data(:), model(:)
+integer function flat3_chain_adj_exec( adj, add, model, data)
+
+  integer       ::stat
+  logical,intent(in)        :: adj, add                              ! 142
+  logical       :: adj_new                                           ! 143
+</code></pre>
+<h2 id="环境变量的设置">环境变量的设置</h2>
+<p>环境变量的设置，这一步是非常重要的，正确设置环境变量对以后正常使用大有裨益。在此，笔者借鉴了 Madagascar 的环境变量设置方案，可以在 SEPlib 的安装目录<code>SEPROOT</code>下的<code>share</code>目录中建立一文件夹名叫<code>seplib</code>（读者可自行取其他名字），根据用户自己的<code>shell</code>类型来创建不同的环境变量执行脚本，对于<code>csh</code>用户，创建<code>env.csh</code>；而对<code>bash</code>用户，则创建<code>env.sh</code>.下面分别给出不同的<code>shell</code>类型的脚本，供大家参考，至于具体目录文件的设置，根据自己的喜好设置。</p>
+<p><code>csh</code>文件</p>
+<pre><code>#!/bin/csh
+# Path for SEPlib installation directory
+setenv SEPROOT /opt/seplib
+
+# Path for SEPlib source directory
+setenv SEPSRC /home/abc/seplib-6.5.3
+
+# Path for Python packages
+if ($?PYTHONPATH) then
+setenv PYTHONPATH $SEPROOT/lib/python:${PYTHONPATH}
+else
+setenv PYTHONPATH $SEPROOT/lib/python
+endif
+
+# Path for binary data files part of SEP datasets
+# setenv DATAPATH /var/tmp/
+
+# Path for manual pages
+setenv MANPATH `manpath`:$SEPROOT/man
+
+# Path for shared object files
+# if ($?LD_LIBRARY_PATH) then
+# setenv LD_LIBRARY_PATH $SEPROOT/lib:${LD_LIBRARY_PATH}
+# else
+# setenv LD_LIBRARY_PATH $SEPROOT/lib
+# endif
+
+# Path for executables
+set path = ($SEPROOT/bin $path)
+
+# Path for vplot files
+setenv VPLOTSPOOLDIR /var/tmp/SEP/Figs/
+
+# Path for vplot fonts
+setenv VPLOTFONTDIR $SEPROOT/include
+
+# Path for SEP includedir
+setenv SEPINC $SEPROOT/include
+</code></pre>
+<p><code>bash</code>文件</p>
+<pre><code>#!/bin/sh
+
+# Path for SEPlib installation directory
+export SEPROOT=/opt/seplib
+
+# Path for SEPlib source directory
+export SEPSRC=/home/abc/seplib-6.5.3
+
+# Path for Python packages
+if [ -n &quot;$PYTHONPATH&quot; ]; then
+export PYTHONPATH=$SEPROOT/lib/python:${PYTHONPATH}
+else
+export PYTHONPATH=$SEPROOT/lib/python
+fi
+
+# Path for binary data files part of SEP datasets
+# export DATAPATH=/var/tmp/
+
+# Path for manual pages
+unset MANPATH
+export MANPATH=`manpath`:$SEPROOT/man
+
+# Path for shared object files
+# if [ -n &quot;$LD_LIBRARY_PATH&quot; ]; then
+# export LD_LIBRARY_PATH=$SEPROOT/lib:${LD_LIBRARY_PATH}
+# else
+# export LD_LIBRARY_PATH=$SEPROOT/lib
+# fi
+
+# Path for executables
+export PATH=$SEPROOT/bin:$PATH
+
+# Path for vplot files
+export VPLOTSPOOLDIR=/var/tmp/SEP/Figs/
+
+# Path for vplot fonts
+export VPLOTFONTDIR=$SEPROOT/include
+
+# Path for SEP includedir
+export SEPINC=$SEPROOT/include
+</code></pre>
+<p>这样设置好了之后，我们需要修改自己的<code>~/.bashrc</code>文件,在文件最后面添加如下几句,这样环境变量就设置好了。</p>
+<pre><code># SEPlib 6.5.3
+export SEPROOT=/opt/seplib
+source $SEPROOT/share/seplib/env.sh
+</code></pre>
+<p>修改<code>~/.bashrc</code>文件之后，我们只需要在当前终端键入如下命令，即可使环境变量马上生效:</p>
+<pre><code>$ source ~/.bashrc
+</code></pre>
+<h2 id="安装更多功能的seplib">安装更多功能的SEPlib</h2>
+<p>在成功安装了不带 FFTW 以及 MPI 库的 SEPlib. 下面介绍安装一个更完整的 SEPlib。</p>
+<p>由于对 SEPlib 的源代码以及整个程序框架有了更进一步的了解，所以这次选择更高级一点的安装方式。首先在安装源文件的根目录执行如下命令:</p>
+<pre><code>$ cp docs/config-examples/RUN_THIS.base .
+</code></pre>
+<p>然后修改该文件，整体文件不再大改，只需要根据自己的需求修改其中的某些变量即可。由于这次主要是加入 OPENMP 和 FFTW。之所以没安装 MPI 主要是因为 OPENMP 适合于共享式内存计算机。下面列出一些基本的参数设置信息</p>
+<pre><code>setenv CC gcc
+setenv FC ifort
+setenv FFTW_FCLD &quot;-L/usr/lib/x86_64-linux-gnu/ -lfftw3 -lfftw3f&quot; # 根据自己 FFTW 的位置修改
+setenv OMP_FCFLAGS -openmp # -openmp 为 Intel 编译器的选项，其他编译器不一样，需修改成该编译器的 OPENMP 选项
+setenv OMP_FCLD &quot;-L/opt/intel/compilers_and_libraries_2016/linux/lib/intel64/ -liomp5 -liompstubs5&quot; # 根据自己　Intel openmp 动态链接库的位置修改
+./configure --prefix=/opt/SEPlib --with-su=/su/installed/dir --with-local --with-fftw --with-omp
+</code></pre>
+<p>修改完成后，保存文件，在终端对文件添加可执行权限,并执行脚本:</p>
+<pre><code>$ chmod +x RUN_THIS.base
+$ ./RUN_THIS.base ＃运行脚本
+</code></pre>
+<p>键入上述命令后,将会编译整个源文件，在编译的过程中遇到一些问题，主要原因是源文件的 Makefile 文件存在一些问题。这里列出本人安装过程中出现的一些错误：</p>
+<p>Bug1: 编译<code>Transf_fftw</code>时出错，出现<code>undefined reference omp_get_num_threads</code></p>
+<p>解决: 修改<code>Transf_fftw.f90</code>所在文件目录的 Makefile 文件，在484行末尾，即<code>Transf_fftw_LDADD</code>这行末尾添加<code>${OMP_FCLD}</code>，然后在504,506,508,511行中加入<code>${OMP_FCFLAGS}</code>,修改完保存，再回到根目录重新<code>$make</code>一下就好了。上述 Bug1 在后面还有几次编译过程仍存在此问题，解决办法是找到出错的源文件位置，按照上面提到的解决方案，添加 openmp 动态链接库位置以及编译选项，即可解决此类问题。</p>
+<p>Bug2: 编译<code>RickMovie</code>时会出现错误，主要是类似于<code>undefined reference Xtadd/X11...</code>这样的错误。</p>
+<p>解决: 进入<code>RickMovie</code>目录，修改<code>Makefile</code>文件，修改其中的第212行，即<code>Rickmovie_LDADD</code>所在那行，在其后添加<code>-lXt -lX11</code>即可解决此类问题，其实思路与前面omp一致，无非是没有将相关库加入编译选项中。Bug2 在后面的编译中还会遇到，主要位于<code>Ricksep</code>中，运用同样方法可以解决，不再赘述。</p>
+<p>解决完所有的Bug1、Bug2之类的错误后，后面的编译过程基本畅通无阻，<code>$ make</code>完之后再<code>$ make install</code>，即可安装完　SEPlib，最后再设置环境变量即可正常使用。</p>
+<h2 id="修订历史">修订历史</h2>
+<ul>
+<li>2016-05-13： 初稿</li>
+<li>2019-09-17： 修改SEPlib下载链接</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Lloyd</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-09-17
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">捐赠支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay.jpg">
+        <span>微信捐赠</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay.jpg">
+        <span>支付宝捐赠</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/seplib/">SEPlib</a>
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/">地震学软件</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/specfem2d/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux 下安装 SPECFEM2D</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/seismic-unix/">
+            <span class="next-text nav-default">Linux 下安装 Seismic Unix</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'githubnick';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      
+      <div class="social-links">
+      <a href="mailto:linyihanchuan@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/nicklinyi" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.nickwhyy.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Lloyd</span>
+  </span>
+</div>
+
+      
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

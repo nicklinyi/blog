@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WSL on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/wsl/</link>
+    <description>Recent content in WSL on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows Subsystem for Linux 安装及使用</title>
+      <link>https://blog.nickwhyy.top/post/wsl/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/wsl/</guid>
+      <description>简介 Windows Subsystem for Linux (WSL) 是 Win10 系统的新功能，其主要特性是在 Windows 下包含一个 Linux 子系统，方便开发人员不用切换系统就能开发一些软件，功能等。 安装 WSL 其安装过程比较简</description>
+    </item>
+    
+  </channel>
+</rss>

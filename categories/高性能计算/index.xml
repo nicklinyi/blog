@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>高性能计算 on Lloyd</title>
+    <link>https://blog.nickwhyy.top/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97/</link>
+    <description>Recent content in 高性能计算 on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 下安装 CUDA</title>
+      <link>https://blog.nickwhyy.top/post/cuda/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/cuda/</guid>
+      <description>本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA</description>
+    </item>
+    
+  </channel>
+</rss>

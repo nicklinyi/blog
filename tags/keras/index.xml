@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keras on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/keras/</link>
+    <description>Recent content in keras on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/keras/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows 10 安装 Keras 2.2.4</title>
+      <link>https://blog.nickwhyy.top/post/installkeras/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/installkeras/</guid>
+      <description>前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor</description>
+    </item>
+    
+  </channel>
+</rss>

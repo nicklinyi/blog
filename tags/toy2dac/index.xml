@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>toy2dac on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/toy2dac/</link>
+    <description>Recent content in toy2dac on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/toy2dac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 下安装 TOY2DAC</title>
+      <link>https://blog.nickwhyy.top/post/toy2dac/</link>
+      <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/toy2dac/</guid>
+      <description>下载 下载链接:https://seiscope2.obs.ujf-grenoble.fr/TOY2DAC,82 编译 将下载的软件解压后，进入d</description>
+    </item>
+    
+  </channel>
+</rss>

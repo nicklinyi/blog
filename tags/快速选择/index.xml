@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>快速选择 on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/</link>
+    <description>Recent content in 快速选择 on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hoare&#39;s algorithm</title>
+      <link>https://blog.nickwhyy.top/post/2018-04-30-hoare-algorithm/</link>
+      <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/2018-04-30-hoare-algorithm/</guid>
+      <description>快速选择算法通常用来在未排序的数组中寻找第k小/第k大的元素。其方法类似于快速排序。快速选择和快速排序都是Tony Hoare发明的，因此也称</description>
+    </item>
+    
+  </channel>
+</rss>

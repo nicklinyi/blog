@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matplotlib on Lloyd</title>
+    <link>https://blog.nickwhyy.top/tags/matplotlib/</link>
+    <description>Recent content in Matplotlib on Lloyd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 21 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.nickwhyy.top/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Madagascar Matplotlib 绘图指南</title>
+      <link>https://blog.nickwhyy.top/post/rsfpyplot/</link>
+      <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.nickwhyy.top/post/rsfpyplot/</guid>
+      <description>前言 Madagascar 本身自带了绘图功能，但其绘图字体并非主流杂志所描述的 Helvetica 或 Arial 字体，虽然官方给出了关于使用这些字体的 博客， 但实际上，大家仔细比较，会发现其</description>
+    </item>
+    
+  </channel>
+</rss>

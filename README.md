@@ -1,6 +1,6 @@
 # Source code for My Blog
 
-![build](https://github.com/nicklinyi/blog/workflows/deploy/badge.svg)
+![build](https://github.com/nicklinyi/blog/workflows/Building/badge.svg)
 [![Visit the site](https://img.shields.io/badge/Visit-https://blog.nickwhyy.top-blue.svg?style=flat-square)](https://blog.nickwhyy.top)
 
 Powered by [Hugo](https://gohugo.io/).

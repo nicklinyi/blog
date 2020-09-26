@@ -1,5 +1,5 @@
 +++
-title = "搜索"
+title = "🔍"
 layout = "search"
 outputs = ["html", "json"]
 [sitemap]

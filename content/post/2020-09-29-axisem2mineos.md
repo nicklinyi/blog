@@ -1,7 +1,6 @@
 ---
 title: AxiSEM 模型转化为 Mineos
 date: 2020-09-29
-
 tags: [AxiSEM, Mineos]
 categories: ['地震学']
 slug: axisem2mineos

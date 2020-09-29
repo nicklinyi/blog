@@ -84,10 +84,15 @@ perl -e 'print reverse <>' axisem.txt > tmp.txt
 # remove comment lines
 # grep -v '^#': remove the lines begin with #
 # grep -v '^[A-Z]': remove the lines begin with [A-Z]
-cat tmp.txt  | grep -v '^#' | grep -v '^[A-Z]' > mineos.card
+cat tmp.txt  | grep -v '^#' | grep -v '^[A-Z]' > tmp2.txt
+
+# change the order of columns
+awk '{print $1,$2,$3,$4,$8,$9,$5,$6,$7}' tmp2.txt > mineos.card
 
 # add comments in the begining
 sed -i '1 i\Anisotropic PREM \n 1 0 1 \n 160 26 73 1'  mineos.card
+
+rm -rf tmp*.txt
 ```
 
 ## 修订历史

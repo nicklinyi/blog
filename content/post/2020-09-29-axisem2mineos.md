@@ -79,15 +79,15 @@ $ awk '{print $1,$2,$3,$4,$8,$9,$5,$6,$7}' mineos.txt > premANIC.card
 #!/bin/bash
 
 # reverse row order
-perl -e 'print reverse <>' axisem.txt > tmp1.txt
+perl -e 'print reverse <>' axisem.txt > tmp.txt
 
 # remove comment lines
 # grep -v '^#': remove the lines begin with #
 # grep -v '^[A-Z]': remove the lines begin with [A-Z]
-cat tmp1.txt  | grep -v '^#' | grep -v '^[A-Z]' > tmp2.txt
+cat tmp.txt  | grep -v '^#' | grep -v '^[A-Z]' > mineos.card
 
 # add comments in the begining
-sed -i '1 i\Anisotropic PREM \n 1 0 1 \n 160 26 73 1' > mineos.card
+sed -i '1 i\Anisotropic PREM \n 1 0 1 \n 160 26 73 1'  mineos.card
 ```
 
 ## 修订历史

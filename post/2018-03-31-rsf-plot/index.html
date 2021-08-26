@@ -82,7 +82,7 @@ Result(&#39;data&#39;, &#39;byte gainpanel=a pclip=95 |&#39;
 # 三视图
 Result(&#39;data1&#39;,&#39;data&#39;,&#39;byte gainpanel=a pclip=95 |&#39;
 +fdmod.cgrey3d(&#39;flat=n &#39;,par))
-</code></pre></td></tr></table></div></div><p>立体图</p><p><img src=http://upload-images.jianshu.io/upload_images/1703880-2abc71bb5e93e99e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=立体图.png></p><p>三视图</p><p><img src=http://upload-images.jianshu.io/upload_images/1703880-f7cd2a3b636692a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=三视图.png></p><h2 id=绘制box>绘制box</h2><p>常用于论文中的局部比较</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>立体图</p><p><img src=https://i.postimg.cc/3xPJXs3x/cube.png alt=立体图.png></p><p>三视图</p><p><img src=https://i.postimg.cc/kgVgtJ3H/flat.png alt=三视图.png></p><h2 id=绘制box>绘制box</h2><p>常用于论文中的局部比较</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -126,7 +126,7 @@ fdmod.makebox(&#39;box&#39;,zmin,zmax,xmin,xmax,par)
 # draw box
 Plot(&#39;box&#39;,fdmod.bbplot(&#39;&#39;,par))
 
-</code></pre></td></tr></table></div></div><p><img src=http://upload-images.jianshu.io/upload_images/1703880-e5807184207362d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=box.png></p><h2 id=半圆>半圆</h2><p>常用于脉冲响应的绘制。</p><h3 id=给定参数>给定参数</h3><pre><code>``` {.py}
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/D0Bw1mw9/box.png alt=box.png></p><h2 id=半圆>半圆</h2><p>常用于脉冲响应的绘制。</p><h3 id=给定参数>给定参数</h3><pre><code>``` {.py}
   xcenter = 1285.0　# 圆心x坐标
   zcenter = 0.0　　 # 圆心z坐标　
   sampling = 1000　# 采样点数
@@ -136,7 +136,7 @@ Plot(&#39;box&#39;,fdmod.bbplot(&#39;&#39;,par))
   fdmod.circle('cc',xcenter,zcenter,radius,sampling,par)
   Plot(  'cc',fdmod.ssplot('plotfat=7 plotcol=2 ',par))
 ```
-</code></pre><h3 id=结果>结果</h3><p><img src=http://upload-images.jianshu.io/upload_images/1703880-c5c014618f04fed7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=半圆图.png></p><h2 id=椭圆>椭圆</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre><h3 id=结果>结果</h3><p><img src=https://i.postimg.cc/RCRFkpLg/circle.png alt=半圆图.png></p><h2 id=椭圆>椭圆</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -188,7 +188,7 @@ semiB=np.sqrt(semiA**2.0-(ab/2.0)**2.0) # 计算b
 ellipse(&#39;ec&#39;,xcenter,zcenter,semiA,semiB,500,par) # 生成椭圆坐标
 
 Plot(  &#39;ec&#39;,fdmod.ssplot(&#39;plotfat=10 plotcol=2 symbol=.&#39;,par))　# 绘制椭圆
-</code></pre></td></tr></table></div></div><p>结果</p><p><img src=http://upload-images.jianshu.io/upload_images/1703880-cafc3d996c171281.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=椭圆.png></p><h2 id=椭圆坐标系>椭圆坐标系</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>结果</p><p><img src=https://i.postimg.cc/NfjMB8NB/ellipse.png alt=椭圆.png></p><h2 id=椭圆坐标系>椭圆坐标系</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -208,7 +208,7 @@ Flow(&#39;rays&#39;,&#39;datRC velo&#39;,
  &#39;&#39;&#39;%par)
 # 绘制椭圆坐标系
 rwezo.cos(&#39;rays&#39;,20,100,&#39;&#39;,par)
-</code></pre></td></tr></table></div></div><p><img src=http://upload-images.jianshu.io/upload_images/1703880-e6ffea2f30d92e10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=椭圆坐标系.png></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/kXY54VZ8/rays.png alt=椭圆坐标系.png></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-03-31</span></p><p class=copyright-item><span class=item-title>许可协议</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>

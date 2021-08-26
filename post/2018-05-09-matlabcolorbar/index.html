@@ -28,7 +28,7 @@ colormap(jet);
 xlabel(&#39;Normalized Wavenumber&#39;,&#39;FontSize&#39;,10),ylabel(&#39;Frequency (Hz)&#39;,&#39;FontSize&#39;,10);
 % set(gcf,&#39;PaperPosition&#39;,[0 0 10 12]);
 print -r300 -dtiff spectra.tif
-</code></pre></td></tr></table></div></div><p><img src=https://upload-images.jianshu.io/upload_images/1703880-6dd04234b930e631.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=demo.png></p><p>2.如何控制色标的标度，这样绘制多幅图片的时候能保证是同一个色标。
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/d1nhj5WN/figure.png alt=demo.png></p><p>2.如何控制色标的标度，这样绘制多幅图片的时候能保证是同一个色标。
 查询色标的范围可以单独使用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>cc = caxis; % 查询当前图片的色标范围并保存为cc变量
 </code></pre></td></tr></table></div></div><p>在绘图语句中加入下面这句即可。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
@@ -49,7 +49,7 @@ colormap(jet) % 色标颜色方案与前面图保持一致，很重要！！！
 c = colorbar;
 c.Position = [0.53 0.28 0.10 0.5] % 控制色标的位置以及长宽比
 caxis(cc) % 与前面保持一致，保证色标值与前面相吻合，也和数据相吻合。
-</code></pre></td></tr></table></div></div><p><img src=https://upload-images.jianshu.io/upload_images/1703880-6f386db7c2581b4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=colorbar.png></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/C1wZ834f/colorbar.png alt=colorbar.png></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-05-09</span></p><p class=copyright-item><span class=item-title>许可协议</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>

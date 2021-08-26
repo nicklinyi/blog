@@ -54,7 +54,7 @@ ax.XAxisLocation = &#39;top&#39;;
 xlabel(&#39;Distance (m)&#39;);
 ylabel(&#39;Time (s)&#39;);
 </code></pre></td></tr></table></div></div><p>运行完上述代码后，得到的图形如下
-<img src=https://upload-images.jianshu.io/upload_images/1703880-d5011298fb447a0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=线性地震事件></p><h2 id=双曲地震事件>双曲地震事件</h2><h3 id=前期准备-1>前期准备</h3><p>这里采用SAIG组开发的SeismicLab中公开的代码<code>hyperbolic_events.m</code>来进行线性地震数据的合成。
+<img src=https://i.postimg.cc/NGTVFZzx/linear-events.png alt=线性地震事件></p><h2 id=双曲地震事件>双曲地震事件</h2><h3 id=前期准备-1>前期准备</h3><p>这里采用SAIG组开发的SeismicLab中公开的代码<code>hyperbolic_events.m</code>来进行线性地震数据的合成。
 由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了，<a href=https://github.com/nicklinyi/seismic_utils/tree/master/synthetics/hyperbolic_events.m>点击这里查看具体的代码内容</a>。</p><h3 id=开始试验-1>开始试验</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3

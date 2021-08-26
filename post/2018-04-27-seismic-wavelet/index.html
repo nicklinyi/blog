@@ -6,7 +6,7 @@
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>function [w] = ricker(fpeak,t,tdelay)
 w = exp(-pi^2*fpeak^2*(t-tdelay).^2).*(1-2*pi^2*fpeak^2*(t-tdelay).^2);
 return
-</code></pre></td></tr></table></div></div><p><img src=https://upload-images.jianshu.io/upload_images/1703880-f71641eca2730b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=ricker.png></p><h2 id=ricker子波的一阶导数>Ricker子波的一阶导数：</h2><p>$$S(t)=2\pi^2f^2t(2\pi^2f^2t^2-3)exp(-\pi^2f^2t^2)$$</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/6qLYcxsJ/ricker.png alt=ricker.png></p><h2 id=ricker子波的一阶导数>Ricker子波的一阶导数：</h2><p>$$S(t)=2\pi^2f^2t(2\pi^2f^2t^2-3)exp(-\pi^2f^2t^2)$$</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -14,13 +14,13 @@ return
  w = 2*pi^2*fpeak^2*(t-tdelay).*(2*pi^2*fpeak^2*(t-tdelay).^2-3).*...
      exp(-pi^2*fpeak^2*(t-tdelay).^2);
 return
-</code></pre></td></tr></table></div></div><p><img src=https://upload-images.jianshu.io/upload_images/1703880-4bd0b7444b017859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=ricker1.png></p><h2 id=最小相位子波>最小相位子波</h2><p>$$S(t)=texp(-3.5ft)sin(2\pi ft)$$</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/44zLsVYL/ricker-deri.png alt=ricker-deri.png></p><h2 id=最小相位子波>最小相位子波</h2><p>$$S(t)=texp(-3.5ft)sin(2\pi ft)$$</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>function [w] = min_phase(fpeak,t,tdelay)
 w = (t-tdelay).*exp(-3.5*fpeak*(t-tdelay)).*sin(2*pi*fpeak*(t-tdelay));
 return
-</code></pre></td></tr></table></div></div><p><img src=https://upload-images.jianshu.io/upload_images/1703880-75498f8321aee3f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=min_phase.png></p><h2 id=gauss子波的导数>Gauss子波的导数：</h2><p>$$S(t)=-A\pi^2f^2texp(-\pi^2f^2t^2)(3-2\pi^2f^2t^2)$$</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/8cVZLP0m/min-phase.png alt=min_phase.png></p><h2 id=gauss子波的导数>Gauss子波的导数：</h2><p>$$S(t)=-A\pi^2f^2texp(-\pi^2f^2t^2)(3-2\pi^2f^2t^2)$$</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -28,7 +28,7 @@ return
 w =-pi^2*fpeak^2*(t-tdelay).*exp(-pi^2*fpeak^2*(t-tdelay).^2).*...
     (3-2*pi^2*fpeak^2*(t-tdelay).^2);
 return
-</code></pre></td></tr></table></div></div><p><img src=https://upload-images.jianshu.io/upload_images/1703880-1b1a9880ca8c6b3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt=gauss1.png></p><h2 id=参考资料>参考资料</h2><p>罗焕宏.基于单程波算子的地震波场模拟及叠前深度偏移[D].中国石油大学,2010</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/TwbkyWCP/gauss.png alt=gauss1.png></p><h2 id=参考资料>参考资料</h2><p>罗焕宏.基于单程波算子的地震波场模拟及叠前深度偏移[D].中国石油大学,2010</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2018-04-27</span></p><p class=copyright-item><span class=item-title>许可协议</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>

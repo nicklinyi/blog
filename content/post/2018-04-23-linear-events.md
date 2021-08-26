@@ -11,8 +11,8 @@ tags: [合成数据]
 
 ## 线性地震事件合成步骤
 ### 前期准备
-这里采用SAIG组开发的SeismicLab中公开的代码`linear_events.m`来进行线性地震数据的合成。
-由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了，[点击这里查看具体的代码内容](https://github.com/nicklinyi/seismic_utils/tree/master/synthetics/linear_events.m)。
+这里采用SAIG组开发的SeismicLab中公开的代码`linear_events.m`来进行线性地震数据的合成,其中画图部分的`wigb.m`也来自于该代码包。
+由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了。
 
 <!-- more -->
 
@@ -52,7 +52,7 @@ ylabel('Time (s)');
 ## 双曲地震事件
 ### 前期准备
 这里采用SAIG组开发的SeismicLab中公开的代码`hyperbolic_events.m`来进行线性地震数据的合成。
-由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了，[点击这里查看具体的代码内容](https://github.com/nicklinyi/seismic_utils/tree/master/synthetics/hyperbolic_events.m)。
+由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了。
 ### 开始试验
 ```
 clear;
@@ -85,6 +85,6 @@ ylabel('Time (s)');
 ```
 
 运行完上述代码后，得到的图形如下
-![双曲地震事件](https://upload-images.jianshu.io/upload_images/1703880-588726ecd9fd9e68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![双曲地震事件](https://i.postimg.cc/85SBv77k/hyper-Events.png)
 
 

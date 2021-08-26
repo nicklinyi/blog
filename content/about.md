@@ -2,7 +2,7 @@
 title: "关于"
 weight: 70
 date: 2017-08-20
-lastmod: 2018-08-05
+lastmod: 2021-08-26
 menu: "main"
 ---
 

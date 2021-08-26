@@ -21,7 +21,7 @@ return
 
 <!-- more -->
 
-![ricker.png](https://upload-images.jianshu.io/upload_images/1703880-f71641eca2730b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![ricker.png](https://i.postimg.cc/6qLYcxsJ/ricker.png)
 
 ## Ricker子波的一阶导数：
 $$S(t)=2\pi^2f^2t(2\pi^2f^2t^2-3)exp(-\pi^2f^2t^2)$$
@@ -32,7 +32,7 @@ function [w] = ricker1(fpeak,t,tdelay)
      exp(-pi^2*fpeak^2*(t-tdelay).^2);
 return
 ```
-![ricker1.png](https://upload-images.jianshu.io/upload_images/1703880-4bd0b7444b017859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![ricker-deri.png](https://i.postimg.cc/44zLsVYL/ricker-deri.png)
 
 ## 最小相位子波
 $$S(t)=texp(-3.5ft)sin(2\pi ft)$$
@@ -42,7 +42,7 @@ function [w] = min_phase(fpeak,t,tdelay)
 w = (t-tdelay).*exp(-3.5*fpeak*(t-tdelay)).*sin(2*pi*fpeak*(t-tdelay));
 return
 ```
-![min_phase.png](https://upload-images.jianshu.io/upload_images/1703880-75498f8321aee3f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![min_phase.png](https://i.postimg.cc/8cVZLP0m/min-phase.png)
 ## Gauss子波的导数：
 $$S(t)=-A\pi^2f^2texp(-\pi^2f^2t^2)(3-2\pi^2f^2t^2)$$
 ```
@@ -53,7 +53,7 @@ return
 ```
 
 
-![gauss1.png](https://upload-images.jianshu.io/upload_images/1703880-1b1a9880ca8c6b3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![gauss1.png](https://i.postimg.cc/TwbkyWCP/gauss.png)
 
 
 ## 参考资料

@@ -67,9 +67,9 @@ rm *.grd
 只是一个简单的示例，未添加横坐标和纵坐标的label，大家可自行修改。这里显示的绘制的结果不是ux,也不是uz,
 而是`u=sqrt(ux**2 + uz**2)`。
 
-<div align="center">
-<img src="http://upload-images.jianshu.io/upload_images/1703880-097c8d13426b0e34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="zoom:40%" alt="波场快照图" align=center/>
-</div>
+
+![specfem2d-gmt](https://i.postimg.cc/5NbzvFnR/specfem2d-gmt.png)
+
 注意：
 之前波场输出文件的选项`use_binary_for_wavefield_dumps  = .false.`建议选为false，生成文本文件。最开始我选的是true主要的考虑是占用更小的磁盘空间，当时想着用 ximage 来画一个初步的波场快照信息，结果通过分析文件字节数怎么算都有个二倍的数据量，后面才想到是通过记录了两个波场分量的信息。如果采用ascii文本文件输出的话，就不会走这么多弯路了。
 

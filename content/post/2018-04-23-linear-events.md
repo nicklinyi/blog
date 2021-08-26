@@ -47,7 +47,7 @@ ylabel('Time (s)');
 ```
 
 运行完上述代码后，得到的图形如下
-![线性地震事件](https://upload-images.jianshu.io/upload_images/1703880-d5011298fb447a0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![线性地震事件](https://i.postimg.cc/NGTVFZzx/linear-events.png)
 
 ## 双曲地震事件
 ### 前期准备

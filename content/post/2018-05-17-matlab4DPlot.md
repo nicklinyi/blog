@@ -13,10 +13,10 @@ slug: matlab4d
 
 <!-- more -->
 
- ![图1.png](https://upload-images.jianshu.io/upload_images/1703880-12bec1a469b7d182.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+ ![readme](https://i.postimg.cc/VNKw728t/readme.png)
 
 通过该图，我们能进一步了解到其绘图坐标系的原点的位置，如下图所示
-![图2.png](https://upload-images.jianshu.io/upload_images/1703880-88a10ec4da3ef459.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![coordinate](https://i.postimg.cc/6QWwftDw/coordinate.png)
 
 绘制四维图需要采用`slice`命令，`slice`命令的两个基本用法如下
 
@@ -68,7 +68,7 @@ set(gca,'ZDir','reverse');  % Z轴反转，常用于地学数据
 set(gca,'YDir','reverse');
 ```
 
-![图3.png](https://upload-images.jianshu.io/upload_images/1703880-4c2ef45ea1c431aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![raw](https://i.postimg.cc/JntLSKr2/raw.png)
 
 ### 完善细节
 图3的主要缺陷是x轴与y轴的label位置未与坐标轴平行，调整的方式为，可将label进行一定程度地旋转，使其与坐标轴平行。
@@ -80,7 +80,7 @@ set(y1,'Rotation',-20);
 ```
 旋转之后的效果见图4
 
-![图4.png](https://upload-images.jianshu.io/upload_images/1703880-14f2cb47869ba626.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![rotate](https://i.postimg.cc/cHjSWY64/rotate.png)
 
 ### Reference:
 http://blog.sina.com.cn/s/blog_618af1950100eyjn.html

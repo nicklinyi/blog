@@ -25,7 +25,7 @@ xlabel('Normalized Wavenumber','FontSize',10),ylabel('Frequency (Hz)','FontSize'
 print -r300 -dtiff spectra.tif
 ```
 <!-- more -->
-![demo.png](https://upload-images.jianshu.io/upload_images/1703880-6dd04234b930e631.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![demo.png](https://i.postimg.cc/d1nhj5WN/figure.png)
 
 
 
@@ -56,4 +56,4 @@ c.Position = [0.53 0.28 0.10 0.5] % 控制色标的位置以及长宽比
 caxis(cc) % 与前面保持一致，保证色标值与前面相吻合，也和数据相吻合。
 ```
 
-![colorbar.png](https://upload-images.jianshu.io/upload_images/1703880-6f386db7c2581b4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![colorbar.png](https://i.postimg.cc/C1wZ834f/colorbar.png)

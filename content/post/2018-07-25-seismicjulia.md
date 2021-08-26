@@ -37,13 +37,13 @@ $ julia test_SeisFKFilter.jl
 ```
 如果没有报错的话，应该出现以下四幅图片，表示安装成功。
 
-![Figure_1.png](https://upload-images.jianshu.io/upload_images/1703880-32730aa930139b94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![data](https://i.postimg.cc/XNdvdTkv/data.png)
 
-![Figure_2.png](https://upload-images.jianshu.io/upload_images/1703880-04ff347183250297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![fk](https://i.postimg.cc/CL0xNmcs/fk.png)
 
-![Figure_3.png](https://upload-images.jianshu.io/upload_images/1703880-cd031953d958b184.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![data-after-fk](https://i.postimg.cc/NjffhLqy/data-after-fk.png)
 
-![Figure_4.png](https://upload-images.jianshu.io/upload_images/1703880-4c2834d844a77f7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![fk-after-filter](https://i.postimg.cc/yYTYrc54/fk-after-filter.png)
 
 
 

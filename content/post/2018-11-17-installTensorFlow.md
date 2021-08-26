@@ -16,7 +16,7 @@ slug: installTensorFlow
 tensorflow 从发布到现在(写此文的时间)已经经历过多次的升级，而与此同时， NVIDIA 公司开发的 CUDA 以及 cuDNN 这两个依赖项也进行了更新。因此，就导致了
 不同版本的 tensorflow 会依赖于不同版本 的 CUDA 和 cuDNN，具体见下表(https://www.tensorflow.org/install/source_windows?hl=zh-cn)。
 
-![tensorflow-gpu.PNG](https://upload-images.jianshu.io/upload_images/1703880-6739053ccdf29cc3.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![tensorflow-gpu.PNG](https://i.postimg.cc/3wVQSFHB/install.png)
 
 这里插播一下我选择安装 tensorflow 1.5.0 的原因，并不是说该版本最稳定，毕竟我也是第一次用 tensorflow ，在此没有话语权。在安装 tensorflow 的时候，我
 还不知道有这个表格，我甚至都不知道还要安装 CUDA 和 cuDNN。我上来就知道用 `pip install tensorflow-gpu`，安装的过程中也没报错，我就天真的以为安装成

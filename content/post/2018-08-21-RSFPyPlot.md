@@ -48,6 +48,6 @@ Flow('vb_color.png','vb',
 End()
 ```
 绘图结果：
-![vb.png](https://upload-images.jianshu.io/upload_images/1703880-d63fed61493d3274.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![vb_color.png](https://upload-images.jianshu.io/upload_images/1703880-952a9ec419ac0e24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![vb.png](https://i.postimg.cc/xCS47xc9/model1.png)
+![vb_color.png](https://i.postimg.cc/Ss7vp6MC/model1-color.png)
 

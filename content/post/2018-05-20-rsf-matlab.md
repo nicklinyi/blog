@@ -50,7 +50,7 @@ End()
 ```
 运行上述脚本`SConstruct`后生成的数据如下图所示
 
-![d.png](https://upload-images.jianshu.io/upload_images/1703880-e3e4b4625022f8a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![linear](https://i.postimg.cc/NMxd7wvh/linear.png)
 
 ## 读`.rsf`文件
 ```matlab
@@ -108,7 +108,7 @@ End()
 
 生成的数据如下图所示
 
-![d2.png](https://upload-images.jianshu.io/upload_images/1703880-3dbfd5b92f0d9aa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![dip.png](https://i.postimg.cc/5yNnskfX/dip.png)
 
 ## 函数参数处理
 ```matlab

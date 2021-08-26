@@ -11,7 +11,7 @@ categories: [编程]
 首先我们先针对一些列的散点(x1,y1)进行拟合(x1,y1均为矢量)。其三次样条拟合的结果如下图所示，并将
 其拟合结果存为`fitresult`。
 
-![拟合曲线](https://upload-images.jianshu.io/upload_images/1703880-7a0117878e8a5b17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![拟合曲线](https://i.postimg.cc/SsKSkkrV/fit.png)
 
 
 matlab 对数据做完三次样条拟合后的数据为`cfit`类型，是一种拟合的数据体，虽然此数据体可直接通过

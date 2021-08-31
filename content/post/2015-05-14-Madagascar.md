@@ -1,7 +1,7 @@
 ---
 title: Madagascar 的安装
 date: 2015-05-14
-lastmod: 2018-08-12
+lastmod: 2021-08-31
 tags: [Madagascar]
 categories: ['安装']
 slug: madagascar
@@ -47,9 +47,9 @@ $ sudo apt install octave liboctave-dev
 ### 编译，安装
 
 ``` {.console}
-$ git clone https://github.com/ahay/src.git madagascar-2.0
-$ cd madagascar-2.0
-$ ./configure API=c++,f90,python,matlab,octave --prefix=/home/lloyd/rsf2.0 # 额外安装C++，Fortran, Python, Matlab, Octave 五个API
+$ git clone https://github.com/ahay/src.git madagascar-3.2
+$ cd madagascar-3.2
+$ ./configure API=c++,f90,python,matlab,octave --prefix=/home/lloyd/rsf3.2 # 额外安装C++，Fortran, Python, Matlab, Octave 五个API
 $ make
 $ make install
 ```
@@ -62,8 +62,8 @@ $ make install
 向`~/.bashrc`中加入如下语句以配置环境变量。
 
 ``` {.bash}
-# Madagascar 2.0
-export RSFROOT=/home/lloyd/rsf2.0
+# Madagascar 3.2
+export RSFROOT=/home/lloyd/rsf3.2
 source $RSFROOT/share/madagascar/etc/env.sh
 ```
 
@@ -106,7 +106,7 @@ https://www.mathworks.com/support/sysreq/previous_releases.html
 向`~/.bash_profile`中加入如下语句以配置环境变量。
 
 ``` {.bash}
-# Madagascar 2.0
+# Madagascar 3.2
 export RSFROOT=/Users/lloyd/rsf
 source $RSFROOT/share/madagascar/etc/env.sh
 ```
@@ -119,10 +119,9 @@ source $RSFROOT/share/madagascar/etc/env.sh
 ### 修订历史
 
 - 2016-05-22: 初稿；
-- 2017-07-18: 更新至 madagascar2.0;
 - 2018-04-28: 更新 macOS High Sierra 下安装 Madagascar;
 - 2018-05-20: 更新 Linux 安装 Matlab API;
 - 2018-05-22: 更新 macOS High Sierra 下安装 Matlab API;
 - 2018-08-12：新增 Octave API
-
+- 2021-08-31: 更新至 madagascar3.2;
 

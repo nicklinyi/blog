@@ -1,31 +1,204 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Matlab 绘制4D数据 - Lloyd</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.82.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/matlab4d/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/sass/main.min.08e0708eca455a140b204891cafe5cbc24963361a814303009bf0a08751b7855.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Matlab 绘制4D数据"><meta property="og:description" content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/matlab4d/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-05-17T00:00:00+00:00"><meta property="article:modified_time" content="2018-05-17T00:00:00+00:00"><meta itemprop=name content="Matlab 绘制4D数据"><meta itemprop=description content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><meta itemprop=datePublished content="2018-05-17T00:00:00+00:00"><meta itemprop=dateModified content="2018-05-17T00:00:00+00:00"><meta itemprop=wordCount content="719"><meta itemprop=keywords content="Matlab,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Matlab 绘制4D数据"><meta name=twitter:description content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Lloyd</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Lloyd</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Matlab 绘制4D数据</h1><div class=post-meta><span class=post-time>2018-05-17</span><div class=post-category><a href=/categories/%E7%BB%98%E5%9B%BE/>绘图</a></div><span class=more-meta>约 719 字</span>
-<span class=more-meta>预计阅读 2 分钟</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#绘图基础>绘图基础</a></li><li><a href=#生成三维坐标网格数据>生成三维坐标网格数据。</a></li><li><a href=#绘图>绘图</a></li><li><a href=#完善细节>完善细节</a></li><li><a href=#reference>Reference:</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=绘图基础>绘图基础</h3><p>首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示</p><p><img src=https://i.postimg.cc/VNKw728t/readme.png alt=readme></p><p>通过该图，我们能进一步了解到其绘图坐标系的原点的位置，如下图所示
-<img src=https://i.postimg.cc/6QWwftDw/coordinate.png alt=coordinate></p><p>绘制四维图需要采用<code>slice</code>命令，<code>slice</code>命令的两个基本用法如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Matlab 绘制4D数据 - Lloyd</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Lloyd"><meta name=description content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.88.1 with theme even">
+<link rel=canonical href=https://blog.nickwhyy.top/post/matlab4d/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Matlab 绘制4D数据">
+<meta property="og:description" content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.nickwhyy.top/post/matlab4d/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-05-17T00:00:00+00:00">
+<meta property="article:modified_time" content="2018-05-17T00:00:00+00:00">
+<meta itemprop=name content="Matlab 绘制4D数据">
+<meta itemprop=description content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><meta itemprop=datePublished content="2018-05-17T00:00:00+00:00">
+<meta itemprop=dateModified content="2018-05-17T00:00:00+00:00">
+<meta itemprop=wordCount content="719">
+<meta itemprop=keywords content="Matlab,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Matlab 绘制4D数据">
+<meta name=twitter:description content="绘图基础 首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示 通过该图，我们"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>主页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/collection/>
+<li class=mobile-menu-item>安装</li>
+</a><a href=/links/>
+<li class=mobile-menu-item>链接</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>主页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/collection/>安装</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/links/>链接</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Matlab 绘制4D数据</h1>
+<div class=post-meta>
+<span class=post-time> 2018-05-17 </span>
+<div class=post-category>
+<a href=/categories/%E7%BB%98%E5%9B%BE/> 绘图 </a>
+</div>
+<span class=more-meta> 约 719 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#绘图基础>绘图基础</a></li>
+<li><a href=#生成三维坐标网格数据>生成三维坐标网格数据。</a></li>
+<li><a href=#绘图>绘图</a></li>
+<li><a href=#完善细节>完善细节</a></li>
+<li><a href=#reference>Reference:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h3 id=绘图基础>绘图基础</h3>
+<p>首先，需要知道的是matlab三维图的默认坐标轴的位置：面向大家的是 y-z平面，侧面是 x-z 平面，顶底是 x-y 平面。如下图所示</p>
+<p><img src=https://i.postimg.cc/VNKw728t/readme.png alt=readme></p>
+<p>通过该图，我们能进一步了解到其绘图坐标系的原点的位置，如下图所示
+<img src=https://i.postimg.cc/6QWwftDw/coordinate.png alt=coordinate></p>
+<p>绘制四维图需要采用<code>slice</code>命令，<code>slice</code>命令的两个基本用法如下</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>% V 是数据体，sx,sy,sz分别为x,y,z方向的切片，X,Y,Z 为坐标值。
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>% V 是数据体，sx,sy,sz分别为x,y,z方向的切片，X,Y,Z 为坐标值。
 slice(V,sx,sy,sz)    % 此命令采用索引绘图，绘图出来的坐标轴的值为索引值
 slice(X,Y,Z,V,sx,sy,sz) % 该命令绘制出来的坐标轴的值为真实坐标值。
-</code></pre></td></tr></table></div></div><p>我们这里选择第二种方式来绘图，以便清楚地解释数据的物理意义。</p><h3 id=生成三维坐标网格数据>生成三维坐标网格数据。</h3><p>由于地震勘探数据的特殊物理意义，Z坐标轴一般为深度或者时间，因此，如果原始数据并非深度或时间，可采用<code>permute</code>函数将数据转换成第三维为深度或时间的数据。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>我们这里选择第二种方式来绘图，以便清楚地解释数据的物理意义。</p>
+<h3 id=生成三维坐标网格数据>生成三维坐标网格数据。</h3>
+<p>由于地震勘探数据的特殊物理意义，Z坐标轴一般为深度或者时间，因此，如果原始数据并非深度或时间，可采用<code>permute</code>函数将数据转换成第三维为深度或时间的数据。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>% 假设原始数据的size为 [nz, nx, ny] = size(T);
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>% 假设原始数据的size为 [nz, nx, ny] = size(T);
 T = permute(T, [3 2 1]); % 将第三维和第一维互换
-</code></pre></td></tr></table></div></div><p>对数据进行上述预处理后，我们开始生成网格数据。生成网格数据的命令为<code>meshgrid</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>对数据进行上述预处理后，我们开始生成网格数据。生成网格数据的命令为<code>meshgrid</code>。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>x = linspace(0,1,nx);
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>x = linspace(0,1,nx);
 y = linspace(0,2,ny);
 z = linspace(0,3,nz);
 [X Y Z] = meshgrid(x, y, z);
-</code></pre></td></tr></table></div></div><p>若采用上述命令来生成[X Y Z], 则</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>若采用上述命令来生成[X Y Z], 则</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&gt; size(X)
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>&gt; size(X)
 ans
     [ny, nx, nz]
-</code></pre></td></tr></table></div></div><p>可以发现其第三维的维度没变，而前两维的维度互换。而X的维度要与实际数据的维度相对应，因此，在实际操作中，若采用<code>[X Y Z] = meshgrid(x, y, z);</code>的方式来生成网格数据，那么实际数据的维度应为[ny nx nz].</p><h3 id=绘图>绘图</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table>
+</div>
+</div><p>可以发现其第三维的维度没变，而前两维的维度互换。而X的维度要与实际数据的维度相对应，因此，在实际操作中，若采用<code>[X Y Z] = meshgrid(x, y, z);</code>的方式来生成网格数据，那么实际数据的维度应为[ny nx nz].</p>
+<h3 id=绘图>绘图</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -40,7 +213,9 @@ ans
 </span><span class=lnt>13
 </span><span class=lnt>14
 </span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>x = (0:nx-1)*dx;
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>x = (0:nx-1)*dx;
 y = (0:ny-1)*dy;
 z = (0:nz-1)*dz;
 
@@ -55,30 +230,117 @@ ylabel(&#39;y (km)&#39;);
 zlabel(&#39;z (km)&#39;);
 set(gca,&#39;ZDir&#39;,&#39;reverse&#39;);  % Z轴反转，常用于地学数据
 set(gca,&#39;YDir&#39;,&#39;reverse&#39;);
-</code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/JntLSKr2/raw.png alt=raw></p><h3 id=完善细节>完善细节</h3><p>图3的主要缺陷是x轴与y轴的label位置未与坐标轴平行，调整的方式为，可将label进行一定程度地旋转，使其与坐标轴平行。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p><img src=https://i.postimg.cc/JntLSKr2/raw.png alt=raw></p>
+<h3 id=完善细节>完善细节</h3>
+<p>图3的主要缺陷是x轴与y轴的label位置未与坐标轴平行，调整的方式为，可将label进行一定程度地旋转，使其与坐标轴平行。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>x1 = xlabel(&#39;x (km)&#39;);
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>x1 = xlabel(&#39;x (km)&#39;);
 y1 = ylabel(&#39;y (km)&#39;);
 set(x1,&#39;Rotation&#39;,15);
 set(y1,&#39;Rotation&#39;,-20);
-</code></pre></td></tr></table></div></div><p>旋转之后的效果见图4</p><p><img src=https://i.postimg.cc/cHjSWY64/rotate.png alt=rotate></p><h3 id=reference>Reference:</h3><p><a href=http://blog.sina.com.cn/s/blog_618af1950100eyjn.html>http://blog.sina.com.cn/s/blog_618af1950100eyjn.html</a></p><p><a href=http://muchong.com/html/201206/4636839.html>http://muchong.com/html/201206/4636839.html</a></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2018-05-17</span></p><p class=copyright-item><span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/matlab/>Matlab</a></div><nav class=post-nav><a class=prev href=/post/2018-05-20-rsf-matlab/><i class="iconfont icon-left"></i>
+</code></pre></td></tr></table>
+</div>
+</div><p>旋转之后的效果见图4</p>
+<p><img src=https://i.postimg.cc/cHjSWY64/rotate.png alt=rotate></p>
+<h3 id=reference>Reference:</h3>
+<p><a href=http://blog.sina.com.cn/s/blog_618af1950100eyjn.html>http://blog.sina.com.cn/s/blog_618af1950100eyjn.html</a></p>
+<p><a href=http://muchong.com/html/201206/4636839.html>http://muchong.com/html/201206/4636839.html</a></p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2018-05-17
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/matlab/>Matlab</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/2018-05-20-rsf-matlab/>
+<i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Madagascar Matlab 混合编程</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/post/2018-05-14-matlabfit/><span class="next-text nav-default">Matlab 拟合数据体类型解读</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/2018-05-14-matlabfit/>
+<span class="next-text nav-default">Matlab 拟合数据体类型解读</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a><a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>

@@ -1,100 +1,421 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux 安装 caffe - Lloyd</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.82.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/installcaffe/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/sass/main.min.08e0708eca455a140b204891cafe5cbc24963361a814303009bf0a08751b7855.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Linux 安装 caffe"><meta property="og:description" content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/installcaffe/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-06-15T00:00:00+00:00"><meta property="article:modified_time" content="2019-06-15T00:00:00+00:00"><meta itemprop=name content="Linux 安装 caffe"><meta itemprop=description content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><meta itemprop=datePublished content="2019-06-15T00:00:00+00:00"><meta itemprop=dateModified content="2019-06-15T00:00:00+00:00"><meta itemprop=wordCount content="1595"><meta itemprop=keywords content="caffe,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 安装 caffe"><meta name=twitter:description content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Lloyd</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Lloyd</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Linux 安装 caffe</h1><div class=post-meta><span class=post-time>2019-06-15</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 1595 字</span>
-<span class=more-meta>预计阅读 4 分钟</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#前言>前言</a></li><li><a href=#安装依赖包>安装依赖包</a></li><li><a href=#安装>安装</a></li><li><a href=#参考资料>参考资料</a></li><li><a href=#修订历史>修订历史</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=前言>前言</h3><p>CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯克利分校。
-我们按照官方的<a href=http://caffe.berkeleyvision.org/install_apt.html>说明网页</a>来介绍如何在Ubuntu 16.04 LTS系统上手工编译安装该软件。</p><h3 id=安装依赖包>安装依赖包</h3><h4 id=一般依赖项>一般依赖项</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Linux 安装 caffe - Lloyd</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Lloyd"><meta name=description content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.88.1 with theme even">
+<link rel=canonical href=https://blog.nickwhyy.top/post/installcaffe/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Linux 安装 caffe">
+<meta property="og:description" content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.nickwhyy.top/post/installcaffe/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-06-15T00:00:00+00:00">
+<meta property="article:modified_time" content="2019-06-15T00:00:00+00:00">
+<meta itemprop=name content="Linux 安装 caffe">
+<meta itemprop=description content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><meta itemprop=datePublished content="2019-06-15T00:00:00+00:00">
+<meta itemprop=dateModified content="2019-06-15T00:00:00+00:00">
+<meta itemprop=wordCount content="1595">
+<meta itemprop=keywords content="caffe,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Linux 安装 caffe">
+<meta name=twitter:description content="前言 CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>主页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/collection/>
+<li class=mobile-menu-item>安装</li>
+</a><a href=/links/>
+<li class=mobile-menu-item>链接</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>主页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/collection/>安装</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/links/>链接</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Linux 安装 caffe</h1>
+<div class=post-meta>
+<span class=post-time> 2019-06-15 </span>
+<div class=post-category>
+<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
+</div>
+<span class=more-meta> 约 1595 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#前言>前言</a></li>
+<li><a href=#安装依赖包>安装依赖包</a></li>
+<li><a href=#安装>安装</a></li>
+<li><a href=#参考资料>参考资料</a></li>
+<li><a href=#修订历史>修订历史</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h3 id=前言>前言</h3>
+<p>CAFFE（快速特征嵌入的卷积结构，Convolutional Architecture for Fast Feature Embedding）是一个深度学习框架，最初开发于加利福尼亚大学伯克利分校。
+我们按照官方的<a href=http://caffe.berkeleyvision.org/install_apt.html>说明网页</a>来介绍如何在Ubuntu 16.04 LTS系统上手工编译安装该软件。</p>
+<h3 id=安装依赖包>安装依赖包</h3>
+<h4 id=一般依赖项>一般依赖项</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
 sudo apt-get install --no-install-recommends libboost-all-dev
-</code></pre></td></tr></table></div></div><h4 id=特殊依赖软件>特殊依赖软件</h4><ul><li>CUDA 安装见另外一篇<a href=https://blog.nickwhyy.top/post/cuda/>博文</a></li></ul><h3 id=安装>安装</h3><h4 id=下载caffe>下载caffe</h4><p>由于我安装caffe的目的是跑SSD代码，所以选择的是weiliu89的fork分支进行安装。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=特殊依赖软件>特殊依赖软件</h4>
+<ul>
+<li>CUDA 安装见另外一篇<a href=https://blog.nickwhyy.top/post/cuda/>博文</a></li>
+</ul>
+<h3 id=安装>安装</h3>
+<h4 id=下载caffe>下载caffe</h4>
+<p>由于我安装caffe的目的是跑SSD代码，所以选择的是weiliu89的fork分支进行安装。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback> $ git clone https://github.com/weiliu89/caffe.git
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> $ git clone https://github.com/weiliu89/caffe.git
  $ cd caffe
  $ git checkout ssd
-</code></pre></td></tr></table></div></div><h4 id=编译>编译</h4><p>我们先尝试编译一下代码，然后在遇到问题的过程中逐步解决问题。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=编译>编译</h4>
+<p>我们先尝试编译一下代码，然后在遇到问题的过程中逐步解决问题。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback> # Modify Makefile.config according to your Caffe installation.
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> # Modify Makefile.config according to your Caffe installation.
  $ cp Makefile.config.example Makefile.config
  $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误一：</p><blockquote></blockquote><p><code>.build_release/src/caffe/proto/caffe.pb.h:9:42: fatal error: google/protobuf/stubs/common.h: No such file or directory</code></p><p>错误一解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误一：</p>
+<blockquote>
+</blockquote>
+<p><code>.build_release/src/caffe/proto/caffe.pb.h:9:42: fatal error: google/protobuf/stubs/common.h: No such file or directory</code></p>
+<p>错误一解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libprotobuf-dev protobuf-compiler
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libprotobuf-dev protobuf-compiler
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误二：</p><blockquote></blockquote><p><code>./include/caffe/common.hpp:5:27: fatal error: gflags/gflags.h: No such file or directory</code></p><p>错误二解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误二：</p>
+<blockquote>
+</blockquote>
+<p><code>./include/caffe/common.hpp:5:27: fatal error: gflags/gflags.h: No such file or directory</code></p>
+<p>错误二解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libprotobuf-dev protobuf-compiler
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libprotobuf-dev protobuf-compiler
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误三：</p><blockquote></blockquote><p><code>./include/caffe/common.hpp:6:26: fatal error: glog/logging.h: No such file or directory</code></p><p>错误三解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误三：</p>
+<blockquote>
+</blockquote>
+<p><code>./include/caffe/common.hpp:6:26: fatal error: glog/logging.h: No such file or directory</code></p>
+<p>错误三解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libgoogle-glog-dev
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libgoogle-glog-dev
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误四：</p><blockquote></blockquote><p><code>./include/caffe/util/device_alternate.hpp:34:23: fatal error: cublas_v2.h: No such file or directory</code></p><p>错误四产生原因：</p><blockquote></blockquote><p>没有把cuda的头文件、库的路径放置到caffe的<code>Makefile.config</code>中</p><p>错误四解决方案：
-在<code>Makefile.config</code>文件中添加下列两行，具体位置可放在<code># If Homebrew is installed at a non standard location (for example your home directory) and you use it for general dependencies</code>这句话下面。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误四：</p>
+<blockquote>
+</blockquote>
+<p><code>./include/caffe/util/device_alternate.hpp:34:23: fatal error: cublas_v2.h: No such file or directory</code></p>
+<p>错误四产生原因：</p>
+<blockquote>
+</blockquote>
+<p>没有把cuda的头文件、库的路径放置到caffe的<code>Makefile.config</code>中</p>
+<p>错误四解决方案：
+在<code>Makefile.config</code>文件中添加下列两行，具体位置可放在<code># If Homebrew is installed at a non standard location (for example your home directory) and you use it for general dependencies</code>这句话下面。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>INCLUDE_DIRS += /usr/local/cuda-8.0/include
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>INCLUDE_DIRS += /usr/local/cuda-8.0/include
 LIBRARY_DIRS += /usr/local/cuda-8.0/lib64
-</code></pre></td></tr></table></div></div><p>修改完后，继续编译<code>make -j8</code></p><p>此时，可能会出现错误五：</p><blockquote></blockquote><p><code>./include/caffe/util/mkl_alternate.hpp:14:19: fatal error: cblas.h: No such file or directory</code></p><p>错误五解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>修改完后，继续编译<code>make -j8</code></p>
+<p>此时，可能会出现错误五：</p>
+<blockquote>
+</blockquote>
+<p><code>./include/caffe/util/mkl_alternate.hpp:14:19: fatal error: cblas.h: No such file or directory</code></p>
+<p>错误五解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libopenblas-dev
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libopenblas-dev
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误六：</p><blockquote><p><code>src/caffe/layers/hdf5_data_layer.cpp:13:18: fatal error: hdf5.h: No such file or directory</code></p></blockquote><p>错误六解决方案：
-第一步，先安装下面的依赖包</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt install libhdf5-serial-dev
-</code></pre></td></tr></table></div></div><p>第二步，编辑<code>Makefile.config</code>文件
-原文件为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误六：</p>
+<blockquote>
+<p><code>src/caffe/layers/hdf5_data_layer.cpp:13:18: fatal error: hdf5.h: No such file or directory</code></p>
+</blockquote>
+<p>错误六解决方案：
+第一步，先安装下面的依赖包</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt install libhdf5-serial-dev
+</code></pre></td></tr></table>
+</div>
+</div><p>第二步，编辑<code>Makefile.config</code>文件
+原文件为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># Whatever else you find you need goes here.
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># Whatever else you find you need goes here.
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include 
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib 
-</code></pre></td></tr></table></div></div><p>现在修改为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>现在修改为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># Whatever else you find you need goes here.
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># Whatever else you find you need goes here.
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
-</code></pre></td></tr></table></div></div><p>第三步，编辑<code>Makefile</code>文件
-原文件为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
-</code></pre></td></tr></table></div></div><p>现修改为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl hdf5_serial
-</code></pre></td></tr></table></div></div><p>修改完后，继续编译<code>make -j8</code></p><p>此时，可能会出现错误七：</p><blockquote></blockquote><p><code>./include/caffe/util/db_leveldb.hpp:7:24: fatal error: leveldb/db.h: No such file or directory</code></p><p>错误七解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>第三步，编辑<code>Makefile</code>文件
+原文件为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
+</code></pre></td></tr></table>
+</div>
+</div><p>现修改为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_serial_hl hdf5_serial
+</code></pre></td></tr></table>
+</div>
+</div><p>修改完后，继续编译<code>make -j8</code></p>
+<p>此时，可能会出现错误七：</p>
+<blockquote>
+</blockquote>
+<p><code>./include/caffe/util/db_leveldb.hpp:7:24: fatal error: leveldb/db.h: No such file or directory</code></p>
+<p>错误七解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libleveldb-dev
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libleveldb-dev
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误八：</p><blockquote></blockquote><p><code>./include/caffe/util/db_lmdb.hpp:8:18: fatal error: lmdb.h: No such file or directory</code></p><p>错误八解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误八：</p>
+<blockquote>
+</blockquote>
+<p><code>./include/caffe/util/db_lmdb.hpp:8:18: fatal error: lmdb.h: No such file or directory</code></p>
+<p>错误八解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install liblmdb-dev
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install liblmdb-dev
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误九：</p><blockquote></blockquote><p><code>/usr/bin/ld: cannot find -lsnappy</code></p><p>错误九解决方案：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误九：</p>
+<blockquote>
+</blockquote>
+<p><code>/usr/bin/ld: cannot find -lsnappy</code></p>
+<p>错误九解决方案：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libsnappy-dev
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get install libsnappy-dev
 # 继续编译
 $ make -j8
-</code></pre></td></tr></table></div></div><p>这时候，基本上就可以成功编译了。</p><p>接着，继续执行下列命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>这时候，基本上就可以成功编译了。</p>
+<p>接着，继续执行下列命令：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ make py
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ make py
 $ make test -j8
 $ make runtest -j8
-</code></pre></td></tr></table></div></div><p>此时，可能会出现错误十：</p><blockquote></blockquote><p><code>.build_release/tools/caffe: error while loading shared libraries: libcudart.so.8.0: cannot open shared object file: No such file or directory</code></p><p>错误十解决方案：
-在<code>~/.bashrc</code>文件中添加</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda-8.0/lib64
-</code></pre></td></tr></table></div></div><p>之后再执行<code>make runtest -j8</code>，就会顺利地跑测试程序，不出意外的话，可得到如下结果：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现错误十：</p>
+<blockquote>
+</blockquote>
+<p><code>.build_release/tools/caffe: error while loading shared libraries: libcudart.so.8.0: cannot open shared object file: No such file or directory</code></p>
+<p>错误十解决方案：
+在<code>~/.bashrc</code>文件中添加</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda-8.0/lib64
+</code></pre></td></tr></table>
+</div>
+</div><p>之后再执行<code>make runtest -j8</code>，就会顺利地跑测试程序，不出意外的话，可得到如下结果：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -144,7 +465,9 @@ $ make runtest -j8
 </span><span class=lnt>48
 </span><span class=lnt>49
 </span><span class=lnt>50
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ make runtest -j8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ make runtest -j8
 .build_release/tools/caffe
 caffe: command line brew
 usage: caffe &lt;command&gt; &lt;args&gt;
@@ -194,22 +517,110 @@ Note: Randomizing tests&#39; orders with a seed of 17807 .
 [----------] Global test environment tear-down
 [==========] 2301 tests from 299 test cases ran. (372301 ms total)
 [  PASSED  ] 2301 tests.
-</code></pre></td></tr></table></div></div><p>最后的<code>PASSED</code>表示全部测试都通过了，说明安装成功。</p><h3 id=参考资料>参考资料</h3><ul><li><a href=http://caffe.berkeleyvision.org/install_apt.html>官方安装文档</a></li><li><a href=https://blog.csdn.net/vbskj/article/details/52120475>caffe编译的问题解决：“cublas_v2.h: No such file or directory”</a></li><li><a href=https://github.com/tensorflow/models/issues/1116>error &lsquo;google/protobuf/stubs/common.h&rsquo;</a></li><li><a href=https://blog.csdn.net/u010454261/article/details/71268325>libcudart.so.8.0: cannot open shared object file</a></li><li><a href=https://blog.csdn.net/zllljf/article/details/80980939>ubuntu16.04+cuda8.0.44+cudnn5.1.5+caffe问题集</a></li><li><a href=https://zh.wikipedia.org/wiki/Caffe>WIKI</a></li><li><a href=https://github.com/weiliu89/caffe>github</a></li></ul><h3 id=修订历史>修订历史</h3><ul><li>2019-06-15， 初稿</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2019-06-15</span></p><p class=copyright-item><span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/caffe/>caffe</a></div><nav class=post-nav><a class=prev href=/post/installssd/><i class="iconfont icon-left"></i>
+</code></pre></td></tr></table>
+</div>
+</div><p>最后的<code>PASSED</code>表示全部测试都通过了，说明安装成功。</p>
+<h3 id=参考资料>参考资料</h3>
+<ul>
+<li><a href=http://caffe.berkeleyvision.org/install_apt.html>官方安装文档</a></li>
+<li><a href=https://blog.csdn.net/vbskj/article/details/52120475>caffe编译的问题解决：“cublas_v2.h: No such file or directory”</a></li>
+<li><a href=https://github.com/tensorflow/models/issues/1116>error &lsquo;google/protobuf/stubs/common.h&rsquo;</a></li>
+<li><a href=https://blog.csdn.net/u010454261/article/details/71268325>libcudart.so.8.0: cannot open shared object file</a></li>
+<li><a href=https://blog.csdn.net/zllljf/article/details/80980939>ubuntu16.04+cuda8.0.44+cudnn5.1.5+caffe问题集</a></li>
+<li><a href=https://zh.wikipedia.org/wiki/Caffe>WIKI</a></li>
+<li><a href=https://github.com/weiliu89/caffe>github</a></li>
+</ul>
+<h3 id=修订历史>修订历史</h3>
+<ul>
+<li>2019-06-15， 初稿</li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2019-06-15
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/caffe/>caffe</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/installssd/>
+<i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">目标检测算法 SSD 在 Linux 上的配置</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/post/installkeras/><span class="next-text nav-default">Windows 10 安装 Keras 2.2.4</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/installkeras/>
+<span class="next-text nav-default">Windows 10 安装 Keras 2.2.4</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a><a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>

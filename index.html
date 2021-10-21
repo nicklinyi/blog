@@ -1,13 +1,250 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Lloyd</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="Hugo theme even example site."><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.82.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/><link href=https://blog.nickwhyy.top/index.xml rel=alternate type=application/rss+xml title=Lloyd><link href=https://blog.nickwhyy.top/index.xml rel=feed type=application/rss+xml title=Lloyd><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/sass/main.min.08e0708eca455a140b204891cafe5cbc24963361a814303009bf0a08751b7855.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Lloyd"><meta property="og:description" content="Hugo theme even example site."><meta property="og:type" content="website"><meta property="og:url" content="https://blog.nickwhyy.top/"><meta itemprop=name content="Lloyd"><meta itemprop=description content="Hugo theme even example site."><meta name=twitter:card content="summary"><meta name=twitter:title content="Lloyd"><meta name=twitter:description content="Hugo theme even example site."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Lloyd</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Lloyd</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/post/2021-08-31-pythonio/>Python IO 参考文档</a></h1><div class=post-meta><span class=post-time>2021-08-31</span><div class=post-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></div><span class=more-meta>约 298 字</span>
-<span class=more-meta>预计阅读 1 分钟</span></div></header><div class=post-content><div class=post-summary>1. numpy 读 ASCII 文本为numpy矩阵 1 2 3 4 5 6 7 8 9 import numpy as np try: c1 = np.loadtxt('data.txt') # 两列数据的文本 x, fx = np.loadtxt('data2.txt', unpack=True) except: print "problem reading data.txt data file" sys.exit(0) 2 读二进制到矩阵 1 2 3 4 import numpy as np # read</div><div class=read-more><a href=/post/2021-08-31-pythonio/ class=read-more-link>阅读更多</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/post/2021-08-09-matlabio/>Matlab IO 参考文档</a></h1><div class=post-meta><span class=post-time>2021-08-09</span><div class=post-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></div><span class=more-meta>约 771 字</span>
-<span class=more-meta>预计阅读 2 分钟</span></div></header><div class=post-content><div class=post-summary>1. 读二进制数据 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 function[ out ] =readBin( str, sz , precision)%readBin read data generated by madagascar % % IN: % str: name of input data % sz: size of the input data % precision: precision of the input data % % OUT: % out:</div><div class=read-more><a href=/post/2021-08-09-matlabio/ class=read-more-link>阅读更多</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/post/wired/>Ubuntu 20.04 安装 e1000e 有线网卡驱动</a></h1><div class=post-meta><span class=post-time>2021-03-11</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 1041 字</span>
-<span class=more-meta>预计阅读 3 分钟</span></div></header><div class=post-content><div class=post-summary>前言 首先确实是否安装了网卡驱动。 1 2 3 4 5 6 7 8 9 $ ifconfig lo: flags=73&lt;UP,LOOPBACK,RUNNING> mtu 65536 inet 127.0.0.1 netmask 255.0.0.0 inet6 ::1 prefixlen 128 scopeid 0x10&lt;host> loop txqueuelen 1000 (Local Loopback) RX packets 3549 bytes 283497 (283.4 KB) RX errors 0 dropped 0 overruns 0 frame 0 TX packets 3549 bytes 283497 (283.4 KB) TX</div><div class=read-more><a href=/post/wired/ class=read-more-link>阅读更多</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/post/instfnoroot/>CentOS 7.8 源码编译 tensorflow 2.5</a></h1><div class=post-meta><span class=post-time>2021-01-10</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 638 字</span>
-<span class=more-meta>预计阅读 2 分钟</span></div></header><div class=post-content><div class=post-summary>前言 之前写过一篇关于在Windows 10上安装tensorflow的例子，这篇博文主要讨论如何在没有root权限的服务器的GPU节点上源码编</div><div class=read-more><a href=/post/instfnoroot/ class=read-more-link>阅读更多</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/post/axisem2mineos/>AxiSEM 模型转化为 Mineos</a></h1><div class=post-meta><span class=post-time>2020-09-29</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6/>地震学</a></div><span class=more-meta>约 1159 字</span>
-<span class=more-meta>预计阅读 3 分钟</span></div></header><div class=post-content><div class=post-summary>Why 在初次使用Mineos软件时，为保证自己操作流程的正确性，一般会与自己之前熟悉的 软件进行一个结果的对比，这就要求输入的模型一致，震源参数一</div><div class=read-more><a href=/post/axisem2mineos/ class=read-more-link>阅读更多</a></div></div></article></section><nav class=pagination><a class=next href=/page/2/><span class=next-text>下一页</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a><a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Lloyd</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Lloyd"><meta name=description content="Hugo theme even example site."><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.88.1 with theme even">
+<link rel=canonical href=https://blog.nickwhyy.top/>
+<link href=https://blog.nickwhyy.top/index.xml rel=alternate type=application/rss+xml title=Lloyd>
+<link href=https://blog.nickwhyy.top/index.xml rel=feed type=application/rss+xml title=Lloyd>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Lloyd">
+<meta property="og:description" content="Hugo theme even example site.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.nickwhyy.top/">
+<meta itemprop=name content="Lloyd">
+<meta itemprop=description content="Hugo theme even example site."><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Lloyd">
+<meta name=twitter:description content="Hugo theme even example site."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>主页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/collection/>
+<li class=mobile-menu-item>安装</li>
+</a><a href=/links/>
+<li class=mobile-menu-item>链接</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>主页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/collection/>安装</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/links/>链接</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2021-08-31-pythonio/>Python IO 参考文档</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-31 </span>
+<div class=post-category>
+<a href=/categories/%E7%BC%96%E7%A8%8B/> 编程 </a>
+</div>
+<span class=more-meta> 约 298 字 </span>
+<span class=more-meta> 预计阅读 1 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1. numpy 读 ASCII 文本为numpy矩阵 1 2 3 4 5 6 7 8 9 import numpy as np try: c1 = np.loadtxt('data.txt') # 两列数据的文本 x, fx = np.loadtxt('data2.txt', unpack=True) except: print "problem reading data.txt data file" sys.exit(0) 2 读二进制到矩阵 1 2 3 4 import numpy as np # read
+</div>
+<div class=read-more>
+<a href=/post/2021-08-31-pythonio/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/2021-08-09-matlabio/>Matlab IO 参考文档</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-09 </span>
+<div class=post-category>
+<a href=/categories/%E7%BC%96%E7%A8%8B/> 编程 </a>
+</div>
+<span class=more-meta> 约 771 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1. 读二进制数据 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 function[ out ] =readBin( str, sz , precision)%readBin read data generated by madagascar % % IN: % str: name of input data % sz: size of the input data % precision: precision of the input data % % OUT: % out:
+</div>
+<div class=read-more>
+<a href=/post/2021-08-09-matlabio/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/wired/>Ubuntu 20.04 安装 e1000e 有线网卡驱动</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-03-11 </span>
+<div class=post-category>
+<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
+</div>
+<span class=more-meta> 约 1041 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+前言 首先确实是否安装了网卡驱动。 1 2 3 4 5 6 7 8 9 $ ifconfig lo: flags=73&lt;UP,LOOPBACK,RUNNING> mtu 65536 inet 127.0.0.1 netmask 255.0.0.0 inet6 ::1 prefixlen 128 scopeid 0x10&lt;host> loop txqueuelen 1000 (Local Loopback) RX packets 3549 bytes 283497 (283.4 KB) RX errors 0 dropped 0 overruns 0 frame 0 TX packets 3549 bytes 283497 (283.4 KB) TX
+</div>
+<div class=read-more>
+<a href=/post/wired/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/instfnoroot/>CentOS 7.8 源码编译 tensorflow 2.5</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-01-10 </span>
+<div class=post-category>
+<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
+</div>
+<span class=more-meta> 约 638 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+前言 之前写过一篇关于在Windows 10上安装tensorflow的例子，这篇博文主要讨论如何在没有root权限的服务器的GPU节点上源码编
+</div>
+<div class=read-more>
+<a href=/post/instfnoroot/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/post/axisem2mineos/>AxiSEM 模型转化为 Mineos</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-09-29 </span>
+<div class=post-category>
+<a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6/> 地震学 </a>
+</div>
+<span class=more-meta> 约 1159 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+Why 在初次使用Mineos软件时，为保证自己操作流程的正确性，一般会与自己之前熟悉的 软件进行一个结果的对比，这就要求输入的模型一致，震源参数一
+</div>
+<div class=read-more>
+<a href=/post/axisem2mineos/ class=read-more-link>阅读更多</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=next href=/page/2/>
+<span class=next-text>下一页</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>

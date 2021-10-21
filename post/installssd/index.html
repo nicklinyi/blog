@@ -1,8 +1,157 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>目标检测算法 SSD 在 Linux 上的配置 - Lloyd</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.82.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/installssd/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/sass/main.min.08e0708eca455a140b204891cafe5cbc24963361a814303009bf0a08751b7855.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="目标检测算法 SSD 在 Linux 上的配置"><meta property="og:description" content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/installssd/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-06-16T00:00:00+00:00"><meta property="article:modified_time" content="2019-06-16T00:00:00+00:00"><meta itemprop=name content="目标检测算法 SSD 在 Linux 上的配置"><meta itemprop=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><meta itemprop=datePublished content="2019-06-16T00:00:00+00:00"><meta itemprop=dateModified content="2019-06-16T00:00:00+00:00"><meta itemprop=wordCount content="1742"><meta itemprop=keywords content="caffe,SSD,"><meta name=twitter:card content="summary"><meta name=twitter:title content="目标检测算法 SSD 在 Linux 上的配置"><meta name=twitter:description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Lloyd</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Lloyd</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>目标检测算法 SSD 在 Linux 上的配置</h1><div class=post-meta><span class=post-time>2019-06-16</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 1742 字</span>
-<span class=more-meta>预计阅读 4 分钟</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#前言>前言</a></li><li><a href=#数据准备>数据准备</a></li><li><a href=#训练>训练</a></li><li><a href=#参考资料>参考资料</a></li><li><a href=#修订历史>修订历史</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=前言>前言</h3><p>本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下：</p><ul><li>Python 3.6</li><li>CUDA 8.0</li></ul><p>由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe， 具体见另一篇<a href=https://blog.nickwhyy.top/post/installcaffe/>博文</a>.
-成功安装caffe后，我们进入到 SSD 的配置。</p><h3 id=数据准备>数据准备</h3><ol><li>下载 <a href=https://gist.github.com/weiliu89/2ed6e13bfd5b57cf81d6>fully convolutional reduced (atrous) VGGNet</a>.
-并将其存储于<code>$CAFFE_ROOT/models/VGGNet/</code>下。</li><li>下载 VOC2007 和 VOC2012 数据集. 并将其存储于 <code>$HOME/data/</code>下。</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>目标检测算法 SSD 在 Linux 上的配置 - Lloyd</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Lloyd"><meta name=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.88.1 with theme even">
+<link rel=canonical href=https://blog.nickwhyy.top/post/installssd/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="目标检测算法 SSD 在 Linux 上的配置">
+<meta property="og:description" content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.nickwhyy.top/post/installssd/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-06-16T00:00:00+00:00">
+<meta property="article:modified_time" content="2019-06-16T00:00:00+00:00">
+<meta itemprop=name content="目标检测算法 SSD 在 Linux 上的配置">
+<meta itemprop=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><meta itemprop=datePublished content="2019-06-16T00:00:00+00:00">
+<meta itemprop=dateModified content="2019-06-16T00:00:00+00:00">
+<meta itemprop=wordCount content="1742">
+<meta itemprop=keywords content="caffe,SSD,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="目标检测算法 SSD 在 Linux 上的配置">
+<meta name=twitter:description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下： Python 3.6 CUDA 8.0 由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe，"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>主页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/collection/>
+<li class=mobile-menu-item>安装</li>
+</a><a href=/links/>
+<li class=mobile-menu-item>链接</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>主页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/collection/>安装</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/links/>链接</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>目标检测算法 SSD 在 Linux 上的配置</h1>
+<div class=post-meta>
+<span class=post-time> 2019-06-16 </span>
+<div class=post-category>
+<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
+</div>
+<span class=more-meta> 约 1742 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#前言>前言</a></li>
+<li><a href=#数据准备>数据准备</a></li>
+<li><a href=#训练>训练</a></li>
+<li><a href=#参考资料>参考资料</a></li>
+<li><a href=#修订历史>修订历史</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h3 id=前言>前言</h3>
+<p>本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 SSD。其他软件版本如下：</p>
+<ul>
+<li>Python 3.6</li>
+<li>CUDA 8.0</li>
+</ul>
+<p>由于 SSD 是在 caffe 框架上建立的，所以得先安装 caffe， 具体见另一篇<a href=https://blog.nickwhyy.top/post/installcaffe/>博文</a>.
+成功安装caffe后，我们进入到 SSD 的配置。</p>
+<h3 id=数据准备>数据准备</h3>
+<ol>
+<li>下载 <a href=https://gist.github.com/weiliu89/2ed6e13bfd5b57cf81d6>fully convolutional reduced (atrous) VGGNet</a>.
+并将其存储于<code>$CAFFE_ROOT/models/VGGNet/</code>下。</li>
+<li>下载 VOC2007 和 VOC2012 数据集. 并将其存储于 <code>$HOME/data/</code>下。</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -11,7 +160,9 @@
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>  # 下载数据集
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  # 下载数据集
  $ cd $HOME/data
  $ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
  $ wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar
@@ -20,7 +171,14 @@
  $ tar -xvf VOCtrainval_11-May-2012.tar
  $ tar -xvf VOCtrainval_06-Nov-2007.tar
  $ tar -xvf VOCtest_06-Nov-2007.tar
-</code></pre></td></tr></table></div></div><ol start=3><li>创建LMDB文件。</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><ol start=3>
+<li>创建LMDB文件。</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -29,7 +187,9 @@
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$  cd $CAFFE_ROOT
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$  cd $CAFFE_ROOT
   # Create the trainval.txt, test.txt, and test_name_size.txt in data/VOC0712/
 $  ./data/VOC0712/create_list.sh
   # You can modify the parameters in create_data.sh if needed.
@@ -38,14 +198,34 @@ $  ./data/VOC0712/create_list.sh
   #   - $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb
   # and make soft links at examples/VOC0712/
 $  ./data/VOC0712/create_data.sh
-</code></pre></td></tr></table></div></div><p>其中，<code>create_data.sh</code>这一步可能会报错，内容如下</p><blockquote></blockquote><p><code>ImportError: No module named caffe.proto</code></p><p>解决方案：
-在<code>~/.bashrc</code>文件中添加下面两行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>其中，<code>create_data.sh</code>这一步可能会报错，内容如下</p>
+<blockquote>
+</blockquote>
+<p><code>ImportError: No module named caffe.proto</code></p>
+<p>解决方案：
+在<code>~/.bashrc</code>文件中添加下面两行</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>export CAFFE_ROOT=$HOME/caffe # 按照自己caffe的安装目录填写即可
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>export CAFFE_ROOT=$HOME/caffe # 按照自己caffe的安装目录填写即可
 export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
-</code></pre></td></tr></table></div></div><p>然后，接着执行<code>create_data.sh</code>,可能会报如下错误：</p><blockquote></blockquote><p><code>ImportError: dynamic module does not define module export function (PyInit__caffe)</code></p><p>解决方案：
+</code></pre></td></tr></table>
+</div>
+</div><p>然后，接着执行<code>create_data.sh</code>,可能会报如下错误：</p>
+<blockquote>
+</blockquote>
+<p><code>ImportError: dynamic module does not define module export function (PyInit__caffe)</code></p>
+<p>解决方案：
 这问题是编译caffe时所选的版本和自己目前环境变量中python版本不一致导致的，需要重新编译caffe。修改
-<code>Makefile.config</code>文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+<code>Makefile.config</code>文件</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -59,7 +239,9 @@ export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># 注释掉Python2.7相关的语句
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># 注释掉Python2.7相关的语句
 #PYTHON_INCLUDE := /usr/include/python2.7 \
 #		/usr/lib/python2.7/dist-packages/numpy/core/include
 
@@ -73,20 +255,37 @@ PYTHON_INCLUDE := $(ANACONDA_HOME)/include \
 # 更改PYTHON_LIB
 #PYTHON_LIB := /usr/lib
  PYTHON_LIB := $(ANACONDA_HOME)/lib
-</code></pre></td></tr></table></div></div><p>修改之后，重新编译caffe</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>修改之后，重新编译caffe</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ make clean
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ make clean
 $ make -j8
 $ make py
 # 运行 create_data.sh
 $ ./data/VOC0712/create_data.sh
-</code></pre></td></tr></table></div></div><p>此时，可能会出现新的错误：</p><blockquote></blockquote><p><code>ImportError: /home/lloyd/caffe/python/caffe/_caffe.so: undefined symbol: _ZN5boost6python6detail11init_moduleER11PyModuleDefPFvvE</code></p><p>错误产生原因：
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，可能会出现新的错误：</p>
+<blockquote>
+</blockquote>
+<p><code>ImportError: /home/lloyd/caffe/python/caffe/_caffe.so: undefined symbol: _ZN5boost6python6detail11init_moduleER11PyModuleDefPFvvE</code></p>
+<p>错误产生原因：
 <code>boost_python</code>的版本不匹配，使用的python版本为3.6，而<code>/usr/lib/x86_64-linux-gnu/</code>下没有对应
-python 3.6版本的库文件。</p><p>解决方案：
-安装boost_python,采用python3.6的环境进行编译。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+python 3.6版本的库文件。</p>
+<p>解决方案：
+安装boost_python,采用python3.6的环境进行编译。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -94,7 +293,9 @@ python 3.6版本的库文件。</p><p>解决方案：
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># 下载安装包
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># 下载安装包
 wget -O boost_1_67_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.67.0/boost_1_67_0.tar.gz/download  
 # 解压缩
 tar xzvf boost_1_67_0.tar.gz      
@@ -102,76 +303,232 @@ tar xzvf boost_1_67_0.tar.gz
 cd boost_1_67_0/  
 # configure
 ./bootstrap.sh --prefix=/home/lloyd/boost --with-python=/home/lloyd/anaconda3/envs/py36/bin/python3 --with-python-root=/home/lloyd/anaconda3/envs/py36 --with-python-version=3.6
-</code></pre></td></tr></table></div></div><p>修改<code>project-config.jam</code>文件
-原文件为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>修改<code>project-config.jam</code>文件
+原文件为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># Python configuration
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># Python configuration
 import python ;
 if ! [ python.configured ]
 {
     using python : 3.6 : /home/lloyd/anaconda3/envs/py36 ;
 }
-</code></pre></td></tr></table></div></div><p>修改后为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>修改后为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># Python configuration
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># Python configuration
 import python ;
 if ! [ python.configured ]
 {
     using python : 3.6 : /home/lloyd/anaconda3/envs/py36 : /home/lloyd/anaconda3/envs/py36/include/python3.6m : /home/lloyd/anaconda3/envs/py36/lib ;
 }
-</code></pre></td></tr></table></div></div><p>然后修改<code>tools/build/src/tools/python.jam</code>文件第547行，
-原文件为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>includes ?= $(prefix)/include/python$(version) ;
-</code></pre></td></tr></table></div></div><p>修改为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>includes ?= $(prefix)/include/python$(version)m ;
-</code></pre></td></tr></table></div></div><p>之后，编译，安装即可：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>然后修改<code>tools/build/src/tools/python.jam</code>文件第547行，
+原文件为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>includes ?= $(prefix)/include/python$(version) ;
+</code></pre></td></tr></table>
+</div>
+</div><p>修改为：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>includes ?= $(prefix)/include/python$(version)m ;
+</code></pre></td></tr></table>
+</div>
+</div><p>之后，编译，安装即可：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ ./b2 
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ ./b2 
 $ ./b2 install
 # 复制库文件到系统库文件，建立软链接
 $ sudo cp /home/lloyd/boost/lib/libboost_python36.a  /usr/lib/x86_64-linux-gnu/libboost_python_python36.a
 $ sudo cp /home/lloyd/boost/lib/libboost_python36.so.1.67.0  /usr/lib/x86_64-linux-gnu/libboost_python36.so.1.67.0
 $ sudo cp /home/lloyd/boost/lib/libboost_python36.so /usr/lib/x86_64-linux-gnu/libboost_python36.so
 $ sudo ln /usr/lib/x86_64-linux-gnu/libboost_python36.so /usr/lib/x86_64-linux-gnu/libboost_python3.so
-</code></pre></td></tr></table></div></div><p>接着，回到<code>$CAFFE_ROOT</code>，然后继续运行<code>create_data.sh</code>,就能正确地创建数据文件了。</p><h3 id=训练>训练</h3><p>首先修改<code>examples/ssd/ssd_pascal.py</code>一些与数据存储位置相关的参数以及GPU信息。然后运行下面的命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ python examples/ssd/ssd_pascal.py
-</code></pre></td></tr></table></div></div><p>可能出现如下错误：</p><blockquote></blockquote><p><code>File "examples/ssd/ssd_pascal.py", line 314, in &lt;module> for ratio in xrange(min_ratio, max_ratio + 1, step): NameError: name 'xrange' is not defined</code></p><p>主要原因是在Python 3中，<code>range()</code>与<code>xrange()</code>合并为<code>range()</code>。因此修改<code>examples/ssd/ssd_pascal.py</code>
-中的<code>xrange</code>为<code>range</code>即可。</p><p>然后继续运行<code>python examples/ssd/ssd_pascal.py</code>,可能出现的错误有：</p><blockquote></blockquote><p><code>assert len > 0 TypeError: '>' not supported between instances of 'builtin_function_or_method' and 'int'</code></p><p>修改策略是注释掉<code>model_libs.py</code>中函数<code>UnpackVariable</code>定义中与<code>assert</code>相关的语句。</p><p>然后继续运行<code>python examples/ssd/ssd_pascal.py</code>,可能出现的错误有：</p><blockquote></blockquote><p><code>getattr(proto, name).extend(val) TypeError: 1.0 has type float, but expected one of: int, long</code></p><p>原因是在python3中 <code>/</code> 的结果是 float 导致的.
+</code></pre></td></tr></table>
+</div>
+</div><p>接着，回到<code>$CAFFE_ROOT</code>，然后继续运行<code>create_data.sh</code>,就能正确地创建数据文件了。</p>
+<h3 id=训练>训练</h3>
+<p>首先修改<code>examples/ssd/ssd_pascal.py</code>一些与数据存储位置相关的参数以及GPU信息。然后运行下面的命令</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ python examples/ssd/ssd_pascal.py
+</code></pre></td></tr></table>
+</div>
+</div><p>可能出现如下错误：</p>
+<blockquote>
+</blockquote>
+<p><code>File "examples/ssd/ssd_pascal.py", line 314, in &lt;module> for ratio in xrange(min_ratio, max_ratio + 1, step): NameError: name 'xrange' is not defined</code></p>
+<p>主要原因是在Python 3中，<code>range()</code>与<code>xrange()</code>合并为<code>range()</code>。因此修改<code>examples/ssd/ssd_pascal.py</code>
+中的<code>xrange</code>为<code>range</code>即可。</p>
+<p>然后继续运行<code>python examples/ssd/ssd_pascal.py</code>,可能出现的错误有：</p>
+<blockquote>
+</blockquote>
+<p><code>assert len > 0 TypeError: '>' not supported between instances of 'builtin_function_or_method' and 'int'</code></p>
+<p>修改策略是注释掉<code>model_libs.py</code>中函数<code>UnpackVariable</code>定义中与<code>assert</code>相关的语句。</p>
+<p>然后继续运行<code>python examples/ssd/ssd_pascal.py</code>,可能出现的错误有：</p>
+<blockquote>
+</blockquote>
+<p><code>getattr(proto, name).extend(val) TypeError: 1.0 has type float, but expected one of: int, long</code></p>
+<p>原因是在python3中 <code>/</code> 的结果是 float 导致的.
 解决方法：
-修改<code>python/caffe/net_spec.py</code>文件中含有<code>dilation</code>且含有<code>/</code>的语句，一共三条。比如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+修改<code>python/caffe/net_spec.py</code>文件中含有<code>dilation</code>且含有<code>/</code>的语句，一共三条。比如：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># pad = int((3 + (dilation - 1) * 2) - 1) / 2 # 原文件
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># pad = int((3 + (dilation - 1) * 2) - 1) / 2 # 原文件
 pad = int((3 + (dilation - 1) * 2) - 1) // 2  # 修改后
-</code></pre></td></tr></table></div></div><p>按照此策略，依次修改掉其他的另外两行语句。</p><p>然后继续运行<code>python examples/ssd/ssd_pascal.py</code>，就能顺利训练数据了。</p><h3 id=参考资料>参考资料</h3><ul><li><a href=https://github.com/weiliu89/caffe>SSD官方repo</a></li><li><a href=https://blog.csdn.net/lanyuelvyun/article/details/73628152>ImportError: No module named caffe.proto</a></li><li><a href=https://github.com/BVLC/caffe/issues/6054>ImportError: dynamic module does not define module export function (PyInit__caffe)</a></li><li><a href=https://blog.csdn.net/sinat_35406909/article/details/84198140>undefined symbol: _ZN5boost6python6detail11init_moduleER11PyModuleDefPFvvE</a></li><li><a href=https://www.cnblogs.com/freeweb/p/9209362.html>boost_python3 安装</a></li><li><a href=https://github.com/BVLC/caffe/issues/4843>cannot find -lboost_python3</a></li><li><a href=https://www.jianshu.com/p/5afdb561ce94>boost_python3 配置</a></li><li><a href=https://blog.csdn.net/lianchenglian/article/details/77945499>boost1.65.1库编译报错，找不到 pyconfig.h</a></li><li><a href=https://blog.csdn.net/dihe874981/article/details/86622906>getattr(proto, name).extend(val)</a></li></ul><h3 id=修订历史>修订历史</h3><ul><li>2019-06-16， 初稿</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2019-06-16</span></p><p class=copyright-item><span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/caffe/>caffe</a>
-<a href=/tags/ssd/>SSD</a></div><nav class=post-nav><a class=prev href=/post/installdetectron/><i class="iconfont icon-left"></i>
+</code></pre></td></tr></table>
+</div>
+</div><p>按照此策略，依次修改掉其他的另外两行语句。</p>
+<p>然后继续运行<code>python examples/ssd/ssd_pascal.py</code>，就能顺利训练数据了。</p>
+<h3 id=参考资料>参考资料</h3>
+<ul>
+<li><a href=https://github.com/weiliu89/caffe>SSD官方repo</a></li>
+<li><a href=https://blog.csdn.net/lanyuelvyun/article/details/73628152>ImportError: No module named caffe.proto</a></li>
+<li><a href=https://github.com/BVLC/caffe/issues/6054>ImportError: dynamic module does not define module export function (PyInit__caffe)</a></li>
+<li><a href=https://blog.csdn.net/sinat_35406909/article/details/84198140>undefined symbol: _ZN5boost6python6detail11init_moduleER11PyModuleDefPFvvE</a></li>
+<li><a href=https://www.cnblogs.com/freeweb/p/9209362.html>boost_python3 安装</a></li>
+<li><a href=https://github.com/BVLC/caffe/issues/4843>cannot find -lboost_python3</a></li>
+<li><a href=https://www.jianshu.com/p/5afdb561ce94>boost_python3 配置</a></li>
+<li><a href=https://blog.csdn.net/lianchenglian/article/details/77945499>boost1.65.1库编译报错，找不到 pyconfig.h</a></li>
+<li><a href=https://blog.csdn.net/dihe874981/article/details/86622906>getattr(proto, name).extend(val)</a></li>
+</ul>
+<h3 id=修订历史>修订历史</h3>
+<ul>
+<li>2019-06-16， 初稿</li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2019-06-16
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/caffe/>caffe</a>
+<a href=/tags/ssd/>SSD</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/installdetectron/>
+<i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">目标检测框架 Detectron 在 Linux 上的配置</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/post/installcaffe/><span class="next-text nav-default">Linux 安装 caffe</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/installcaffe/>
+<span class="next-text nav-default">Linux 安装 caffe</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a><a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>

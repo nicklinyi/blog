@@ -1,16 +1,186 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux 下安装 CUDA - Lloyd</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.82.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/cuda/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/sass/main.min.08e0708eca455a140b204891cafe5cbc24963361a814303009bf0a08751b7855.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Linux 下安装 CUDA"><meta property="og:description" content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/cuda/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-08-01T00:00:00+00:00"><meta property="article:modified_time" content="2017-08-01T00:00:00+00:00"><meta itemprop=name content="Linux 下安装 CUDA"><meta itemprop=description content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><meta itemprop=datePublished content="2017-08-01T00:00:00+00:00"><meta itemprop=dateModified content="2017-08-01T00:00:00+00:00"><meta itemprop=wordCount content="1511"><meta itemprop=keywords content="GPU,Cuda,Ubuntu,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 下安装 CUDA"><meta name=twitter:description content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Lloyd</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Lloyd</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Linux 下安装 CUDA</h1><div class=post-meta><span class=post-time>2017-08-01</span><div class=post-category><a href=/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97/>高性能计算</a></div><span class=more-meta>约 1511 字</span>
-<span class=more-meta>预计阅读 4 分钟</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#下载>下载</a><ul><li><a href=#确定自己有nvidia的gpu>确定自己有NVIDIA的GPU。</a></li><li><a href=#确定自己的操作系统是cuda官网列出的支持的操作系统>确定自己的操作系统是cuda官网列出的支持的操作系统：</a></li></ul></li><li><a href=#预处理>预处理</a></li><li><a href=#安装nvidia显卡驱动>安装Nvidia显卡驱动</a></li><li><a href=#安装cuda80>安装Cuda8.0</a></li><li><a href=#环境变量设置>环境变量设置</a></li><li><a href=#验证安装是否成功>验证安装是否成功</a><ul><li></li></ul></li><li><a href=#可能出现的问题>可能出现的问题</a></li><li><a href=#参考资料>参考资料</a></li></ul></li></ul></nav></div></div><div class=post-content><p>本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。</p><h2 id=下载>下载</h2><p>下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。</p><h3 id=确定自己有nvidia的gpu>确定自己有NVIDIA的GPU。</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ lspci | grep -i nvidia
-</code></pre></td></tr></table></div></div><p>如果有显示nvidia的显卡信息，则表示具备上述条件。一个符合条件的示例如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Linux 下安装 CUDA - Lloyd</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Lloyd"><meta name=description content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><meta name=keywords content="Hugo,theme,even">
+<meta name=generator content="Hugo 0.88.1 with theme even">
+<link rel=canonical href=https://blog.nickwhyy.top/post/cuda/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Linux 下安装 CUDA">
+<meta property="og:description" content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.nickwhyy.top/post/cuda/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2017-08-01T00:00:00+00:00">
+<meta property="article:modified_time" content="2017-08-01T00:00:00+00:00">
+<meta itemprop=name content="Linux 下安装 CUDA">
+<meta itemprop=description content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><meta itemprop=datePublished content="2017-08-01T00:00:00+00:00">
+<meta itemprop=dateModified content="2017-08-01T00:00:00+00:00">
+<meta itemprop=wordCount content="1511">
+<meta itemprop=keywords content="GPU,Cuda,Ubuntu,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Linux 下安装 CUDA">
+<meta name=twitter:description content="本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。 下载 下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。 确定自己有NVIDIA"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>主页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/collection/>
+<li class=mobile-menu-item>安装</li>
+</a><a href=/links/>
+<li class=mobile-menu-item>链接</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>Lloyd</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>主页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/collection/>安装</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/links/>链接</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Linux 下安装 CUDA</h1>
+<div class=post-meta>
+<span class=post-time> 2017-08-01 </span>
+<div class=post-category>
+<a href=/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97/> 高性能计算 </a>
+</div>
+<span class=more-meta> 约 1511 字 </span>
+<span class=more-meta> 预计阅读 4 分钟 </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#下载>下载</a>
+<ul>
+<li><a href=#确定自己有nvidia的gpu>确定自己有NVIDIA的GPU。</a></li>
+<li><a href=#确定自己的操作系统是cuda官网列出的支持的操作系统>确定自己的操作系统是cuda官网列出的支持的操作系统：</a></li>
+</ul>
+</li>
+<li><a href=#预处理>预处理</a></li>
+<li><a href=#安装nvidia显卡驱动>安装Nvidia显卡驱动</a></li>
+<li><a href=#安装cuda80>安装Cuda8.0</a></li>
+<li><a href=#环境变量设置>环境变量设置</a></li>
+<li><a href=#验证安装是否成功>验证安装是否成功</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href=#可能出现的问题>可能出现的问题</a></li>
+<li><a href=#参考资料>参考资料</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>本文介绍如何在 Ubuntu 16.04 LTS 上安装 CUDA-8.0 。</p>
+<h2 id=下载>下载</h2>
+<p>下载之前首先确定自己的电脑的显卡为Nvidia的显卡。其次是查询自己电脑的操作系统。</p>
+<h3 id=确定自己有nvidia的gpu>确定自己有NVIDIA的GPU。</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ lspci | grep -i nvidia
+</code></pre></td></tr></table>
+</div>
+</div><p>如果有显示nvidia的显卡信息，则表示具备上述条件。一个符合条件的示例如下：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>nick@seis:~$ lspci | grep -i nvidia
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>nick@seis:~$ lspci | grep -i nvidia
 01:00.0 VGA compatible controller: NVIDIA Corporation Device 1b00 (rev a1)
 01:00.1 Audio device: NVIDIA Corporation Device 10ef (rev a1)
-</code></pre></td></tr></table></div></div><h3 id=确定自己的操作系统是cuda官网列出的支持的操作系统>确定自己的操作系统是cuda官网列出的支持的操作系统：</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ uname -m &amp;&amp; cat /etc/*release
-</code></pre></td></tr></table></div></div><p>官网上列出的有Fedora, OpenSUSE, RHEL, CentOS, SLES, Ubuntu。一个符合条件的示例如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=确定自己的操作系统是cuda官网列出的支持的操作系统>确定自己的操作系统是cuda官网列出的支持的操作系统：</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ uname -m &amp;&amp; cat /etc/*release
+</code></pre></td></tr></table>
+</div>
+</div><p>官网上列出的有Fedora, OpenSUSE, RHEL, CentOS, SLES, Ubuntu。一个符合条件的示例如下：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -27,7 +197,9 @@
 </span><span class=lnt>15
 </span><span class=lnt>16
 </span><span class=lnt>17
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>nick@seis:~$ uname -m &amp;&amp; cat /etc/*release
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>nick@seis:~$ uname -m &amp;&amp; cat /etc/*release
 x86_64
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=16.04
@@ -44,59 +216,194 @@ SUPPORT_URL=&#34;http://help.ubuntu.com/&#34;
 BUG_REPORT_URL=&#34;http://bugs.launchpad.net/ubuntu/&#34;
 UBUNTU_CODENAME=xenial
 
-</code></pre></td></tr></table></div></div><p>确认好这些信息后，从<a href=https://developer.nvidia.com/cuda-downloads>官网</a>上下载对应的安装文件，这里选择下载是runfile(local)文件。</p><p>下载完成后，确认文件是否完整：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>确认好这些信息后，从<a href=https://developer.nvidia.com/cuda-downloads>官网</a>上下载对应的安装文件，这里选择下载是runfile(local)文件。</p>
+<p>下载完成后，确认文件是否完整：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ md5sum cuda_8.0.61_375.26_linux.run
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ md5sum cuda_8.0.61_375.26_linux.run
 33e1bd980e91af4e55f3ef835c103f9b  cuda_8.0.61_375.26_linux.run
-</code></pre></td></tr></table></div></div><h2 id=预处理>预处理</h2><p>删除之前安装的关于nvidia的软件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get purge nvidia-cuda*
-</code></pre></td></tr></table></div></div><p>如果想安装显卡驱动的话，则采用下面的命令:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get purge nvidia-*
-</code></pre></td></tr></table></div></div><h2 id=安装nvidia显卡驱动>安装Nvidia显卡驱动</h2><ol><li>更新系统</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=预处理>预处理</h2>
+<p>删除之前安装的关于nvidia的软件</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get purge nvidia-cuda*
+</code></pre></td></tr></table>
+</div>
+</div><p>如果想安装显卡驱动的话，则采用下面的命令:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get purge nvidia-*
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=安装nvidia显卡驱动>安装Nvidia显卡驱动</h2>
+<ol>
+<li>更新系统</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get update
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
-</code></pre></td></tr></table></div></div><ol start=2><li>添加Nvidia显卡驱动源</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo add-apt-repository ppa:graphics-drivers/ppa
-</code></pre></td></tr></table></div></div><p>运行该命令会警告是否添加，按回车继续即可。</p><ol start=3><li>更新系统源</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get update
-</code></pre></td></tr></table></div></div><ol start=4><li>通过<code>Ctrl+Alt+F2</code>进入终端界面；</li><li>停止使用图形界面:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo service lightdm stop
-</code></pre></td></tr></table></div></div><ol start=6><li>在<code>/etc/modprobe.d/</code>目录下新建<code>blacklist-nouveau.conf</code>文件，并在该文件中写入下列信息:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><ol start=2>
+<li>添加Nvidia显卡驱动源</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo add-apt-repository ppa:graphics-drivers/ppa
+</code></pre></td></tr></table>
+</div>
+</div><p>运行该命令会警告是否添加，按回车继续即可。</p>
+<ol start=3>
+<li>更新系统源</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get update
+</code></pre></td></tr></table>
+</div>
+</div><ol start=4>
+<li>通过<code>Ctrl+Alt+F2</code>进入终端界面；</li>
+<li>停止使用图形界面:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo service lightdm stop
+</code></pre></td></tr></table>
+</div>
+</div><ol start=6>
+<li>在<code>/etc/modprobe.d/</code>目录下新建<code>blacklist-nouveau.conf</code>文件，并在该文件中写入下列信息:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>blacklist nouveau
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>blacklist nouveau
 options nouveau modeset=0
-</code></pre></td></tr></table></div></div><ol start=7><li>重新生成内核initrd:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo update-initramfs -u
-</code></pre></td></tr></table></div></div><ol start=8><li>搜索最新的驱动并安装</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><ol start=7>
+<li>重新生成内核initrd:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo update-initramfs -u
+</code></pre></td></tr></table>
+</div>
+</div><ol start=8>
+<li>搜索最新的驱动并安装</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ apt-cache search nvidia*
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ apt-cache search nvidia*
 $ sudo apt-get install nvidia-384 # 目前为最新版本
-</code></pre></td></tr></table></div></div><ol start=9><li>重启</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo reboot
-</code></pre></td></tr></table></div></div><h2 id=安装cuda80>安装Cuda8.0</h2><p>运行安装文件<code>cuda_8.0.61_375.26_linux.run</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ sudo sh cuda_8.0.61_375.26_linux.run --override
-</code></pre></td></tr></table></div></div><p>对于安装过程中出现的选择, 除了安装显卡驱动那个选n，其他的全部选择y。</p><h2 id=环境变量设置>环境变量设置</h2><p>在<code>~/.bashrc</code>文件最后添加下列语句</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><ol start=9>
+<li>重启</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo reboot
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=安装cuda80>安装Cuda8.0</h2>
+<p>运行安装文件<code>cuda_8.0.61_375.26_linux.run</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo sh cuda_8.0.61_375.26_linux.run --override
+</code></pre></td></tr></table>
+</div>
+</div><p>对于安装过程中出现的选择, 除了安装显卡驱动那个选n，其他的全部选择y。</p>
+<h2 id=环境变量设置>环境变量设置</h2>
+<p>在<code>~/.bashrc</code>文件最后添加下列语句</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># CUDA-8.0
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># CUDA-8.0
 export PATH=$PATH:/usr/local/cuda/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64
-</code></pre></td></tr></table></div></div><p>然后再终端执行下述语句完成环境变量的设置。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>source ~/.bashrc
-</code></pre></td></tr></table></div></div><h2 id=验证安装是否成功>验证安装是否成功</h2><h4 id=显示nvidia版本>显示nvidia版本</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table>
+</div>
+</div><p>然后再终端执行下述语句完成环境变量的设置。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>source ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=验证安装是否成功>验证安装是否成功</h2>
+<h4 id=显示nvidia版本>显示nvidia版本</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ nvcc --version
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2016 NVIDIA Corporation
 Built on Tue_Jan_10_13:22:03_CST_2017
 Cuda compilation tools, release 8.0, V8.0.61
-</code></pre></td></tr></table></div></div><h4 id=显示驱动版本以及gpu的内存信息>显示驱动版本以及GPU的内存信息</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=显示驱动版本以及gpu的内存信息>显示驱动版本以及GPU的内存信息</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -115,7 +422,9 @@ Cuda compilation tools, release 8.0, V8.0.61
 </span><span class=lnt>17
 </span><span class=lnt>18
 </span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ nvidia-smi
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ nvidia-smi
 Fri Aug  4 15:12:38 2017       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 375.26                 Driver Version: 375.26                    |
@@ -134,9 +443,15 @@ Fri Aug  4 15:12:38 2017
 |    0     14522    G   /usr/lib/xorg/Xorg                             179MiB |
 |    0     15124    G   compiz                                          43MiB |
 +-----------------------------------------------------------------------------+
-</code></pre></td></tr></table></div></div><h4 id=运行示例文件>运行示例文件</h4><p>进入<code>NVIDIA_CUDA-8.0_Samples</code>文件夹下（默认在<code>$HOME</code>目录下），运行<code>make</code>进行编译，
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=运行示例文件>运行示例文件</h4>
+<p>进入<code>NVIDIA_CUDA-8.0_Samples</code>文件夹下（默认在<code>$HOME</code>目录下），运行<code>make</code>进行编译，
 编译需要花费一定的时间。编译完成后，进入<code>bin/x86_64/linux/release</code>目录，随便找一个
-可执行文件，这里选择<code>deviceQuery</code>,运行该文件，若得到类似于下面的结果，则表示安装无误。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+可执行文件，这里选择<code>deviceQuery</code>,运行该文件，若得到类似于下面的结果，则表示安装无误。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -179,7 +494,9 @@ Fri Aug  4 15:12:38 2017
 </span><span class=lnt>41
 </span><span class=lnt>42
 </span><span class=lnt>43
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>$ ./deviceQuery
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ ./deviceQuery
 ./deviceQuery Starting...
 
  CUDA Device Query (Runtime API) version (CUDART static linking)
@@ -222,26 +539,115 @@ Device 0: &#34;TITAN X (Pascal)&#34;
 deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 8.0, CUDA Runtime Version = 8.0, NumDevs = 1, Device0 = TITAN X (Pascal)
 Result = PASS
 
-</code></pre></td></tr></table></div></div><h2 id=可能出现的问题>可能出现的问题</h2><ol><li>安装完成后，下次登录系统的时候出现循环登录而进不去图形界面。</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>这种情况一般情况下是显卡驱动不是最新版本造成的，建议安装最新版本的显卡驱动。
-</code></pre></td></tr></table></div></div><h2 id=参考资料>参考资料</h2><ul><li><a href=https://askubuntu.com/questions/799184/how-can-i-install-cuda-on-ubuntu-16-04>https://askubuntu.com/questions/799184/how-can-i-install-cuda-on-ubuntu-16-04</a></li><li><a href=http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#axzz4HIBXnwyt>http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#axzz4HIBXnwyt</a></li><li><a href=http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-ubuntu-16-04-nvidia-gtx-1080-cuda-8#comments>http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-ubuntu-16-04-nvidia-gtx-1080-cuda-8#comments</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2017-08-01</span></p><p class=copyright-item><span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/gpu/>GPU</a>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=可能出现的问题>可能出现的问题</h2>
+<ol>
+<li>安装完成后，下次登录系统的时候出现循环登录而进不去图形界面。</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>这种情况一般情况下是显卡驱动不是最新版本造成的，建议安装最新版本的显卡驱动。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=参考资料>参考资料</h2>
+<ul>
+<li><a href=https://askubuntu.com/questions/799184/how-can-i-install-cuda-on-ubuntu-16-04>https://askubuntu.com/questions/799184/how-can-i-install-cuda-on-ubuntu-16-04</a></li>
+<li><a href=http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#axzz4HIBXnwyt>http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#axzz4HIBXnwyt</a></li>
+<li><a href=http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-ubuntu-16-04-nvidia-gtx-1080-cuda-8#comments>http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-ubuntu-16-04-nvidia-gtx-1080-cuda-8#comments</a></li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2017-08-01
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/gpu/>GPU</a>
 <a href=/tags/cuda/>Cuda</a>
-<a href=/tags/ubuntu/>Ubuntu</a></div><nav class=post-nav><a class=prev href=/post/debian/><i class="iconfont icon-left"></i>
+<a href=/tags/ubuntu/>Ubuntu</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/debian/>
+<i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Debian升级系统至Stretch</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/post/rsf-fonts/><span class="next-text nav-default">Madagascar绘图字体以及特殊符号的处理</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/post/rsf-fonts/>
+<span class="next-text nav-default">Madagascar绘图字体以及特殊符号的处理</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a><a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Lloyd</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>

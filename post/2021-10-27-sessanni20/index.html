@@ -31,7 +31,7 @@
 <meta itemprop=name content="SESS 20周年庆生卡自动获取">
 <meta itemprop=description content="1. 前言 2021年10月26日，北大地空学院成立20周年。学院为每一位天地人，准备了一张专属的纪念卡。领取的方式比较简单，关注&#34;北大"><meta itemprop=datePublished content="2021-10-27T00:00:00+00:00">
 <meta itemprop=dateModified content="2021-10-27T00:00:00+00:00">
-<meta itemprop=wordCount content="1895">
+<meta itemprop=wordCount content="1840">
 <meta itemprop=keywords content="Python,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="SESS 20周年庆生卡自动获取">
 <meta name=twitter:description content="1. 前言 2021年10月26日，北大地空学院成立20周年。学院为每一位天地人，准备了一张专属的纪念卡。领取的方式比较简单，关注&#34;北大"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -107,7 +107,7 @@
 <div class=post-category>
 <a href=/categories/%E7%BC%96%E7%A8%8B/> 编程 </a>
 </div>
-<span class=more-meta> 约 1895 字 </span>
+<span class=more-meta> 约 1840 字 </span>
 <span class=more-meta> 预计阅读 4 分钟 </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
 </div>
@@ -145,7 +145,7 @@
 <p>2021年10月26日，北大地空学院成立20周年。学院为每一位天地人，准备了一张专属的纪念卡。领取的方式比较简单，关注"北大地空SESS"微信公众号，打开《@北大地空，20岁生日快乐！》，然后按文中的说明即可领取专属的纪念卡。</p>
 <p>但由于网站上有一个活动是会给&rsquo;专属卡号尾号为20&rsquo;的朋友送上神秘礼物。所以，只能写脚本来实现这一枯燥的过程。</p>
 <h2 id=2-进入活动页面>2. 进入活动页面</h2>
-<p>本来以为需要学习微信小程序来写这个脚本。但后来发现可以直接通过”https://jiema.wwei.cn“来扫描上述公众号文章中的二维码来获得活动界面的网址：https://filec8386ebc7632.v4.h5sys.cn/play/oXCeVHq9，然后用Chrome登陆这个网页即可。</p>
+<p>本来以为需要学习微信小程序来写这个脚本。但后来发现可以直接通过 <a href=https://jiema.wwei.cn>https://jiema.wwei.cn</a> 来扫描上述公众号文章中的二维码来获得活动界面的网址：https://filec8386ebc7632.v4.h5sys.cn/play/oXCeVHq9 ，然后用Chrome登陆这个网页即可。</p>
 <h2 id=3-网页测试>3. 网页测试</h2>
 <p>通过第2步的操作进入页面后，发现通过按住并拖动往上滑可以进入下一个页面，然后在下一页需要点击页面下方的按钮上传图片，图片上传完然后点击确定按钮即可得到专属的纪念卡了。整个过程比较简单，因此可以用代码来实现。</p>
 <p>明确需求后，就可以用Python来实现这一过程。首先需要使用<code>selenium</code>这个包，然后还需要下载<code>chromedriver</code>。<code>selenium</code> 会通过调用<code>chromedriver</code>来实现利用系统中的Chrome完成一系列的操作。</p>
@@ -159,7 +159,7 @@
 <pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>pip</span> <span class=n>install</span> <span class=n>selenium</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>chromedriver</code>不需要安装，直接通过https://chromedriver.chromium.org/ 下载对应自己Chrome的版本的exe文件即可。</p>
+</div><p><code>chromedriver</code>不需要安装，直接通过 <a href=https://chromedriver.chromium.org/>https://chromedriver.chromium.org/</a> 下载对应自己Chrome的版本的exe文件即可。</p>
 <h3 id=32-登录网页>3.2 登录网页</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -211,7 +211,7 @@
 <span class=n>ActionChains</span><span class=p>(</span><span class=n>driver</span><span class=p>)</span><span class=o>.</span><span class=n>click</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=o>.</span><span class=n>perform</span><span class=p>()</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>这时，会打开一个windows的选择文件的界面，这是selenium就无法处理这种问题了。需要借助于一些其他的工具。这里我使用的是<code>Autoit</code>工具。其下载链接为：https://www.autoitscript.com/site/autoit/downloads/。下载该软件，然后安装和别的windows软件安装的方式一样。</p>
+</div><p>这时，会打开一个windows的选择文件的界面，这是selenium就无法处理这种问题了。需要借助于一些其他的工具。这里我使用的是<code>Autoit</code>工具。其下载链接为：https://www.autoitscript.com/site/autoit/downloads/ 。下载该软件，然后安装和别的windows软件安装的方式一样。</p>
 <h4 id=341-autoit-window-info>3.4.1 AutoIt Window Info</h4>
 <p>可以打开最开始的那个网页，然后手动操作至出现上传图片的对话框。这时打开<code>AutoIt Window Info</code>工具， 然后用鼠标拖住工具上的<code>Finder Tool</code>的图标到要识别的对话框上，主要是对话框的标题，以及提交的那个按钮的信息等。</p>
 <h4 id=342-scite-script-editor>3.4.2 SciTE Script Editor</h4>

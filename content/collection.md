@@ -8,7 +8,7 @@ comments: false
 ---
 
 ## 地震学软件
-- [AxiSEM3D](https://blog.nickwhyy.top/post/axisem3d/)
+- [AxiSEM3D](https://blog.nickwhyy.top/post/axisem3dinstall/)
 - [DENISE](https://blog.nickwhyy.top/post/denise)
 - [Madagascar](https://blog.nickwhyy.top/post/madagascar)
 - [MinesJTK](https://blog.nickwhyy.top/post/jtkinstall)

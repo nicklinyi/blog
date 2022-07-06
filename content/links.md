@@ -7,19 +7,13 @@ menu: "main"
 comments: false
 ---
 
+### 科学研究代码
+ - [https://seismo-learn.org/](https://seismo-learn.org/links/codes/)
+
+### Listing of non-alphanumeric keys
+  https://www.computerhope.com/keys.htm
+
 ### 正演模拟
-
-#### 谱元法
-
- - [SPECFEM1D - Spectral element seismic modelling code in 1D media](https://github.com/komatits/specfem1d)
- - [SPECFEM2D - Spectral element seismic modelling code in 2D Cartesian Coordinates](https://github.com/komatits/specfem2d)
- - [SPECFEM3D - Spectral element seismic modelling code in 3D Cartesian Coordinates](https://github.com/komatits/specfem3d)
- - [SPECFEM3D\_GLOBE - Spectral element seismic modelling code in 3D Spherical Coordinates](https://github.com/komatits/specfem3d_globe)
-
-#### 有限差分
-
- - [Seismic 2D/3D modelling FD codes SOFI from　KIT](https://www.gpi.kit.edu/Software-WS.php)
- - [Seismic CPML 2D/3D FD modelling codes for visco- and　poroelastic media by D. Komatitsch and R.　Martin](https://github.com/komatits/seismic_cpml)
 
 #### 有限元
 

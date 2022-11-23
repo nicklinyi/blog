@@ -25,7 +25,7 @@ $ sudo apt install librime-data-double-pinyin
 ```
 $ mkdir ~/.config/ibus/rime
 ```
-然后，新建两个文件`~/.config/ibus/rime/default.custom.yaml`和`~/.config/ibus/rime/ibus_rime.yaml`。
+然后，新建两个文件`~/.config/ibus/rime/default.custom.yaml`和`~/.config/ibus/rime/ibus_rime.custom.yaml`。
 其中`~/.config/ibus/rime/default.custom.yaml`的内容如下（下面代码中`#`后面的为注释部分）
 
 ```
@@ -37,10 +37,11 @@ patch:
 ```
 这段代码用于配置小鹤双拼方案，并设置候选词为9个。
 
-`~/.config/ibus/rime/ibus_rime.yaml`文件内容如下：
+`~/.config/ibus/rime/ibus_rime.custom.yaml`文件内容如下：
 ```
-style:
-    horizontal: true
+patch:
+    style:
+        horizontal: true
 ```
 这段代码的目的是设置输入法候选词的显示方式为横向。
 
@@ -71,4 +72,4 @@ style:
 ## 参考资料
 - https://www.likecs.com/show-477129.html#sc=2647
 - https://www.cnblogs.com/willwuss/p/14354143.html
-
+- https://www.bilibili.com/read/cv14690644

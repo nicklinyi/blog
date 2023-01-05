@@ -1,151 +1,10 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Seismic Unix 绘图指南 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Lloyd"><meta name=description content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow(&amp;#39;velocity.eps&amp;#39;,&amp;#39;velocity.dat&amp;#39;, &amp;#39;&amp;#39;&amp;#39; psimage"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/suplot/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Seismic Unix 绘图指南">
-<meta property="og:description" content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow('velocity.eps','velocity.dat', ''' psimage">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/suplot/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-06-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-06-11T00:00:00+00:00">
-<meta itemprop=name content="Seismic Unix 绘图指南">
-<meta itemprop=description content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow('velocity.eps','velocity.dat', ''' psimage"><meta itemprop=datePublished content="2018-06-11T00:00:00+00:00">
-<meta itemprop=dateModified content="2018-06-11T00:00:00+00:00">
-<meta itemprop=wordCount content="308">
-<meta itemprop=keywords content="SU,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Seismic Unix 绘图指南">
-<meta name=twitter:description content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow('velocity.eps','velocity.dat', ''' psimage"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Seismic Unix 绘图指南 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow(&amp;#39;velocity.eps&amp;#39;,&amp;#39;velocity.dat&amp;#39;, &amp;#39;&amp;#39;&amp;#39; psimage"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/suplot/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Seismic Unix 绘图指南"><meta property="og:description" content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow('velocity.eps','velocity.dat', ''' psimage"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/suplot/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-06-11T00:00:00+00:00"><meta property="article:modified_time" content="2018-06-11T00:00:00+00:00"><meta itemprop=name content="Seismic Unix 绘图指南"><meta itemprop=description content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow('velocity.eps','velocity.dat', ''' psimage"><meta itemprop=datePublished content="2018-06-11T00:00:00+00:00"><meta itemprop=dateModified content="2018-06-11T00:00:00+00:00"><meta itemprop=wordCount content="308"><meta itemprop=keywords content="SU,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Seismic Unix 绘图指南"><meta name=twitter:description content="本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 http://nickwhyy.top/su-scons-together/ 。 二维数据 灰度图 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from rsf.proj import * import rsf.suproj as sp sp.Flow('velocity.eps','velocity.dat', ''' psimage"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Seismic Unix 绘图指南</h1>
-<div class=post-meta>
-<span class=post-time> 2018-06-11 </span>
-<div class=post-category>
-<a href=/categories/%E7%BB%98%E5%9B%BE/> 绘图 </a>
-</div>
-<span class=more-meta> 约 308 字 </span>
-<span class=more-meta> 预计阅读 1 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#二维数据>二维数据</a>
-<ul>
-<li><a href=#灰度图>灰度图</a></li>
-<li><a href=#彩色图>彩色图</a></li>
-<li><a href=#波形图>波形图</a></li>
-</ul>
-</li>
-<li><a href=#三维数据>三维数据</a>
-<ul>
-<li><a href=#灰度图-1>灰度图</a></li>
-<li><a href=#彩色图-1>彩色图</a></li>
-</ul>
-</li>
-<li><a href=#参考资料>参考资料</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 <a href=http://nickwhyy.top/su-scons-together/>http://nickwhyy.top/su-scons-together/</a> 。</p>
-<h2 id=二维数据>二维数据</h2>
-<h3 id=灰度图>灰度图</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Seismic Unix 绘图指南</h1><div class=post-meta><span class=post-time>2018-06-11</span><div class=post-category><a href=/categories/%E7%BB%98%E5%9B%BE/>绘图</a></div><span class=more-meta>约 308 字</span>
+<span class=more-meta>预计阅读 1 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#二维数据>二维数据</a><ul><li><a href=#灰度图>灰度图</a></li><li><a href=#彩色图>彩色图</a></li><li><a href=#波形图>波形图</a></li></ul></li><li><a href=#三维数据>三维数据</a><ul><li><a href=#灰度图-1>灰度图</a></li><li><a href=#彩色图-1>彩色图</a></li></ul></li><li><a href=#参考资料>参考资料</a></li></ul></li></ul></nav></div></div><div class=post-content><p>本博文的示例采用 SConstruct 脚本来书写，关于如何采用 SConstruct 写 Seismic Unix 脚本详见另一篇博文 <a href=http://nickwhyy.top/su-scons-together/>http://nickwhyy.top/su-scons-together/</a> 。</p><h2 id=二维数据>二维数据</h2><h3 id=灰度图>灰度图</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -161,31 +20,23 @@
 </span><span class=lnt>14
 </span><span class=lnt>15
 </span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>rsf.proj</span> <span class=kn>import</span> <span class=o>*</span>
-<span class=kn>import</span> <span class=nn>rsf.suproj</span> <span class=k>as</span> <span class=nn>sp</span>
-
-<span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;velocity.eps&#39;</span><span class=p>,</span><span class=s1>&#39;velocity.dat&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;&#39;&#39;
-</span><span class=s1>    psimage
-</span><span class=s1>    n1=300 d1=12.192 d2=12.192
-</span><span class=s1>    d1num=1000 f1num=0 n1tic=1
-</span><span class=s1>    d2num=2000 f2num=0 n2tic=1
-</span><span class=s1>    width=3.33 height=1.6
-</span><span class=s1>    label2=&#39;Distance (m)&#39; label1=&#39;Depth (m)&#39; labelsize=8
-</span><span class=s1>    legend=1 lstyle=vertright units=&#39;Velocity (m/s)&#39;
-</span><span class=s1>    lwidth=0.1 lheight=1.6
-</span><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
-
-<span class=n>End</span><span class=p>()</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/NjfTNgdD/seg.png alt=seg></p>
-<h3 id=彩色图>彩色图</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>rsf.proj</span> <span class=kn>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>rsf.suproj</span> <span class=k>as</span> <span class=nn>sp</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;velocity.eps&#39;</span><span class=p>,</span><span class=s1>&#39;velocity.dat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    psimage
+</span></span></span><span class=line><span class=cl><span class=s1>    n1=300 d1=12.192 d2=12.192
+</span></span></span><span class=line><span class=cl><span class=s1>    d1num=1000 f1num=0 n1tic=1
+</span></span></span><span class=line><span class=cl><span class=s1>    d2num=2000 f2num=0 n2tic=1
+</span></span></span><span class=line><span class=cl><span class=s1>    width=3.33 height=1.6
+</span></span></span><span class=line><span class=cl><span class=s1>    label2=&#39;Distance (m)&#39; label1=&#39;Depth (m)&#39; labelsize=8
+</span></span></span><span class=line><span class=cl><span class=s1>    legend=1 lstyle=vertright units=&#39;Velocity (m/s)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    lwidth=0.1 lheight=1.6
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>End</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/NjfTNgdD/seg.png alt=seg></p><h3 id=彩色图>彩色图</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -202,55 +53,38 @@
 </span><span class=lnt>15
 </span><span class=lnt>16
 </span><span class=lnt>17
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>rsf.proj</span> <span class=kn>import</span> <span class=o>*</span>
-<span class=kn>import</span> <span class=nn>rsf.suproj</span> <span class=k>as</span> <span class=nn>sp</span>
-
-<span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;vel-color.eps&#39;</span><span class=p>,</span><span class=s1>&#39;velocity.dat&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;&#39;&#39;
-</span><span class=s1>    psimage
-</span><span class=s1>    n1=300 d1=12.192 d2=12.192
-</span><span class=s1>    d1num=1000 f1num=0 n1tic=1
-</span><span class=s1>    d2num=2000 f2num=0 n2tic=1
-</span><span class=s1>    width=3.33 height=1.6
-</span><span class=s1>    label2=&#39;Distance (m)&#39; label1=&#39;Depth (m)&#39; labelsize=8
-</span><span class=s1>    legend=1 lstyle=vertright units=&#39;Velocity (m/s)&#39;
-</span><span class=s1>    lwidth=0.1 lheight=1.6
-</span><span class=s1>    threecolor=1 wrgb=1.0,0,0 grgb=1.0,1.0,1.0 brgb=0,0,1.0
-</span><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
-
-<span class=n>End</span><span class=p>()</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/G3GktgBF/seg-color.png alt=seg-color></p>
-<h3 id=波形图>波形图</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>rsf.proj</span> <span class=kn>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>rsf.suproj</span> <span class=k>as</span> <span class=nn>sp</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;vel-color.eps&#39;</span><span class=p>,</span><span class=s1>&#39;velocity.dat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    psimage
+</span></span></span><span class=line><span class=cl><span class=s1>    n1=300 d1=12.192 d2=12.192
+</span></span></span><span class=line><span class=cl><span class=s1>    d1num=1000 f1num=0 n1tic=1
+</span></span></span><span class=line><span class=cl><span class=s1>    d2num=2000 f2num=0 n2tic=1
+</span></span></span><span class=line><span class=cl><span class=s1>    width=3.33 height=1.6
+</span></span></span><span class=line><span class=cl><span class=s1>    label2=&#39;Distance (m)&#39; label1=&#39;Depth (m)&#39; labelsize=8
+</span></span></span><span class=line><span class=cl><span class=s1>    legend=1 lstyle=vertright units=&#39;Velocity (m/s)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    lwidth=0.1 lheight=1.6
+</span></span></span><span class=line><span class=cl><span class=s1>    threecolor=1 wrgb=1.0,0,0 grgb=1.0,1.0,1.0 brgb=0,0,1.0
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>End</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/G3GktgBF/seg-color.png alt=seg-color></p><h3 id=波形图>波形图</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;dn.eps&#39;</span><span class=p>,</span><span class=s1>&#39;dn.bin&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;&#39;&#39;
-</span><span class=s1>    pswigb
-</span><span class=s1>    n1=501 d1=0.002 d2=1
-</span><span class=s1>    wbox=3.33 hbox=4
-</span><span class=s1>    label2=&#39;Trace #&#39; label1=&#39;Time (s)&#39; labelsize=8
-</span><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/3JZmCyFW/trace.png alt=trace></p>
-<h2 id=三维数据>三维数据</h2>
-<h3 id=灰度图-1>灰度图</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;dn.eps&#39;</span><span class=p>,</span><span class=s1>&#39;dn.bin&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    pswigb
+</span></span></span><span class=line><span class=cl><span class=s1>    n1=501 d1=0.002 d2=1
+</span></span></span><span class=line><span class=cl><span class=s1>    wbox=3.33 hbox=4
+</span></span></span><span class=line><span class=cl><span class=s1>    label2=&#39;Trace #&#39; label1=&#39;Time (s)&#39; labelsize=8
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/3JZmCyFW/trace.png alt=trace></p><h2 id=三维数据>三维数据</h2><h3 id=灰度图-1>灰度图</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -272,37 +106,29 @@
 </span><span class=lnt>20
 </span><span class=lnt>21
 </span><span class=lnt>22
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;salt3d_dat_txy.eps&#39;</span><span class=p>,</span><span class=s1>&#39;salt3d_dat_txy.TRC&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;&#39;&#39;
-</span><span class=s1>    pscube n1=501 n2=250 n3=201
-</span><span class=s1>    d1=0.008 f1=0
-</span><span class=s1>    d2=0.04 f2=0
-</span><span class=s1>    d3=0.04 f3=0
-</span><span class=s1>    f3num=0.5
-</span><span class=s1>    d3num=2
-</span><span class=s1>    n3tic=1
-</span><span class=s1>    size1=4 size2=3.33 size3=1.5
-</span><span class=s1>    label1=&#39;Time (s)&#39;
-</span><span class=s1>    label2=&#39;x (km)&#39;
-</span><span class=s1>    label3=&#39;y (km)&#39;
-</span><span class=s1>    labelsize=8
-</span><span class=s1>    perc=98
-</span><span class=s1>    bps=24
-</span><span class=s1>    legend=1
-</span><span class=s1>    lstyle=vertright
-</span><span class=s1>    units=&#39;Amplitude&#39;
-</span><span class=s1>    lwidth=0.1
-</span><span class=s1>    lheight=4.0
-</span><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/bv4tN1pV/3D.png alt=3D></p>
-<h3 id=彩色图-1>彩色图</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;salt3d_dat_txy.eps&#39;</span><span class=p>,</span><span class=s1>&#39;salt3d_dat_txy.TRC&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    pscube n1=501 n2=250 n3=201
+</span></span></span><span class=line><span class=cl><span class=s1>    d1=0.008 f1=0
+</span></span></span><span class=line><span class=cl><span class=s1>    d2=0.04 f2=0
+</span></span></span><span class=line><span class=cl><span class=s1>    d3=0.04 f3=0
+</span></span></span><span class=line><span class=cl><span class=s1>    f3num=0.5
+</span></span></span><span class=line><span class=cl><span class=s1>    d3num=2
+</span></span></span><span class=line><span class=cl><span class=s1>    n3tic=1
+</span></span></span><span class=line><span class=cl><span class=s1>    size1=4 size2=3.33 size3=1.5
+</span></span></span><span class=line><span class=cl><span class=s1>    label1=&#39;Time (s)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    label2=&#39;x (km)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    label3=&#39;y (km)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    labelsize=8
+</span></span></span><span class=line><span class=cl><span class=s1>    perc=98
+</span></span></span><span class=line><span class=cl><span class=s1>    bps=24
+</span></span></span><span class=line><span class=cl><span class=s1>    legend=1
+</span></span></span><span class=line><span class=cl><span class=s1>    lstyle=vertright
+</span></span></span><span class=line><span class=cl><span class=s1>    units=&#39;Amplitude&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    lwidth=0.1
+</span></span></span><span class=line><span class=cl><span class=s1>    lheight=4.0
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/bv4tN1pV/3D.png alt=3D></p><h3 id=彩色图-1>彩色图</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -326,124 +152,51 @@
 </span><span class=lnt>22
 </span><span class=lnt>23
 </span><span class=lnt>24
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;salt3d_vel_zxy.eps&#39;</span><span class=p>,</span><span class=s1>&#39;salt3d_vel_zxy.TRC&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;&#39;&#39;
-</span><span class=s1>    pscube n1=201 n2=250 n3=250
-</span><span class=s1>    d1=0.04 f1=0
-</span><span class=s1>    d2=0.04 f2=0
-</span><span class=s1>    d3=0.04 f3=0
-</span><span class=s1>    f3num=0.5
-</span><span class=s1>    d3num=2
-</span><span class=s1>    n3tic=1
-</span><span class=s1>    size1=4 size2=3.33 size3=1.5
-</span><span class=s1>    label1=&#39;Depth (km)&#39;
-</span><span class=s1>    label2=&#39;x (km)&#39;
-</span><span class=s1>    label3=&#39;y (km)&#39;
-</span><span class=s1>    labelsize=8
-</span><span class=s1>    perc=98
-</span><span class=s1>    bps=24
-</span><span class=s1>    legend=1
-</span><span class=s1>    lstyle=vertright
-</span><span class=s1>    units=&#39;Amplitude&#39;
-</span><span class=s1>    lwidth=0.1
-</span><span class=s1>    lheight=4.0
-</span><span class=s1>    wrgb=0.0,0.0,1.0 grgb=1.0,0.0,0.0 brgb=1.0,1.0,1.0
-</span><span class=s1>    bps=24
-</span><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/GhRvyPYZ/3dColor.png alt=3dColor></p>
-<h2 id=参考资料>参考资料</h2>
-<p><a href=http://blog.sciencenet.cn/blog-2834901-1084725.html>http://blog.sciencenet.cn/blog-2834901-1084725.html</a></p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2018-06-11
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/su/>SU</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/jtkinstall/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>sp</span><span class=o>.</span><span class=n>Flow</span><span class=p>(</span><span class=s1>&#39;salt3d_vel_zxy.eps&#39;</span><span class=p>,</span><span class=s1>&#39;salt3d_vel_zxy.TRC&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    pscube n1=201 n2=250 n3=250
+</span></span></span><span class=line><span class=cl><span class=s1>    d1=0.04 f1=0
+</span></span></span><span class=line><span class=cl><span class=s1>    d2=0.04 f2=0
+</span></span></span><span class=line><span class=cl><span class=s1>    d3=0.04 f3=0
+</span></span></span><span class=line><span class=cl><span class=s1>    f3num=0.5
+</span></span></span><span class=line><span class=cl><span class=s1>    d3num=2
+</span></span></span><span class=line><span class=cl><span class=s1>    n3tic=1
+</span></span></span><span class=line><span class=cl><span class=s1>    size1=4 size2=3.33 size3=1.5
+</span></span></span><span class=line><span class=cl><span class=s1>    label1=&#39;Depth (km)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    label2=&#39;x (km)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    label3=&#39;y (km)&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    labelsize=8
+</span></span></span><span class=line><span class=cl><span class=s1>    perc=98
+</span></span></span><span class=line><span class=cl><span class=s1>    bps=24
+</span></span></span><span class=line><span class=cl><span class=s1>    legend=1
+</span></span></span><span class=line><span class=cl><span class=s1>    lstyle=vertright
+</span></span></span><span class=line><span class=cl><span class=s1>    units=&#39;Amplitude&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    lwidth=0.1
+</span></span></span><span class=line><span class=cl><span class=s1>    lheight=4.0
+</span></span></span><span class=line><span class=cl><span class=s1>    wrgb=0.0,0.0,1.0 grgb=1.0,0.0,0.0 brgb=1.0,1.0,1.0
+</span></span></span><span class=line><span class=cl><span class=s1>    bps=24
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/GhRvyPYZ/3dColor.png alt=3dColor></p><h2 id=参考资料>参考资料</h2><p><a href=http://blog.sciencenet.cn/blog-2834901-1084725.html>http://blog.sciencenet.cn/blog-2834901-1084725.html</a></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-06-11</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/su/>SU</a></div><nav class=post-nav><a class=prev href=/post/jtkinstall/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Windows 下 MinesJTK 安装指南</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/wsl/>
-<span class="next-text nav-default">Windows Subsystem for Linux 安装及使用</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/wsl/><span class="next-text nav-default">Windows Subsystem for Linux 安装及使用</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

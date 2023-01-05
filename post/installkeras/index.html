@@ -1,150 +1,11 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Windows 10 安装 Keras 2.2.4 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Lloyd"><meta name=description content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/installkeras/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Windows 10 安装 Keras 2.2.4">
-<meta property="og:description" content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/installkeras/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2019-05-17T00:00:00+00:00">
-<meta property="article:modified_time" content="2019-05-17T00:00:00+00:00">
-<meta itemprop=name content="Windows 10 安装 Keras 2.2.4">
-<meta itemprop=description content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><meta itemprop=datePublished content="2019-05-17T00:00:00+00:00">
-<meta itemprop=dateModified content="2019-05-17T00:00:00+00:00">
-<meta itemprop=wordCount content="1220">
-<meta itemprop=keywords content="keras,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Windows 10 安装 Keras 2.2.4">
-<meta name=twitter:description content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Windows 10 安装 Keras 2.2.4 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/installkeras/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Windows 10 安装 Keras 2.2.4"><meta property="og:description" content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/installkeras/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-05-17T00:00:00+00:00"><meta property="article:modified_time" content="2019-05-17T00:00:00+00:00"><meta itemprop=name content="Windows 10 安装 Keras 2.2.4"><meta itemprop=description content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><meta itemprop=datePublished content="2019-05-17T00:00:00+00:00"><meta itemprop=dateModified content="2019-05-17T00:00:00+00:00"><meta itemprop=wordCount content="1220"><meta itemprop=keywords content="keras,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Windows 10 安装 Keras 2.2.4"><meta name=twitter:description content="前期准备 Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensor"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Windows 10 安装 Keras 2.2.4</h1>
-<div class=post-meta>
-<span class=post-time> 2019-05-17 </span>
-<div class=post-category>
-<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
-</div>
-<span class=more-meta> 约 1220 字 </span>
-<span class=more-meta> 预计阅读 3 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href=#前期准备>前期准备</a></li>
-<li><a href=#安装-tensorflow-150>安装 tensorflow 1.5.0</a></li>
-<li><a href=#安装-keras-224>安装 keras 2.2.4</a></li>
-<li><a href=#测试>测试</a></li>
-<li><a href=#参考资料>参考资料</a></li>
-<li><a href=#修订历史>修订历史</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h3 id=前期准备>前期准备</h3>
-<p>Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensorflow为后端的Keras。</p>
-<h3 id=安装-tensorflow-150>安装 tensorflow 1.5.0</h3>
-<p>并不是说Keras 2.2.4版本一定要安装tensorflow 1.5.0，只不过是我之前装好了tensorflow-1.5.0，并在此基础上成功的安装了Keras 2.2.4. 所以
-这两个版本在我电脑上是能正常工作的。安装tensorflow 1.5.0 可参考我的另外一篇博文https://blog.nickwhyy.top/post/installtensorflow/</p>
-<h3 id=安装-keras-224>安装 keras 2.2.4</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Windows 10 安装 Keras 2.2.4</h1><div class=post-meta><span class=post-time>2019-05-17</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 1220 字</span>
+<span class=more-meta>预计阅读 3 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#前期准备>前期准备</a></li><li><a href=#安装-tensorflow-150>安装 tensorflow 1.5.0</a></li><li><a href=#安装-keras-224>安装 keras 2.2.4</a></li><li><a href=#测试>测试</a></li><li><a href=#参考资料>参考资料</a></li><li><a href=#修订历史>修订历史</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=前期准备>前期准备</h3><p>Keras 是一个用Python 编写的高级神经网络API，它能够以TensorFlow, CNTK, 或者Theano 作为后端运行。在此安装以Tensorflow为后端的Keras。</p><h3 id=安装-tensorflow-150>安装 tensorflow 1.5.0</h3><p>并不是说Keras 2.2.4版本一定要安装tensorflow 1.5.0，只不过是我之前装好了tensorflow-1.5.0，并在此基础上成功的安装了Keras 2.2.4. 所以
+这两个版本在我电脑上是能正常工作的。安装tensorflow 1.5.0 可参考我的另外一篇博文https://blog.nickwhyy.top/post/installtensorflow/</p><h3 id=安装-keras-224>安装 keras 2.2.4</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -156,45 +17,29 @@
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>(tensorflow) C:\Users\Admin&gt;pip install keras -U --pre
-Collecting keras
-  Using cached https://files.pythonhosted.org/packages/5e/10/aa32dad071ce52b5502266b5c659451cfd6ffcbf14e6c8c4f16c0ff5aaab/Keras-2.2.4-py2.py3-none-any.whl
-Requirement already up-to-date: six&gt;=1.9.0 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Requirement already up-to-date: numpy&gt;=1.9.1 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Requirement already up-to-date: h5py in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Requirement already up-to-date: keras-applications&gt;=1.0.6 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Requirement already up-to-date: keras-preprocessing&gt;=1.0.5 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Requirement already up-to-date: pyyaml in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Requirement already up-to-date: scipy&gt;=0.14 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
-Installing collected packages: keras
-Successfully installed keras-2.2.4
-</code></pre></td></tr></table>
-</div>
-</div><p>验证是否能运行，进入python，并import keras 模块</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>(tensorflow) C:\Users\Admin&gt;pip install keras -U --pre
+</span></span><span class=line><span class=cl>Collecting keras
+</span></span><span class=line><span class=cl>  Using cached https://files.pythonhosted.org/packages/5e/10/aa32dad071ce52b5502266b5c659451cfd6ffcbf14e6c8c4f16c0ff5aaab/Keras-2.2.4-py2.py3-none-any.whl
+</span></span><span class=line><span class=cl>Requirement already up-to-date: six&gt;=1.9.0 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Requirement already up-to-date: numpy&gt;=1.9.1 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Requirement already up-to-date: h5py in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Requirement already up-to-date: keras-applications&gt;=1.0.6 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Requirement already up-to-date: keras-preprocessing&gt;=1.0.5 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Requirement already up-to-date: pyyaml in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Requirement already up-to-date: scipy&gt;=0.14 in g:\program\anaconda3\envs\tensorflow-gpu-py35\lib\site-packages (from keras)
+</span></span><span class=line><span class=cl>Installing collected packages: keras
+</span></span><span class=line><span class=cl>Successfully installed keras-2.2.4
+</span></span></code></pre></td></tr></table></div></div><p>验证是否能运行，进入python，并import keras 模块</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>(tensorflow) C:\Users\Admin&gt;python
-Python 3.5.4 |Continuum Analytics, Inc.| (default, Aug 14 2017, 13:41:13) [MSC v.1900 64 bit (AMD64)] on win32
-Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.
-&gt;&gt;&gt; import keras
-Using TensorFlow backend.
-</code></pre></td></tr></table>
-</div>
-</div><p>如果是类似上面的结果，表面keras安装成功。</p>
-<h3 id=测试>测试</h3>
-<p>首先，先安装git，然后下载mnist数据集，接着运行例子脚本</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>(tensorflow) C:\Users\Admin&gt;python
+</span></span><span class=line><span class=cl>Python 3.5.4 |Continuum Analytics, Inc.| (default, Aug 14 2017, 13:41:13) [MSC v.1900 64 bit (AMD64)] on win32
+</span></span><span class=line><span class=cl>Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.
+</span></span><span class=line><span class=cl>&gt;&gt;&gt; import keras
+</span></span><span class=line><span class=cl>Using TensorFlow backend.
+</span></span></code></pre></td></tr></table></div></div><p>如果是类似上面的结果，表面keras安装成功。</p><h3 id=测试>测试</h3><p>首先，先安装git，然后下载mnist数据集，接着运行例子脚本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -267,181 +112,101 @@ Using TensorFlow backend.
 </span><span class=lnt>71
 </span><span class=lnt>72
 </span><span class=lnt>73
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>(tensorflow) C:\Users\Admin&gt;conda install git
-(tensorflow) C:\Users\Admin&gt;git clone https://github.com/fchollet/keras.git
-(tensorflow) C:\Users\Admin&gt;cd keras/examples/
-(tensorflow) C:\Users\Admin&gt;python mnist_mlp.py
-Using TensorFlow backend.
-60000 train samples
-10000 test samples
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #
-=================================================================
-dense_1 (Dense)              (None, 512)               401920
-_________________________________________________________________
-dropout_1 (Dropout)          (None, 512)               0
-_________________________________________________________________
-dense_2 (Dense)              (None, 512)               262656
-_________________________________________________________________
-dropout_2 (Dropout)          (None, 512)               0
-_________________________________________________________________
-dense_3 (Dense)              (None, 10)                5130
-=================================================================
-Total params: 669,706
-Trainable params: 669,706
-Non-trainable params: 0
-_________________________________________________________________
-Train on 60000 samples, validate on 10000 samples
-Epoch 1/20
-2019-05-17 08:33:14.461356: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\platform\cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
-2019-05-17 08:33:14.733043: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1105] Found device 0 with properties:
-name: GeForce GTX 1060 3GB major: 6 minor: 1 memoryClockRate(GHz): 1.7465
-pciBusID: 0000:01:00.0
-totalMemory: 3.00GiB freeMemory: 2.42GiB
-2019-05-17 08:33:14.737722: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -&gt; (device: 0, name: GeForce GTX 1060 3GB, pci bus id: 0000:01:00.0, compute capability: 6.1)
-60000/60000 [==============================] - 5s 88us/step - loss: 0.2495 - acc: 0.9227 - val_loss: 0.1002 - val_acc: 0.9672
-Epoch 2/20
-60000/60000 [==============================] - 3s 45us/step - loss: 0.1028 - acc: 0.9685 - val_loss: 0.0910 - val_acc: 0.9736
-Epoch 3/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0750 - acc: 0.9770 - val_loss: 0.0776 - val_acc: 0.9765
-Epoch 4/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0594 - acc: 0.9822 - val_loss: 0.0676 - val_acc: 0.9813
-Epoch 5/20
-60000/60000 [==============================] - 3s 43us/step - loss: 0.0502 - acc: 0.9848 - val_loss: 0.0753 - val_acc: 0.9802
-Epoch 6/20
-60000/60000 [==============================] - 3s 43us/step - loss: 0.0437 - acc: 0.9866 - val_loss: 0.0826 - val_acc: 0.9785
-Epoch 7/20
-60000/60000 [==============================] - 3s 43us/step - loss: 0.0397 - acc: 0.9885 - val_loss: 0.0767 - val_acc: 0.9808
-Epoch 8/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0343 - acc: 0.9900 - val_loss: 0.0739 - val_acc: 0.9831
-Epoch 9/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0310 - acc: 0.9907 - val_loss: 0.0893 - val_acc: 0.9806
-Epoch 10/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0306 - acc: 0.9911 - val_loss: 0.0877 - val_acc: 0.9816
-Epoch 11/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0280 - acc: 0.9923 - val_loss: 0.0829 - val_acc: 0.9836
-Epoch 12/20
-60000/60000 [==============================] - 3s 43us/step - loss: 0.0268 - acc: 0.9922 - val_loss: 0.0943 - val_acc: 0.9804
-Epoch 13/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0235 - acc: 0.9932 - val_loss: 0.0942 - val_acc: 0.9821
-Epoch 14/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0203 - acc: 0.9938 - val_loss: 0.1041 - val_acc: 0.9819
-Epoch 15/20
-60000/60000 [==============================] - 3s 43us/step - loss: 0.0223 - acc: 0.9937 - val_loss: 0.1115 - val_acc: 0.9808
-Epoch 16/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0204 - acc: 0.9945 - val_loss: 0.1017 - val_acc: 0.9835
-Epoch 17/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0197 - acc: 0.9950 - val_loss: 0.1142 - val_acc: 0.9829
-Epoch 18/20
-60000/60000 [==============================] - 3s 43us/step - loss: 0.0206 - acc: 0.9951 - val_loss: 0.1265 - val_acc: 0.9803
-Epoch 19/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0196 - acc: 0.9950 - val_loss: 0.1015 - val_acc: 0.9842
-Epoch 20/20
-60000/60000 [==============================] - 3s 44us/step - loss: 0.0200 - acc: 0.9952 - val_loss: 0.1010 - val_acc: 0.9840
-Test loss: 0.10101144369584511
-Test accuracy: 0.984
-</code></pre></td></tr></table>
-</div>
-</div><p>如果出现上述的结果，就表明整个keras是可以正常运行的。如果出现<code>softmax() got an unexpected keyword argument 'axis'</code>这个错误，表明tensorflow
-的版本过低，建议升级一下tensorflow，再重新安装keras。</p>
-<h3 id=参考资料>参考资料</h3>
-<ul>
-<li><a href=https://keras-cn.readthedocs.io/en/latest/for_beginners/keras_windows/>Keras windows安装文档</a></li>
-<li><a href=https://github.com/keras-team/keras/issues/9621>softmax() error</a></li>
-</ul>
-<h3 id=修订历史>修订历史</h3>
-<ul>
-<li>2019-05-17， 初稿</li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2019-05-17
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/keras/>keras</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/installcaffe/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>(tensorflow) C:\Users\Admin&gt;conda install git
+</span></span><span class=line><span class=cl>(tensorflow) C:\Users\Admin&gt;git clone https://github.com/fchollet/keras.git
+</span></span><span class=line><span class=cl>(tensorflow) C:\Users\Admin&gt;cd keras/examples/
+</span></span><span class=line><span class=cl>(tensorflow) C:\Users\Admin&gt;python mnist_mlp.py
+</span></span><span class=line><span class=cl>Using TensorFlow backend.
+</span></span><span class=line><span class=cl>60000 train samples
+</span></span><span class=line><span class=cl>10000 test samples
+</span></span><span class=line><span class=cl>_________________________________________________________________
+</span></span><span class=line><span class=cl>Layer (type)                 Output Shape              Param #
+</span></span><span class=line><span class=cl>=================================================================
+</span></span><span class=line><span class=cl>dense_1 (Dense)              (None, 512)               401920
+</span></span><span class=line><span class=cl>_________________________________________________________________
+</span></span><span class=line><span class=cl>dropout_1 (Dropout)          (None, 512)               0
+</span></span><span class=line><span class=cl>_________________________________________________________________
+</span></span><span class=line><span class=cl>dense_2 (Dense)              (None, 512)               262656
+</span></span><span class=line><span class=cl>_________________________________________________________________
+</span></span><span class=line><span class=cl>dropout_2 (Dropout)          (None, 512)               0
+</span></span><span class=line><span class=cl>_________________________________________________________________
+</span></span><span class=line><span class=cl>dense_3 (Dense)              (None, 10)                5130
+</span></span><span class=line><span class=cl>=================================================================
+</span></span><span class=line><span class=cl>Total params: 669,706
+</span></span><span class=line><span class=cl>Trainable params: 669,706
+</span></span><span class=line><span class=cl>Non-trainable params: 0
+</span></span><span class=line><span class=cl>_________________________________________________________________
+</span></span><span class=line><span class=cl>Train on 60000 samples, validate on 10000 samples
+</span></span><span class=line><span class=cl>Epoch 1/20
+</span></span><span class=line><span class=cl>2019-05-17 08:33:14.461356: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\platform\cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+</span></span><span class=line><span class=cl>2019-05-17 08:33:14.733043: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1105] Found device 0 with properties:
+</span></span><span class=line><span class=cl>name: GeForce GTX 1060 3GB major: 6 minor: 1 memoryClockRate(GHz): 1.7465
+</span></span><span class=line><span class=cl>pciBusID: 0000:01:00.0
+</span></span><span class=line><span class=cl>totalMemory: 3.00GiB freeMemory: 2.42GiB
+</span></span><span class=line><span class=cl>2019-05-17 08:33:14.737722: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\35\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -&gt; (device: 0, name: GeForce GTX 1060 3GB, pci bus id: 0000:01:00.0, compute capability: 6.1)
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 5s 88us/step - loss: 0.2495 - acc: 0.9227 - val_loss: 0.1002 - val_acc: 0.9672
+</span></span><span class=line><span class=cl>Epoch 2/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 45us/step - loss: 0.1028 - acc: 0.9685 - val_loss: 0.0910 - val_acc: 0.9736
+</span></span><span class=line><span class=cl>Epoch 3/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0750 - acc: 0.9770 - val_loss: 0.0776 - val_acc: 0.9765
+</span></span><span class=line><span class=cl>Epoch 4/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0594 - acc: 0.9822 - val_loss: 0.0676 - val_acc: 0.9813
+</span></span><span class=line><span class=cl>Epoch 5/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 43us/step - loss: 0.0502 - acc: 0.9848 - val_loss: 0.0753 - val_acc: 0.9802
+</span></span><span class=line><span class=cl>Epoch 6/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 43us/step - loss: 0.0437 - acc: 0.9866 - val_loss: 0.0826 - val_acc: 0.9785
+</span></span><span class=line><span class=cl>Epoch 7/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 43us/step - loss: 0.0397 - acc: 0.9885 - val_loss: 0.0767 - val_acc: 0.9808
+</span></span><span class=line><span class=cl>Epoch 8/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0343 - acc: 0.9900 - val_loss: 0.0739 - val_acc: 0.9831
+</span></span><span class=line><span class=cl>Epoch 9/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0310 - acc: 0.9907 - val_loss: 0.0893 - val_acc: 0.9806
+</span></span><span class=line><span class=cl>Epoch 10/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0306 - acc: 0.9911 - val_loss: 0.0877 - val_acc: 0.9816
+</span></span><span class=line><span class=cl>Epoch 11/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0280 - acc: 0.9923 - val_loss: 0.0829 - val_acc: 0.9836
+</span></span><span class=line><span class=cl>Epoch 12/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 43us/step - loss: 0.0268 - acc: 0.9922 - val_loss: 0.0943 - val_acc: 0.9804
+</span></span><span class=line><span class=cl>Epoch 13/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0235 - acc: 0.9932 - val_loss: 0.0942 - val_acc: 0.9821
+</span></span><span class=line><span class=cl>Epoch 14/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0203 - acc: 0.9938 - val_loss: 0.1041 - val_acc: 0.9819
+</span></span><span class=line><span class=cl>Epoch 15/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 43us/step - loss: 0.0223 - acc: 0.9937 - val_loss: 0.1115 - val_acc: 0.9808
+</span></span><span class=line><span class=cl>Epoch 16/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0204 - acc: 0.9945 - val_loss: 0.1017 - val_acc: 0.9835
+</span></span><span class=line><span class=cl>Epoch 17/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0197 - acc: 0.9950 - val_loss: 0.1142 - val_acc: 0.9829
+</span></span><span class=line><span class=cl>Epoch 18/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 43us/step - loss: 0.0206 - acc: 0.9951 - val_loss: 0.1265 - val_acc: 0.9803
+</span></span><span class=line><span class=cl>Epoch 19/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0196 - acc: 0.9950 - val_loss: 0.1015 - val_acc: 0.9842
+</span></span><span class=line><span class=cl>Epoch 20/20
+</span></span><span class=line><span class=cl>60000/60000 [==============================] - 3s 44us/step - loss: 0.0200 - acc: 0.9952 - val_loss: 0.1010 - val_acc: 0.9840
+</span></span><span class=line><span class=cl>Test loss: 0.10101144369584511
+</span></span><span class=line><span class=cl>Test accuracy: 0.984
+</span></span></code></pre></td></tr></table></div></div><p>如果出现上述的结果，就表明整个keras是可以正常运行的。如果出现<code>softmax() got an unexpected keyword argument 'axis'</code>这个错误，表明tensorflow
+的版本过低，建议升级一下tensorflow，再重新安装keras。</p><h3 id=参考资料>参考资料</h3><ul><li><a href=https://keras-cn.readthedocs.io/en/latest/for_beginners/keras_windows/>Keras windows安装文档</a></li><li><a href=https://github.com/keras-team/keras/issues/9621>softmax() error</a></li></ul><h3 id=修订历史>修订历史</h3><ul><li>2019-05-17， 初稿</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2019-05-17</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/keras/>keras</a></div><nav class=post-nav><a class=prev href=/post/installcaffe/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Linux 安装 caffe</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/manjaro/>
-<span class="next-text nav-default">Manjaro</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/manjaro/><span class="next-text nav-default">Manjaro</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

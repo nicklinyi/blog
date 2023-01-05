@@ -1,156 +1,11 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>目标检测框架 Detectron 在 Linux 上的配置 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Lloyd"><meta name=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/installdetectron/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="目标检测框架 Detectron 在 Linux 上的配置">
-<meta property="og:description" content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/installdetectron/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2019-06-23T00:00:00+00:00">
-<meta property="article:modified_time" content="2019-06-23T00:00:00+00:00">
-<meta itemprop=name content="目标检测框架 Detectron 在 Linux 上的配置">
-<meta itemprop=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><meta itemprop=datePublished content="2019-06-23T00:00:00+00:00">
-<meta itemprop=dateModified content="2019-06-23T00:00:00+00:00">
-<meta itemprop=wordCount content="659">
-<meta itemprop=keywords content="caffe2,Pytorch,Detectron,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="目标检测框架 Detectron 在 Linux 上的配置">
-<meta name=twitter:description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>目标检测框架 Detectron 在 Linux 上的配置 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/installdetectron/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="目标检测框架 Detectron 在 Linux 上的配置"><meta property="og:description" content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/installdetectron/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-06-23T00:00:00+00:00"><meta property="article:modified_time" content="2019-06-23T00:00:00+00:00"><meta itemprop=name content="目标检测框架 Detectron 在 Linux 上的配置"><meta itemprop=description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><meta itemprop=datePublished content="2019-06-23T00:00:00+00:00"><meta itemprop=dateModified content="2019-06-23T00:00:00+00:00"><meta itemprop=wordCount content="542"><meta itemprop=keywords content="caffe2,Pytorch,Detectron,"><meta name=twitter:card content="summary"><meta name=twitter:title content="目标检测框架 Detectron 在 Linux 上的配置"><meta name=twitter:description content="前言 本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下： Python 3.6 CUDA 9.0 cuDNN 7.3 Detectron 是 Facebook AI 研究组开发的一个实现了目前"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>目标检测框架 Detectron 在 Linux 上的配置</h1>
-<div class=post-meta>
-<span class=post-time> 2019-06-23 </span>
-<div class=post-category>
-<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
-</div>
-<span class=more-meta> 约 659 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href=#前言>前言</a></li>
-<li><a href=#安装pytorch>安装PyTorch</a></li>
-<li><a href=#安装detectron>安装Detectron</a></li>
-<li><a href=#错误汇总>错误汇总</a></li>
-<li><a href=#参考资料>参考资料</a></li>
-<li><a href=#修订历史>修订历史</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h3 id=前言>前言</h3>
-<p>本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下：</p>
-<ul>
-<li>Python 3.6</li>
-<li>CUDA 9.0</li>
-<li>cuDNN 7.3</li>
-</ul>
-<p>Detectron 是 Facebook AI 研究组开发的一个实现了目前主流目标识别方法的软件，该软件基于 caffe2 框架上。而 caffe2 又集成于
-PyTorch 中，所以需要安装PyTorch.</p>
-<h3 id=安装pytorch>安装PyTorch</h3>
-<p>建议手动编译PyTorch，整个过程比较简单。具体如下：</p>
-<h4 id=安装依赖项>安装依赖项</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>目标检测框架 Detectron 在 Linux 上的配置</h1><div class=post-meta><span class=post-time>2019-06-23</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 542 字</span>
+<span class=more-meta>预计阅读 2 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#前言>前言</a></li><li><a href=#安装pytorch>安装PyTorch</a></li><li><a href=#安装detectron>安装Detectron</a></li><li><a href=#错误汇总>错误汇总</a></li><li><a href=#参考资料>参考资料</a></li><li><a href=#修订历史>修订历史</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h3 id=前言>前言</h3><p>本文介绍如何在Ubuntu 16.04 LTS 系统上配置目标检测框架 Detectron。其他软件版本如下：</p><ul><li>Python 3.6</li><li>CUDA 9.0</li><li>cuDNN 7.3</li></ul><p>Detectron 是 Facebook AI 研究组开发的一个实现了目前主流目标识别方法的软件，该软件基于 caffe2 框架上。而 caffe2 又集成于
+PyTorch 中，所以需要安装PyTorch.</p><h3 id=安装pytorch>安装PyTorch</h3><p>建议手动编译PyTorch，整个过程比较简单。具体如下：</p><h4 id=安装依赖项>安装依赖项</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -178,237 +33,85 @@ PyTorch 中，所以需要安装PyTorch.</p>
 </span><span class=lnt>26
 </span><span class=lnt>27
 </span><span class=lnt>28
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo apt-get update
-$ sudo apt-get install -y --no-install-recommends \
-      build-essential \
-      git \
-      libgoogle-glog-dev \
-      libgtest-dev \
-      libiomp-dev \
-      libleveldb-dev \
-      liblmdb-dev \
-      libopencv-dev \
-      libopenmpi-dev \
-      libsnappy-dev \
-      libprotobuf-dev \
-      openmpi-bin \
-      openmpi-doc \
-      protobuf-compiler \
-      python-dev \
-      python-pip                          
-$ pip install --user \
-      future \
-      numpy \
-      protobuf \
-      typing \
-      hypothesis
-# for Ubuntu 16.04
-$ sudo apt-get install -y --no-install-recommends \
-      libgflags-dev \
-      cmake
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=安装cuda>安装CUDA</h4>
-<p>参见另外一篇<a href=https://blog.nickwhyy.top/post/cuda/>博文</a></p>
-<h4 id=复制pytorch仓库代码并安装>复制Pytorch仓库代码并安装</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ sudo apt-get update
+</span></span><span class=line><span class=cl>$ sudo apt-get install -y --no-install-recommends \
+</span></span><span class=line><span class=cl>      build-essential \
+</span></span><span class=line><span class=cl>      git \
+</span></span><span class=line><span class=cl>      libgoogle-glog-dev \
+</span></span><span class=line><span class=cl>      libgtest-dev \
+</span></span><span class=line><span class=cl>      libiomp-dev \
+</span></span><span class=line><span class=cl>      libleveldb-dev \
+</span></span><span class=line><span class=cl>      liblmdb-dev \
+</span></span><span class=line><span class=cl>      libopencv-dev \
+</span></span><span class=line><span class=cl>      libopenmpi-dev \
+</span></span><span class=line><span class=cl>      libsnappy-dev \
+</span></span><span class=line><span class=cl>      libprotobuf-dev \
+</span></span><span class=line><span class=cl>      openmpi-bin \
+</span></span><span class=line><span class=cl>      openmpi-doc \
+</span></span><span class=line><span class=cl>      protobuf-compiler \
+</span></span><span class=line><span class=cl>      python-dev \
+</span></span><span class=line><span class=cl>      python-pip                          
+</span></span><span class=line><span class=cl>$ pip install --user \
+</span></span><span class=line><span class=cl>      future \
+</span></span><span class=line><span class=cl>      numpy \
+</span></span><span class=line><span class=cl>      protobuf \
+</span></span><span class=line><span class=cl>      typing \
+</span></span><span class=line><span class=cl>      hypothesis
+</span></span><span class=line><span class=cl># for Ubuntu 16.04
+</span></span><span class=line><span class=cl>$ sudo apt-get install -y --no-install-recommends \
+</span></span><span class=line><span class=cl>      libgflags-dev \
+</span></span><span class=line><span class=cl>      cmake
+</span></span></code></pre></td></tr></table></div></div><h4 id=安装cuda>安装CUDA</h4><p>参见另外一篇<a href=https://blog.nickwhyy.top/post/cuda/>博文</a></p><h4 id=复制pytorch仓库代码并安装>复制Pytorch仓库代码并安装</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ git clone https://github.com/pytorch/pytorch.git &amp;&amp; cd pytorch
-$ git submodule update --init --recursive
-$ python setup.py install
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=测试caffe2是否安装成功>测试caffe2是否安装成功</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ cd ~ &amp;&amp; python -c &#39;from caffe2.python import core&#39; 2&gt;/dev/null &amp;&amp; echo &#34;Success&#34; || echo &#34;Failure&#34;
-</code></pre></td></tr></table>
-</div>
-</div><p>如果现实<code>Success</code>则安装成功。</p>
-<h3 id=安装detectron>安装Detectron</h3>
-<h4 id=安装coco-api>安装COCO API</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-v data-lang=v><span class=line><span class=cl><span class=err>$</span> <span class=nv>git</span> <span class=nv>clone</span> <span class=nv>https</span><span class=p>:</span><span class=c1>//github.com/pytorch/pytorch.git &amp;&amp; cd pytorch
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=err>$</span> <span class=nv>git</span> <span class=nv>submodule</span> <span class=nv>update</span> <span class=o>--</span><span class=nv>init</span> <span class=o>--</span><span class=nv>recursive</span>
+</span></span><span class=line><span class=cl><span class=err>$</span> <span class=nv>python</span> <span class=nv>setup</span><span class=p>.</span><span class=nv>py</span> <span class=nv>install</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=测试caffe2是否安装成功>测试caffe2是否安装成功</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ cd ~ &amp;&amp; python -c &#39;from caffe2.python import core&#39; 2&gt;/dev/null &amp;&amp; echo &#34;Success&#34; || echo &#34;Failure&#34;
+</span></span></code></pre></td></tr></table></div></div><p>如果现实<code>Success</code>则安装成功。</p><h3 id=安装detectron>安装Detectron</h3><h4 id=安装coco-api>安装COCO API</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ export COCOAPI=/home/lloyd/cocoapi
-$ git clone https://github.com/cocodataset/cocoapi.git $COCOAPI
-$ cd $COCOAPI/PythonAPI
-$ make install
-$ python setup.py install --user
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=detectron>Detectron</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ export COCOAPI=/home/lloyd/cocoapi
+</span></span><span class=line><span class=cl>$ git clone https://github.com/cocodataset/cocoapi.git $COCOAPI
+</span></span><span class=line><span class=cl>$ cd $COCOAPI/PythonAPI
+</span></span><span class=line><span class=cl>$ make install
+</span></span><span class=line><span class=cl>$ python setup.py install --user
+</span></span></code></pre></td></tr></table></div></div><h4 id=detectron>Detectron</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ export DETECTRON=/home/lloyd/detectron
-$ git clone https://github.com/facebookresearch/detectron $DETECTRON
-$ pip install -r $DETECTRON/requirements.txt
-$ cd $DETECTRON &amp;&amp; make
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=测试>测试</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ python $DETECTRON/detectron/tests/test_spatial_narrow_as_op.py
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=错误汇总>错误汇总</h3>
-<ol>
-<li></li>
-</ol>
-<blockquote>
-</blockquote>
-<p><code>ValueError: numpy.ufunc size changed, may indicate binary incompatibility. Expected 216 from C header, got 192 from PyObject</code></p>
-<p>原因，<code>numpy</code>版本问题，经测试<code>numpy==1.16.1</code>版本不会出现该问题。</p>
-<ol start=2>
-<li></li>
-</ol>
-<blockquote>
-</blockquote>
-<p><code>ImportError: numpy.core.multiarray failed to import</code></p>
-<p>原因仍是<code>numpy</code>版本问题，经测试<code>numpy==1.16.1</code>版本不会出现该问题。</p>
-<ol start=3>
-<li></li>
-</ol>
-<blockquote>
-</blockquote>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>yaml.constructor.ConstructorError: while constructing a Python instance
-expected a class, but found &lt;class &#39;builtin_function_or_method&#39;&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>解决方案：
-在<code>detectron/utils/env.py</code>文件中将<code>yaml_load = yaml.load</code>改为
-<code>yaml_load = lambda x: yaml.load(x, Loader=yaml.Loader)</code>即可。</p>
-<h3 id=参考资料>参考资料</h3>
-<ul>
-<li><a href="https://caffe2.ai/docs/getting-started.html?platform=ubuntu&configuration=prebuilt#install-with-gpu-support">caffe2官网</a></li>
-<li><a href=https://github.com/scikit-image/scikit-image/issues/3655>ValueError: numpy.ufunc size changed)</a></li>
-<li><a href=https://github.com/facebookresearch/Detectron/issues/840>yaml.constructor.ConstructorError</a></li>
-</ul>
-<h3 id=修订历史>修订历史</h3>
-<ul>
-<li>2019-06-23， 初稿</li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2019-06-23
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/caffe2/>caffe2</a>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ export DETECTRON=/home/lloyd/detectron
+</span></span><span class=line><span class=cl>$ git clone https://github.com/facebookresearch/detectron $DETECTRON
+</span></span><span class=line><span class=cl>$ pip install -r $DETECTRON/requirements.txt
+</span></span><span class=line><span class=cl>$ cd $DETECTRON &amp;&amp; make
+</span></span></code></pre></td></tr></table></div></div><h4 id=测试>测试</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ python $DETECTRON/detectron/tests/test_spatial_narrow_as_op.py
+</span></span></code></pre></td></tr></table></div></div><h3 id=错误汇总>错误汇总</h3><ol><li></li></ol><p>原因，<code>numpy</code>版本问题，经测试<code>numpy==1.16.1</code>版本不会出现该问题。</p><ol start=2><li></li></ol><p>原因仍是<code>numpy</code>版本问题，经测试<code>numpy==1.16.1</code>版本不会出现该问题。</p><ol start=3><li></li></ol><h3 id=参考资料>参考资料</h3><ul><li><a href="https://caffe2.ai/docs/getting-started.html?platform=ubuntu&configuration=prebuilt#install-with-gpu-support">caffe2官网</a></li><li><a href=https://github.com/scikit-image/scikit-image/issues/3655>ValueError: numpy.ufunc size changed)</a></li><li><a href=https://github.com/facebookresearch/Detectron/issues/840>yaml.constructor.ConstructorError</a></li></ul><h3 id=修订历史>修订历史</h3><ul><li>2019-06-23， 初稿</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2019-06-23</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/caffe2/>caffe2</a>
 <a href=/tags/pytorch/>Pytorch</a>
-<a href=/tags/detectron/>Detectron</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/seplib/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/detectron/>Detectron</a></div><nav class=post-nav><a class=prev href=/post/seplib/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Linux 下安装 SEPlib 9.0</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/installssd/>
-<span class="next-text nav-default">目标检测算法 SSD 在 Linux 上的配置</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/installssd/><span class="next-text nav-default">目标检测算法 SSD 在 Linux 上的配置</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

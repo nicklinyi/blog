@@ -1,154 +1,11 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>合成地震事件 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Lloyd"><meta name=description content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/2018-04-23-linear-events/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="合成地震事件">
-<meta property="og:description" content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/2018-04-23-linear-events/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-04-24T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-04-24T00:00:00+00:00">
-<meta itemprop=name content="合成地震事件">
-<meta itemprop=description content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><meta itemprop=datePublished content="2018-04-24T00:00:00+00:00">
-<meta itemprop=dateModified content="2018-04-24T00:00:00+00:00">
-<meta itemprop=wordCount content="781">
-<meta itemprop=keywords content="合成数据,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="合成地震事件">
-<meta name=twitter:description content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>合成地震事件 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/2018-04-23-linear-events/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="合成地震事件"><meta property="og:description" content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/2018-04-23-linear-events/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-04-24T00:00:00+00:00"><meta property="article:modified_time" content="2018-04-24T00:00:00+00:00"><meta itemprop=name content="合成地震事件"><meta itemprop=description content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><meta itemprop=datePublished content="2018-04-24T00:00:00+00:00"><meta itemprop=dateModified content="2018-04-24T00:00:00+00:00"><meta itemprop=wordCount content="780"><meta itemprop=keywords content="合成数据,"><meta name=twitter:card content="summary"><meta name=twitter:title content="合成地震事件"><meta name=twitter:description content="前言 地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。 线性地震事件合成"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>合成地震事件</h1>
-<div class=post-meta>
-<span class=post-time> 2018-04-24 </span>
-<div class=post-category>
-<a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6/> 地震学 </a>
-</div>
-<span class=more-meta> 约 781 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#前言>前言</a></li>
-<li><a href=#线性地震事件合成步骤>线性地震事件合成步骤</a>
-<ul>
-<li><a href=#前期准备>前期准备</a></li>
-<li><a href=#开始试验>开始试验</a></li>
-</ul>
-</li>
-<li><a href=#双曲地震事件>双曲地震事件</a>
-<ul>
-<li><a href=#前期准备-1>前期准备</a></li>
-<li><a href=#开始试验-1>开始试验</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h2 id=前言>前言</h2>
-<p>地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。</p>
-<h2 id=线性地震事件合成步骤>线性地震事件合成步骤</h2>
-<h3 id=前期准备>前期准备</h3>
-<p>这里采用SAIG组开发的SeismicLab中公开的代码<code>linear_events.m</code>来进行线性地震数据的合成,其中画图部分的<code>wigb.m</code>也来自于该代码包。
-由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了。</p>
-<h3 id=开始试验>开始试验</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>合成地震事件</h1><div class=post-meta><span class=post-time>2018-04-24</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6/>地震学</a></div><span class=more-meta>约 780 字</span>
+<span class=more-meta>预计阅读 2 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#前言>前言</a></li><li><a href=#线性地震事件合成步骤>线性地震事件合成步骤</a><ul><li><a href=#前期准备>前期准备</a></li><li><a href=#开始试验>开始试验</a></li></ul></li><li><a href=#双曲地震事件>双曲地震事件</a><ul><li><a href=#前期准备-1>前期准备</a></li><li><a href=#开始试验-1>开始试验</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=前言>前言</h2><p>地震事件的合成主要用于测试一些信号处理的方法，比如插值、去噪等。为了避免大家重复造轮子，这里介绍一下合成地震事件的方法。</p><h2 id=线性地震事件合成步骤>线性地震事件合成步骤</h2><h3 id=前期准备>前期准备</h3><p>这里采用SAIG组开发的SeismicLab中公开的代码<code>linear_events.m</code>来进行线性地震数据的合成,其中画图部分的<code>wigb.m</code>也来自于该代码包。
+由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了。</p><h3 id=开始试验>开始试验</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -174,46 +31,35 @@
 </span><span class=lnt>24
 </span><span class=lnt>25
 </span><span class=lnt>26
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>clear;
-close all;
-
-dt = 0.004;  % 时间间隔
-dx = 20;     % 道间距
-nt = 512;              % 总时间采样个数
-tmax = (nt-1)*dt;      % 记录最大时刻
-f0 = 25;               % 地震子波的主频
-nx = 128;              % 空间采样个数
-h = [0:dx:dx*(nx-1)];  % 偏移距
-
-tau = [0.4, 0.7, 1.8]; % 共三个地震事件，其值为事件与时间轴的交点的时刻
-p = [1.6/max(h), 0.5/max(h), -1.3/max(h)]; % 三个地震事件的射线参数
-amp = [1, 1, 1];          % 三个地震事件的振幅
-
-% 合成三个地震事件，d
-[d,h,t] = linear_events(dt,f0,tmax,h,tau,p,amp);
-
-%%
-figure;
-wigb(d,1,h,t); % 用SeismicLab中的`wigb.m`函数绘制波形图
-set(gca,&#39;TickDir&#39;,&#39;out&#39;)
-ax = gca;
-ax.XAxisLocation = &#39;top&#39;;
-xlabel(&#39;Distance (m)&#39;);
-ylabel(&#39;Time (s)&#39;);
-</code></pre></td></tr></table>
-</div>
-</div><p>运行完上述代码后，得到的图形如下
-<img src=https://i.postimg.cc/NGTVFZzx/linear-events.png alt=线性地震事件></p>
-<h2 id=双曲地震事件>双曲地震事件</h2>
-<h3 id=前期准备-1>前期准备</h3>
-<p>这里采用SAIG组开发的SeismicLab中公开的代码<code>hyperbolic_events.m</code>来进行线性地震数据的合成。
-由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了。</p>
-<h3 id=开始试验-1>开始试验</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>clear;
+</span></span><span class=line><span class=cl>close all;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>dt = 0.004;  % 时间间隔
+</span></span><span class=line><span class=cl>dx = 20;     % 道间距
+</span></span><span class=line><span class=cl>nt = 512;              % 总时间采样个数
+</span></span><span class=line><span class=cl>tmax = (nt-1)*dt;      % 记录最大时刻
+</span></span><span class=line><span class=cl>f0 = 25;               % 地震子波的主频
+</span></span><span class=line><span class=cl>nx = 128;              % 空间采样个数
+</span></span><span class=line><span class=cl>h = [0:dx:dx*(nx-1)];  % 偏移距
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>tau = [0.4, 0.7, 1.8]; % 共三个地震事件，其值为事件与时间轴的交点的时刻
+</span></span><span class=line><span class=cl>p = [1.6/max(h), 0.5/max(h), -1.3/max(h)]; % 三个地震事件的射线参数
+</span></span><span class=line><span class=cl>amp = [1, 1, 1];          % 三个地震事件的振幅
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>% 合成三个地震事件，d
+</span></span><span class=line><span class=cl>[d,h,t] = linear_events(dt,f0,tmax,h,tau,p,amp);
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>%%
+</span></span><span class=line><span class=cl>figure;
+</span></span><span class=line><span class=cl>wigb(d,1,h,t); % 用SeismicLab中的`wigb.m`函数绘制波形图
+</span></span><span class=line><span class=cl>set(gca,&#39;TickDir&#39;,&#39;out&#39;)
+</span></span><span class=line><span class=cl>ax = gca;
+</span></span><span class=line><span class=cl>ax.XAxisLocation = &#39;top&#39;;
+</span></span><span class=line><span class=cl>xlabel(&#39;Distance (m)&#39;);
+</span></span><span class=line><span class=cl>ylabel(&#39;Time (s)&#39;);
+</span></span></code></pre></td></tr></table></div></div><p>运行完上述代码后，得到的图形如下
+<img src=https://i.postimg.cc/NGTVFZzx/linear-events.png alt=线性地震事件></p><h2 id=双曲地震事件>双曲地震事件</h2><h3 id=前期准备-1>前期准备</h3><p>这里采用SAIG组开发的SeismicLab中公开的代码<code>hyperbolic_events.m</code>来进行线性地震数据的合成。
+由于该代码中默认是要添加随机噪音的，有时候我们并不需要添加随机噪音的数据，因此，我对源程序进行了修改，将添加噪音的部分删除了。</p><h3 id=开始试验-1>开始试验</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -239,127 +85,54 @@ ylabel(&#39;Time (s)&#39;);
 </span><span class=lnt>24
 </span><span class=lnt>25
 </span><span class=lnt>26
-</span><span class=lnt>27
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>clear;
-close all;
-
-%%
-dt = 0.002; % 时间间隔
-dx = 5;     % 道间距
-nt = 350;   % 总时间采样个数
-tmax = (nt-1)*dt;     % 记录最大时刻
-f0 = 30;              % 地震子波的主频
-nx = 80;              % 空间采样个数
-h = [0:dx:dx*(nx-1)]; % 偏移距
-
-tau = [0.15, 0.28, 0.39]; % 共三个地震事件，其值为事件与时间轴的交点的时刻
-v = [1500, 1750, 1800];   % 三个地震事件的速度
-amp = [1, 1, 1];          % 三个地震事件的振幅
-
-% 合成三个地震事件，d
-[d,h,t] = hyperbolic_events(dt,f0,tmax,h,tau,v,amp);
-
-figure;
-wigb(d,1,1:length(h),t);
-set(gca,&#39;TickDir&#39;,&#39;out&#39;)
-ax = gca;
-ax.XAxisLocation = &#39;top&#39;;
-xlabel(&#39;Trace&#39;);
-ylabel(&#39;Time (s)&#39;);
-
-</code></pre></td></tr></table>
-</div>
-</div><p>运行完上述代码后，得到的图形如下
-<img src=https://i.postimg.cc/85SBv77k/hyper-Events.png alt=双曲地震事件></p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2018-04-24
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE/>合成数据</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2018-04-27-seismic-wavelet/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>clear;
+</span></span><span class=line><span class=cl>close all;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>%%
+</span></span><span class=line><span class=cl>dt = 0.002; % 时间间隔
+</span></span><span class=line><span class=cl>dx = 5;     % 道间距
+</span></span><span class=line><span class=cl>nt = 350;   % 总时间采样个数
+</span></span><span class=line><span class=cl>tmax = (nt-1)*dt;     % 记录最大时刻
+</span></span><span class=line><span class=cl>f0 = 30;              % 地震子波的主频
+</span></span><span class=line><span class=cl>nx = 80;              % 空间采样个数
+</span></span><span class=line><span class=cl>h = [0:dx:dx*(nx-1)]; % 偏移距
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>tau = [0.15, 0.28, 0.39]; % 共三个地震事件，其值为事件与时间轴的交点的时刻
+</span></span><span class=line><span class=cl>v = [1500, 1750, 1800];   % 三个地震事件的速度
+</span></span><span class=line><span class=cl>amp = [1, 1, 1];          % 三个地震事件的振幅
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>% 合成三个地震事件，d
+</span></span><span class=line><span class=cl>[d,h,t] = hyperbolic_events(dt,f0,tmax,h,tau,v,amp);
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>figure;
+</span></span><span class=line><span class=cl>wigb(d,1,1:length(h),t);
+</span></span><span class=line><span class=cl>set(gca,&#39;TickDir&#39;,&#39;out&#39;)
+</span></span><span class=line><span class=cl>ax = gca;
+</span></span><span class=line><span class=cl>ax.XAxisLocation = &#39;top&#39;;
+</span></span><span class=line><span class=cl>xlabel(&#39;Trace&#39;);
+</span></span><span class=line><span class=cl>ylabel(&#39;Time (s)&#39;);
+</span></span></code></pre></td></tr></table></div></div><p>运行完上述代码后，得到的图形如下
+<img src=https://i.postimg.cc/85SBv77k/hyper-Events.png alt=双曲地震事件></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-04-24</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE/>合成数据</a></div><nav class=post-nav><a class=prev href=/post/2018-04-27-seismic-wavelet/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">地震子波</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2018-04-06-macos-ntfs/>
-<span class="next-text nav-default">macOS 挂载 NTFS 格式硬盘</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2018-04-06-macos-ntfs/><span class="next-text nav-default">macOS 挂载 NTFS 格式硬盘</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

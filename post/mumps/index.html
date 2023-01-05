@@ -1,186 +1,16 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Linux 下安装 MUMPS - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Nick"><meta name=description content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/mumps/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Linux 下安装 MUMPS">
-<meta property="og:description" content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/mumps/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2016-05-21T00:00:00+00:00">
-<meta property="article:modified_time" content="2016-05-21T00:00:00+00:00">
-<meta itemprop=name content="Linux 下安装 MUMPS">
-<meta itemprop=description content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><meta itemprop=datePublished content="2016-05-21T00:00:00+00:00">
-<meta itemprop=dateModified content="2016-05-21T00:00:00+00:00">
-<meta itemprop=wordCount content="1460">
-<meta itemprop=keywords content="MUMPS,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Linux 下安装 MUMPS">
-<meta name=twitter:description content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux 下安装 MUMPS - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Nick"><meta name=description content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/mumps/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Linux 下安装 MUMPS"><meta property="og:description" content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/mumps/"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-05-21T00:00:00+00:00"><meta property="article:modified_time" content="2016-05-21T00:00:00+00:00"><meta itemprop=name content="Linux 下安装 MUMPS"><meta itemprop=description content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><meta itemprop=datePublished content="2016-05-21T00:00:00+00:00"><meta itemprop=dateModified content="2016-05-21T00:00:00+00:00"><meta itemprop=wordCount content="1465"><meta itemprop=keywords content="MUMPS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 下安装 MUMPS"><meta name=twitter:description content="下载 下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。 源码：http://graa"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Linux 下安装 MUMPS</h1>
-<div class=post-meta>
-<span class=post-time> 2016-05-21 </span>
-<div class=post-category>
-<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
-</div>
-<span class=more-meta> 约 1460 字 </span>
-<span class=more-meta> 预计阅读 3 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#下载>下载</a></li>
-<li><a href=#基本依赖包>基本依赖包</a>
-<ul>
-<li><a href=#解压>解压</a></li>
-<li><a href=#修改makefileinc>修改Makefile.inc</a></li>
-<li><a href=#compilation>Compilation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h2 id=下载>下载</h2>
-<p>下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。</p>
-<p>源码：<a href=http://graal.ens-lyon.fr/MUMPS/>http://graal.ens-lyon.fr/MUMPS/</a> , 如果该链接无法访问，请访问 <a href=https://launchpad.net/ubuntu/+source/mumps/5.1.1-2>https://launchpad.net/ubuntu/+source/mumps/5.1.1-2</a> , 该网页中有个名为<code>mumps_5.1.1.orig.tar.gz</code>,下载该文件即可。</p>
-<h2 id=基本依赖包>基本依赖包</h2>
-<p>安装MUMPS有三种方式，一种是只安装单核版(sequential version);一种是安装多核版(multicore machine)；最后一种是并行版(parallel version).由于笔者安装MUMPS的主要目的是用于FWI，因此对于运行速度要求很高，在此选择并行版进行安装。其它方式的安装比较简单，读者可自行尝试。</p>
-<p>安装并行版MUMPS需要以下一些依赖包</p>
-<ul>
-<li>
-<p>MPI</p>
-</li>
-<li>
-<p>BLAS library</p>
-</li>
-<li>
-<p>BLACS library</p>
-</li>
-<li>
-<p>ScaLAPACK library</p>
-</li>
-</ul>
-<p>其中 MPI 一般有两种 MPICH 和 OPENMPI, 安装 MPICH <a href=https://nicklinyi.github.io/mpich.html>请点击这里</a>；至于BLAS，BLACS，ScaLAPACK 这三个库可使用 Intel 的 MKL 库，因此需要安装 intel 的编译器，<a href=https://blog.seisman.info/intel-non-commercial-software/>请点击这里</a>。</p>
-<h3 id=解压>解压</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Linux 下安装 MUMPS</h1><div class=post-meta><span class=post-time>2016-05-21</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 1465 字</span>
+<span class=more-meta>预计阅读 3 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#下载>下载</a></li><li><a href=#基本依赖包>基本依赖包</a><ul><li><a href=#解压>解压</a></li><li><a href=#修改makefileinc>修改Makefile.inc</a></li><li><a href=#compilation>Compilation</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=下载>下载</h2><p>下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中，建议下载最新版本5.1.1。</p><p>源码：<a href=http://graal.ens-lyon.fr/MUMPS/>http://graal.ens-lyon.fr/MUMPS/</a> , 如果该链接无法访问，请访问 <a href=https://launchpad.net/ubuntu/+source/mumps/5.1.1-2>https://launchpad.net/ubuntu/+source/mumps/5.1.1-2</a> , 该网页中有个名为<code>mumps_5.1.1.orig.tar.gz</code>,下载该文件即可。</p><h2 id=基本依赖包>基本依赖包</h2><p>安装MUMPS有三种方式，一种是只安装单核版(sequential version);一种是安装多核版(multicore machine)；最后一种是并行版(parallel version).由于笔者安装MUMPS的主要目的是用于FWI，因此对于运行速度要求很高，在此选择并行版进行安装。其它方式的安装比较简单，读者可自行尝试。</p><p>安装并行版MUMPS需要以下一些依赖包</p><ul><li><p>MPI</p></li><li><p>BLAS library</p></li><li><p>BLACS library</p></li><li><p>ScaLAPACK library</p></li></ul><p>其中 MPI 一般有两种 MPICH 和 OPENMPI, 安装 MPICH <a href=https://nicklinyi.github.io/mpich.html>请点击这里</a>；至于BLAS，BLACS，ScaLAPACK 这三个库可使用 Intel 的 MKL 库，因此需要安装 intel 的编译器，<a href=https://blog.seisman.info/intel-non-commercial-software/>请点击这里</a>。</p><h3 id=解压>解压</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ tar zxvf MUMPS_5.1.1.tar.gz
-$ cd MUMPS_5.1.1
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=修改makefileinc>修改Makefile.inc</h3>
-<p>安装好intel编译器后，在此可直接复制 <code>Make.inc/</code> 目录下的 <code>Makefile.INTEL.PAR</code> 文件至 MUMPS 的根目录，并修改一些参数使之与自己的系统相符。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ cp Make.inc/Makefile.INTEL.PAR ./Makefile.inc
-</code></pre></td></tr></table>
-</div>
-</div><p>由于 MUMPS 需要依赖与 METIS 或 SCOTCH 来划分网格，两种选一种即可，此处选择的是 METIS，下载 METIS 并编译好 METIS 后，需要修改刚才的<code>Makefile.inc</code>文件，具体改动如下：</p>
-<p>去掉<code>LMETISDIR</code>和<code>LMETIS</code>前的注释，并根据自己METIS的安装情况给其赋值，然后，在添加<code>-Dmetis</code>在<code>ORDERINGSF</code>之后。 例如：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ tar zxvf MUMPS_5.1.1.tar.gz
+</span></span><span class=line><span class=cl>$ cd MUMPS_5.1.1
+</span></span></code></pre></td></tr></table></div></div><h3 id=修改makefileinc>修改Makefile.inc</h3><p>安装好intel编译器后，在此可直接复制 <code>Make.inc/</code> 目录下的 <code>Makefile.INTEL.PAR</code> 文件至 MUMPS 的根目录，并修改一些参数使之与自己的系统相符。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> cp Make.inc/Makefile.INTEL.PAR ./Makefile.inc
+</span></span></code></pre></td></tr></table></div></div><p>由于 MUMPS 需要依赖与 METIS 或 SCOTCH 来划分网格，两种选一种即可，此处选择的是 METIS，下载 METIS 并编译好 METIS 后，需要修改刚才的<code>Makefile.inc</code>文件，具体改动如下：</p><p>去掉<code>LMETISDIR</code>和<code>LMETIS</code>前的注释，并根据自己METIS的安装情况给其赋值，然后，在添加<code>-Dmetis</code>在<code>ORDERINGSF</code>之后。 例如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
 </span><span class=lnt>  3
 </span><span class=lnt>  4
@@ -293,225 +123,142 @@ $ cd MUMPS_5.1.1
 </span><span class=lnt>111
 </span><span class=lnt>112
 </span><span class=lnt>113
-</span><span class=lnt>114
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=c>#
-</span><span class=c>#  This file is part of MUMPS 5.1.1, released
-</span><span class=c>#  on Mon Mar 20 14:34:33 UTC 2017
-</span><span class=c>#
-</span><span class=c>#Begin orderings
-</span><span class=c></span>
-<span class=c># NOTE that PORD is distributed within MUMPS by default. It is recommended to
-</span><span class=c># install other orderings. For that, you need to obtain the corresponding package
-</span><span class=c># and modify the variables below accordingly.
-</span><span class=c># For example, to have Metis available within MUMPS:
-</span><span class=c>#          1/ download Metis and compile it
-</span><span class=c>#          2/ uncomment (suppress # in first column) lines
-</span><span class=c>#             starting with LMETISDIR,  LMETIS
-</span><span class=c>#          3/ add -Dmetis in line ORDERINGSF
-</span><span class=c>#             ORDERINGSF  = -Dpord -Dmetis
-</span><span class=c>#          4/ Compile and install MUMPS
-</span><span class=c>#             make clean; make   (to clean up previous installation)
-</span><span class=c>#
-</span><span class=c>#          Metis/ParMetis and SCOTCH/PT-SCOTCH (ver 6.0 and later) orderings are recommended.
-</span><span class=c>#
-</span><span class=c></span>
-<span class=c>#SCOTCHDIR  = ${HOME}/scotch_6.0
-</span><span class=c>#ISCOTCH    = -I$(SCOTCHDIR)/include
-</span><span class=c>#
-</span><span class=c># You have to choose one among the following two lines depending on
-</span><span class=c># the type of analysis you want to perform. If you want to perform only
-</span><span class=c># sequential analysis choose the first (remember to add -Dscotch in the ORDERINGSF
-</span><span class=c># variable below); for both parallel and sequential analysis choose the second
-</span><span class=c># line (remember to add -Dptscotch in the ORDERINGSF variable below)
-</span><span class=c></span>
-<span class=c>#LSCOTCH    = -L$(SCOTCHDIR)/lib -lesmumps -lscotch -lscotcherr
-</span><span class=c>#LSCOTCH    = -L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr
-</span><span class=c></span>
-
-<span class=nv>LPORDDIR</span> <span class=o>=</span> <span class=k>$(</span>topdir<span class=k>)</span>/PORD/lib/
-<span class=nv>IPORD</span>    <span class=o>=</span> -I<span class=k>$(</span>topdir<span class=k>)</span>/PORD/include/
-<span class=nv>LPORD</span>    <span class=o>=</span> -L<span class=k>$(</span>LPORDDIR<span class=k>)</span> -lpord
-
-<span class=c>################## 修改部位1 ###################
-</span><span class=c></span><span class=nv>LMETISDIR</span> <span class=o>=</span> <span class=k>$(</span>HOME<span class=k>)</span>/software/metis/lib
-<span class=nv>IMETIS</span>    <span class=o>=</span> <span class=k>$(</span>HOME<span class=k>)</span>/software/metis/include
-<span class=c>###############################################
-</span><span class=c></span>
-<span class=c># You have to choose one among the following two lines depending on
-</span><span class=c># the type of analysis you want to perform. If you want to perform only
-</span><span class=c># sequential analysis choose the first (remember to add -Dmetis in the ORDERINGSF
-</span><span class=c># variable below); for both parallel and sequential analysis choose the second
-</span><span class=c># line (remember to add -Dparmetis in the ORDERINGSF variable below)
-</span><span class=c></span>
-<span class=c>################## 修改部位2 ###################
-</span><span class=c></span><span class=nv>LMETIS</span>    <span class=o>=</span> -L<span class=k>$(</span>LMETISDIR<span class=k>)</span> -lmetis
-<span class=c>#LMETIS    = -L$(LMETISDIR) -lparmetis -lmetis
-</span><span class=c>###############################################
-</span><span class=c></span>
-<span class=c># The following variables will be used in the compilation process.
-</span><span class=c># Please note that -Dptscotch and -Dparmetis imply -Dscotch and -Dmetis respectively.
-</span><span class=c># If you want to use Metis 4.X or an older version, you should use -Dmetis4 instead of -Dmetis
-</span><span class=c># or in addition with -Dparmetis (if you are using parmetis 3.X or older).
-</span><span class=c></span>
-<span class=c>################## 修改部位3 ###################
-</span><span class=c>#ORDERINGSF = -Dscotch -Dmetis -Dpord -Dptscotch -Dparmetis
-</span><span class=c></span><span class=nv>ORDERINGSF</span>  <span class=o>=</span> -Dpord -Dmetis
-<span class=nv>ORDERINGSC</span>  <span class=o>=</span> <span class=k>$(</span>ORDERINGSF<span class=k>)</span>
-<span class=c>###############################################
-</span><span class=c></span>
-<span class=nv>LORDERINGS</span> <span class=o>=</span> <span class=k>$(</span>LMETIS<span class=k>)</span> <span class=k>$(</span>LPORD<span class=k>)</span> <span class=k>$(</span>LSCOTCH<span class=k>)</span>
-<span class=nv>IORDERINGSF</span> <span class=o>=</span> <span class=k>$(</span>ISCOTCH<span class=k>)</span>
-<span class=nv>IORDERINGSC</span> <span class=o>=</span> <span class=k>$(</span>IMETIS<span class=k>)</span> <span class=k>$(</span>IPORD<span class=k>)</span> <span class=k>$(</span>ISCOTCH<span class=k>)</span>
-
-<span class=c>#End orderings
-</span><span class=c>########################################################################
-</span><span class=c>################################################################################
-</span><span class=c></span>
-<span class=nv>PLAT</span>    <span class=o>=</span>
-<span class=nv>LIBEXT</span>  <span class=o>=</span> .a
-<span class=nv>OUTC</span>    <span class=o>=</span> -o
-<span class=nv>OUTF</span>    <span class=o>=</span> -o
-<span class=nv>RM</span> <span class=o>=</span> /bin/rm -f
-<span class=nv>CC</span> <span class=o>=</span> mpiicc
-<span class=nv>FC</span> <span class=o>=</span> mpiifort
-<span class=nv>FL</span> <span class=o>=</span> mpiifort
-<span class=nv>AR</span> <span class=o>=</span> ar vr
-<span class=c>#RANLIB = ranlib
-</span><span class=c></span><span class=nv>RANLIB</span>  <span class=o>=</span> <span class=nb>echo</span>
-<span class=c># Make this variable point to the path where the Intel MKL library is
-</span><span class=c># installed. It is set to the default install directory for Intel MKL.
-</span><span class=c></span><span class=nv>MKLROOT</span><span class=o>=</span>/opt/intel/mkl/lib/intel64
-<span class=nv>LAPACK</span> <span class=o>=</span> -L<span class=k>$(</span>MKLROOT<span class=k>)</span> -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
-<span class=nv>SCALAP</span> <span class=o>=</span> -L<span class=k>$(</span>MKLROOT<span class=k>)</span> -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64
-
-<span class=nv>LIBPAR</span> <span class=o>=</span> <span class=k>$(</span>SCALAP<span class=k>)</span> <span class=k>$(</span>LAPACK<span class=k>)</span>
-
-<span class=nv>INCSEQ</span> <span class=o>=</span> -I<span class=k>$(</span>topdir<span class=k>)</span>/libseq
-<span class=nv>LIBSEQ</span>  <span class=o>=</span> <span class=k>$(</span>LAPACK<span class=k>)</span> -L<span class=k>$(</span>topdir<span class=k>)</span>/libseq -lmpiseq
-
-<span class=nv>LIBBLAS</span> <span class=o>=</span> -L<span class=k>$(</span>MKLROOT<span class=k>)</span> -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
-<span class=nv>LIBOTHERS</span> <span class=o>=</span> -lpthread
-
-<span class=c>#Preprocessor defs for calling Fortran from C (-DAdd_ or -DAdd__ or -DUPPER)
-</span><span class=c></span><span class=nv>CDEFS</span>   <span class=o>=</span> -DAdd_
-
-<span class=c>#Begin Optimized options
-</span><span class=c></span><span class=nv>OPTF</span>    <span class=o>=</span> -O -nofor_main -qopenmp <span class=c1># or -openmp for old compilers</span>
-<span class=nv>OPTL</span>    <span class=o>=</span> -O -nofor_main -qopenmp
-<span class=nv>OPTC</span>    <span class=o>=</span> -O -qopenmp
-<span class=c>#End Optimized options
-</span><span class=c></span>
-<span class=c>################## 修改部位4 ###################
-</span><span class=c></span><span class=nv>INCS</span> <span class=o>=</span> <span class=k>$(</span>INCPAR<span class=k>)</span> -I<span class=k>$(</span>IMETIS<span class=k>)</span>
-<span class=c>###############################################
-</span><span class=c></span>
-<span class=nv>LIBS</span> <span class=o>=</span> <span class=k>$(</span>LIBPAR<span class=k>)</span>
-<span class=nv>LIBSEQNEEDED</span> <span class=o>=</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=compilation>Compilation</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ make alllib
-</code></pre></td></tr></table>
-</div>
-</div><p>编译完成后，可以在MUMPS的安装目录下发现有目录lib/,该目录主要用于链接外部函数调用此库文件。</p>
-<blockquote>
-</blockquote>
-<p>运行 <code>make alllib</code> 之后，可能会报错，错误信息为&rsquo;ar: two different operation options specified'，其主要原因在于 Makefile.inc 文件中 AR 变量的设置存在问题。需要在后面补充一个空格符，即可完成正常安装。</p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Nick</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2016-05-21
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/mumps/>MUMPS</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/toolbox-optimization/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=line><span class=cl><span class=c>#
+</span></span></span><span class=line><span class=cl><span class=c>#  This file is part of MUMPS 5.1.1, released
+</span></span></span><span class=line><span class=cl><span class=c>#  on Mon Mar 20 14:34:33 UTC 2017
+</span></span></span><span class=line><span class=cl><span class=c>#
+</span></span></span><span class=line><span class=cl><span class=c>#Begin orderings
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c># NOTE that PORD is distributed within MUMPS by default. It is recommended to
+</span></span></span><span class=line><span class=cl><span class=c># install other orderings. For that, you need to obtain the corresponding package
+</span></span></span><span class=line><span class=cl><span class=c># and modify the variables below accordingly.
+</span></span></span><span class=line><span class=cl><span class=c># For example, to have Metis available within MUMPS:
+</span></span></span><span class=line><span class=cl><span class=c>#          1/ download Metis and compile it
+</span></span></span><span class=line><span class=cl><span class=c>#          2/ uncomment (suppress # in first column) lines
+</span></span></span><span class=line><span class=cl><span class=c>#             starting with LMETISDIR,  LMETIS
+</span></span></span><span class=line><span class=cl><span class=c>#          3/ add -Dmetis in line ORDERINGSF
+</span></span></span><span class=line><span class=cl><span class=c>#             ORDERINGSF  = -Dpord -Dmetis
+</span></span></span><span class=line><span class=cl><span class=c>#          4/ Compile and install MUMPS
+</span></span></span><span class=line><span class=cl><span class=c>#             make clean; make   (to clean up previous installation)
+</span></span></span><span class=line><span class=cl><span class=c>#
+</span></span></span><span class=line><span class=cl><span class=c>#          Metis/ParMetis and SCOTCH/PT-SCOTCH (ver 6.0 and later) orderings are recommended.
+</span></span></span><span class=line><span class=cl><span class=c>#
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c>#SCOTCHDIR  = ${HOME}/scotch_6.0
+</span></span></span><span class=line><span class=cl><span class=c>#ISCOTCH    = -I$(SCOTCHDIR)/include
+</span></span></span><span class=line><span class=cl><span class=c>#
+</span></span></span><span class=line><span class=cl><span class=c># You have to choose one among the following two lines depending on
+</span></span></span><span class=line><span class=cl><span class=c># the type of analysis you want to perform. If you want to perform only
+</span></span></span><span class=line><span class=cl><span class=c># sequential analysis choose the first (remember to add -Dscotch in the ORDERINGSF
+</span></span></span><span class=line><span class=cl><span class=c># variable below); for both parallel and sequential analysis choose the second
+</span></span></span><span class=line><span class=cl><span class=c># line (remember to add -Dptscotch in the ORDERINGSF variable below)
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c>#LSCOTCH    = -L$(SCOTCHDIR)/lib -lesmumps -lscotch -lscotcherr
+</span></span></span><span class=line><span class=cl><span class=c>#LSCOTCH    = -L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>LPORDDIR</span> <span class=o>=</span> <span class=k>$(</span>topdir<span class=k>)</span>/PORD/lib/
+</span></span><span class=line><span class=cl><span class=nv>IPORD</span>    <span class=o>=</span> -I<span class=k>$(</span>topdir<span class=k>)</span>/PORD/include/
+</span></span><span class=line><span class=cl><span class=nv>LPORD</span>    <span class=o>=</span> -L<span class=k>$(</span>LPORDDIR<span class=k>)</span> -lpord
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>################## 修改部位1 ###################
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>LMETISDIR</span> <span class=o>=</span> <span class=k>$(</span>HOME<span class=k>)</span>/software/metis/lib
+</span></span><span class=line><span class=cl><span class=nv>IMETIS</span>    <span class=o>=</span> <span class=k>$(</span>HOME<span class=k>)</span>/software/metis/include
+</span></span><span class=line><span class=cl><span class=c>###############################################
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c># You have to choose one among the following two lines depending on
+</span></span></span><span class=line><span class=cl><span class=c># the type of analysis you want to perform. If you want to perform only
+</span></span></span><span class=line><span class=cl><span class=c># sequential analysis choose the first (remember to add -Dmetis in the ORDERINGSF
+</span></span></span><span class=line><span class=cl><span class=c># variable below); for both parallel and sequential analysis choose the second
+</span></span></span><span class=line><span class=cl><span class=c># line (remember to add -Dparmetis in the ORDERINGSF variable below)
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c>################## 修改部位2 ###################
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>LMETIS</span>    <span class=o>=</span> -L<span class=k>$(</span>LMETISDIR<span class=k>)</span> -lmetis
+</span></span><span class=line><span class=cl><span class=c>#LMETIS    = -L$(LMETISDIR) -lparmetis -lmetis
+</span></span></span><span class=line><span class=cl><span class=c>###############################################
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c># The following variables will be used in the compilation process.
+</span></span></span><span class=line><span class=cl><span class=c># Please note that -Dptscotch and -Dparmetis imply -Dscotch and -Dmetis respectively.
+</span></span></span><span class=line><span class=cl><span class=c># If you want to use Metis 4.X or an older version, you should use -Dmetis4 instead of -Dmetis
+</span></span></span><span class=line><span class=cl><span class=c># or in addition with -Dparmetis (if you are using parmetis 3.X or older).
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c>################## 修改部位3 ###################
+</span></span></span><span class=line><span class=cl><span class=c>#ORDERINGSF = -Dscotch -Dmetis -Dpord -Dptscotch -Dparmetis
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>ORDERINGSF</span>  <span class=o>=</span> -Dpord -Dmetis
+</span></span><span class=line><span class=cl><span class=nv>ORDERINGSC</span>  <span class=o>=</span> <span class=k>$(</span>ORDERINGSF<span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=c>###############################################
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=nv>LORDERINGS</span> <span class=o>=</span> <span class=k>$(</span>LMETIS<span class=k>)</span> <span class=k>$(</span>LPORD<span class=k>)</span> <span class=k>$(</span>LSCOTCH<span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=nv>IORDERINGSF</span> <span class=o>=</span> <span class=k>$(</span>ISCOTCH<span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=nv>IORDERINGSC</span> <span class=o>=</span> <span class=k>$(</span>IMETIS<span class=k>)</span> <span class=k>$(</span>IPORD<span class=k>)</span> <span class=k>$(</span>ISCOTCH<span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>#End orderings
+</span></span></span><span class=line><span class=cl><span class=c>########################################################################
+</span></span></span><span class=line><span class=cl><span class=c>################################################################################
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=nv>PLAT</span>    <span class=o>=</span>
+</span></span><span class=line><span class=cl><span class=nv>LIBEXT</span>  <span class=o>=</span> .a
+</span></span><span class=line><span class=cl><span class=nv>OUTC</span>    <span class=o>=</span> -o
+</span></span><span class=line><span class=cl><span class=nv>OUTF</span>    <span class=o>=</span> -o
+</span></span><span class=line><span class=cl><span class=nv>RM</span> <span class=o>=</span> /bin/rm -f
+</span></span><span class=line><span class=cl><span class=nv>CC</span> <span class=o>=</span> mpiicc
+</span></span><span class=line><span class=cl><span class=nv>FC</span> <span class=o>=</span> mpiifort
+</span></span><span class=line><span class=cl><span class=nv>FL</span> <span class=o>=</span> mpiifort
+</span></span><span class=line><span class=cl><span class=nv>AR</span> <span class=o>=</span> ar vr
+</span></span><span class=line><span class=cl><span class=c>#RANLIB = ranlib
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>RANLIB</span>  <span class=o>=</span> <span class=nb>echo</span>
+</span></span><span class=line><span class=cl><span class=c># Make this variable point to the path where the Intel MKL library is
+</span></span></span><span class=line><span class=cl><span class=c># installed. It is set to the default install directory for Intel MKL.
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>MKLROOT</span><span class=o>=</span>/opt/intel/mkl/lib/intel64
+</span></span><span class=line><span class=cl><span class=nv>LAPACK</span> <span class=o>=</span> -L<span class=k>$(</span>MKLROOT<span class=k>)</span> -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
+</span></span><span class=line><span class=cl><span class=nv>SCALAP</span> <span class=o>=</span> -L<span class=k>$(</span>MKLROOT<span class=k>)</span> -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>LIBPAR</span> <span class=o>=</span> <span class=k>$(</span>SCALAP<span class=k>)</span> <span class=k>$(</span>LAPACK<span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>INCSEQ</span> <span class=o>=</span> -I<span class=k>$(</span>topdir<span class=k>)</span>/libseq
+</span></span><span class=line><span class=cl><span class=nv>LIBSEQ</span>  <span class=o>=</span> <span class=k>$(</span>LAPACK<span class=k>)</span> -L<span class=k>$(</span>topdir<span class=k>)</span>/libseq -lmpiseq
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>LIBBLAS</span> <span class=o>=</span> -L<span class=k>$(</span>MKLROOT<span class=k>)</span> -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
+</span></span><span class=line><span class=cl><span class=nv>LIBOTHERS</span> <span class=o>=</span> -lpthread
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>#Preprocessor defs for calling Fortran from C (-DAdd_ or -DAdd__ or -DUPPER)
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>CDEFS</span>   <span class=o>=</span> -DAdd_
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>#Begin Optimized options
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>OPTF</span>    <span class=o>=</span> -O -nofor_main -qopenmp <span class=c1># or -openmp for old compilers</span>
+</span></span><span class=line><span class=cl><span class=nv>OPTL</span>    <span class=o>=</span> -O -nofor_main -qopenmp
+</span></span><span class=line><span class=cl><span class=nv>OPTC</span>    <span class=o>=</span> -O -qopenmp
+</span></span><span class=line><span class=cl><span class=c>#End Optimized options
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=c>################## 修改部位4 ###################
+</span></span></span><span class=line><span class=cl><span class=c></span><span class=nv>INCS</span> <span class=o>=</span> <span class=k>$(</span>INCPAR<span class=k>)</span> -I<span class=k>$(</span>IMETIS<span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=c>###############################################
+</span></span></span><span class=line><span class=cl><span class=c></span>
+</span></span><span class=line><span class=cl><span class=nv>LIBS</span> <span class=o>=</span> <span class=k>$(</span>LIBPAR<span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=nv>LIBSEQNEEDED</span> <span class=o>=</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=compilation>Compilation</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ make alllib
+</span></span></code></pre></td></tr></table></div></div><p>编译完成后，可以在MUMPS的安装目录下发现有目录lib/,该目录主要用于链接外部函数调用此库文件。</p><blockquote></blockquote><p>运行 <code>make alllib</code> 之后，可能会报错，错误信息为&rsquo;ar: two different operation options specified&rsquo;，其主要原因在于 Makefile.inc 文件中 AR 变量的设置存在问题。需要在后面补充一个空格符，即可完成正常安装。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Nick</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2016-05-21</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/mumps/>MUMPS</a></div><nav class=post-nav><a class=prev href=/post/toolbox-optimization/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Linux 下安装 TOOLBOX-OPTIMIZATION</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/metis/>
-<span class="next-text nav-default">Linux 下安装 METIS</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/metis/><span class="next-text nav-default">Linux 下安装 METIS</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

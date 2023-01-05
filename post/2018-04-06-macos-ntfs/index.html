@@ -1,142 +1,10 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>macOS 挂载 NTFS 格式硬盘 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Nick"><meta name=description content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/2018-04-06-macos-ntfs/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="macOS 挂载 NTFS 格式硬盘">
-<meta property="og:description" content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/2018-04-06-macos-ntfs/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-04-06T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-04-06T00:00:00+00:00">
-<meta itemprop=name content="macOS 挂载 NTFS 格式硬盘">
-<meta itemprop=description content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><meta itemprop=datePublished content="2018-04-06T00:00:00+00:00">
-<meta itemprop=dateModified content="2018-04-06T00:00:00+00:00">
-<meta itemprop=wordCount content="855">
-<meta itemprop=keywords content="macOS,NTFS,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="macOS 挂载 NTFS 格式硬盘">
-<meta name=twitter:description content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>macOS 挂载 NTFS 格式硬盘 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Nick"><meta name=description content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/2018-04-06-macos-ntfs/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="macOS 挂载 NTFS 格式硬盘"><meta property="og:description" content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/2018-04-06-macos-ntfs/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-04-06T00:00:00+00:00"><meta property="article:modified_time" content="2018-04-06T00:00:00+00:00"><meta itemprop=name content="macOS 挂载 NTFS 格式硬盘"><meta itemprop=description content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><meta itemprop=datePublished content="2018-04-06T00:00:00+00:00"><meta itemprop=dateModified content="2018-04-06T00:00:00+00:00"><meta itemprop=wordCount content="855"><meta itemprop=keywords content="macOS,NTFS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="macOS 挂载 NTFS 格式硬盘"><meta name=twitter:description content="Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>macOS 挂载 NTFS 格式硬盘</h1>
-<div class=post-meta>
-<span class=post-time> 2018-04-06 </span>
-<div class=post-category>
-<a href=/categories/macos/> macOS </a>
-</div>
-<span class=more-meta> 约 855 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#方法一>方法一：</a></li>
-<li><a href=#方法二>方法二.</a></li>
-<li><a href=#补充说明>补充说明</a></li>
-<li><a href=#参考资料>参考资料</a></li>
-<li><a href=#修订历史>修订历史</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持NTFS写入的考量。</p>
-<h2 id=方法一>方法一：</h2>
-<p>1.在terminal下使用命令<code>diskutil list</code>查询要挂载的NTFS硬盘名称</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>macOS 挂载 NTFS 格式硬盘</h1><div class=post-meta><span class=post-time>2018-04-06</span><div class=post-category><a href=/categories/macos/>macOS</a></div><span class=more-meta>约 855 字</span>
+<span class=more-meta>预计阅读 2 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#方法一>方法一：</a></li><li><a href=#方法二>方法二.</a></li><li><a href=#补充说明>补充说明</a></li><li><a href=#参考资料>参考资料</a></li><li><a href=#修订历史>修订历史</a></li></ul></li></ul></nav></div></div><div class=post-content><p>Mac本身是支持NTFS写入的，只是NTFS是微软开发，由于版权和技术细节原因，苹果不愿公开说自己支持NTFS写入，也是有自己以后可能不支持NTFS写入的考量。</p><h2 id=方法一>方法一：</h2><p>1.在terminal下使用命令<code>diskutil list</code>查询要挂载的NTFS硬盘名称</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -159,38 +27,30 @@
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ diskutil list
-UUID=7E84540E-D729-44B9-9AB8-2056C250DC5D none auto ro
-/dev/disk0 (internal, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *251.0 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:                 Apple_APFS Container disk1         250.8 GB   disk0s2
-
-/dev/disk1 (synthesized):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      APFS Container Scheme -                      +250.8 GB   disk1
-                                 Physical Store disk0s2
-   1:                APFS Volume Macintosh HD            76.4 GB    disk1s1
-   2:                APFS Volume Preboot                 19.5 MB    disk1s2
-   3:                APFS Volume Recovery                509.8 MB   disk1s3
-   4:                APFS Volume VM                      3.2 GB     disk1s4
-
-/dev/disk2 (external, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *4.0 TB     disk2
-   1:                        EFI EFI                     209.7 MB   disk2s1
-   2:                  Apple_HFS macOSbackup             1000.0 GB  disk2s2
-   3:       Microsoft Basic Data data                    3.0 TB     disk2s3
-</code></pre></td></tr></table>
-</div>
-</div><p>从输出的结果可以看到，最下面那个<code>data</code>即为我的名称。</p>
-<p>2.在terminal下使用命令<code>diskutil info /Volumes/data</code>查询该硬盘的UUID值</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ diskutil list
+</span></span><span class=line><span class=cl>UUID=7E84540E-D729-44B9-9AB8-2056C250DC5D none auto ro
+</span></span><span class=line><span class=cl>/dev/disk0 (internal, physical):
+</span></span><span class=line><span class=cl>   #:                       TYPE NAME                    SIZE       IDENTIFIER
+</span></span><span class=line><span class=cl>   0:      GUID_partition_scheme                        *251.0 GB   disk0
+</span></span><span class=line><span class=cl>   1:                        EFI EFI                     209.7 MB   disk0s1
+</span></span><span class=line><span class=cl>   2:                 Apple_APFS Container disk1         250.8 GB   disk0s2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/dev/disk1 (synthesized):
+</span></span><span class=line><span class=cl>   #:                       TYPE NAME                    SIZE       IDENTIFIER
+</span></span><span class=line><span class=cl>   0:      APFS Container Scheme -                      +250.8 GB   disk1
+</span></span><span class=line><span class=cl>                                 Physical Store disk0s2
+</span></span><span class=line><span class=cl>   1:                APFS Volume Macintosh HD            76.4 GB    disk1s1
+</span></span><span class=line><span class=cl>   2:                APFS Volume Preboot                 19.5 MB    disk1s2
+</span></span><span class=line><span class=cl>   3:                APFS Volume Recovery                509.8 MB   disk1s3
+</span></span><span class=line><span class=cl>   4:                APFS Volume VM                      3.2 GB     disk1s4
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/dev/disk2 (external, physical):
+</span></span><span class=line><span class=cl>   #:                       TYPE NAME                    SIZE       IDENTIFIER
+</span></span><span class=line><span class=cl>   0:      GUID_partition_scheme                        *4.0 TB     disk2
+</span></span><span class=line><span class=cl>   1:                        EFI EFI                     209.7 MB   disk2s1
+</span></span><span class=line><span class=cl>   2:                  Apple_HFS macOSbackup             1000.0 GB  disk2s2
+</span></span><span class=line><span class=cl>   3:       Microsoft Basic Data data                    3.0 TB     disk2s3
+</span></span></code></pre></td></tr></table></div></div><p>从输出的结果可以看到，最下面那个<code>data</code>即为我的名称。</p><p>2.在terminal下使用命令<code>diskutil info /Volumes/data</code>查询该硬盘的UUID值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -225,192 +85,78 @@ UUID=7E84540E-D729-44B9-9AB8-2056C250DC5D none auto ro
 </span><span class=lnt>33
 </span><span class=lnt>34
 </span><span class=lnt>35
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ diskutil info /Volumes/data
-Device Identifier:        disk2s3
-Device Node:              /dev/disk2s3
-Whole:                    No
-Part of Whole:            disk2
-
-Volume Name:              data
-Mounted:                  Yes
-Mount Point:              /Volumes/data
-
-Partition Type:           Microsoft Basic Data
-File System Personality:  NTFS
-Type (Bundle):            ntfs
-Name (User Visible):      Windows NT File System (NTFS)
-
-OS Can Be Installed:      No
-Media Type:               Generic
-Protocol:                 USB
-SMART Status:             Not Supported
-Volume UUID:              C0F838DA-F857-9CC0-2CC1-9CE6F19CE668
-Disk / Partition UUID:    2E13FC4C-6FC4-469F-B8DE-FBBAA5F5907D
-
-Disk Size:                3.0 TB (3000273383424 Bytes) (exactly 5859908952 512-Byte-Units)
-Device Block Size:        512 Bytes
-
-Volume Total Space:       3.0 TB (3000273379328 Bytes) (exactly 5859908944 512-Byte-Units)
-Volume Used Space:        16.1 GB (16052121600 Bytes) (exactly 31351800 512-Byte-Units) (0.5%)
-Volume Available Space:   3.0 TB (2984221257728 Bytes) (exactly 5828557144 512-Byte-Units) (99.5%)
-Allocation Block Size:    4096 Bytes
-
-Read-Only Media:          No
-Read-Only Volume:         Yes
-
-Device Location:          External
-Removable Media:          Fixed
-</code></pre></td></tr></table>
-</div>
-</div><p>输出结果中<code>Volume UUID</code>即为<code>data</code>的UUID值。</p>
-<p>3.在<code>/etc/fstab</code>中添加如下一行</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>UUID=C0F838DA-F857-9CC0-2CC1-9CE6F19CE668 none ntfs rw,auto,nobrowse
-</code></pre></td></tr></table>
-</div>
-</div><p>具体操作如下：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo vim /etc/fstab
-</code></pre></td></tr></table>
-</div>
-</div><p>然后输入刚才那一行（UUID值根据自己电脑的情况更改），最后保存退出（<code>wq</code>）.</p>
-<p>4.退出自己的移动硬盘，然后拔出移动硬盘，再重新插上移动硬盘。这时，在桌面上不再显示移动硬盘的图标，但我们打开<code>terminal</code>，进入<code>/Volumes</code>文件夹就能看到了。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ diskutil info /Volumes/data
+</span></span><span class=line><span class=cl>Device Identifier:        disk2s3
+</span></span><span class=line><span class=cl>Device Node:              /dev/disk2s3
+</span></span><span class=line><span class=cl>Whole:                    No
+</span></span><span class=line><span class=cl>Part of Whole:            disk2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Volume Name:              data
+</span></span><span class=line><span class=cl>Mounted:                  Yes
+</span></span><span class=line><span class=cl>Mount Point:              /Volumes/data
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Partition Type:           Microsoft Basic Data
+</span></span><span class=line><span class=cl>File System Personality:  NTFS
+</span></span><span class=line><span class=cl>Type (Bundle):            ntfs
+</span></span><span class=line><span class=cl>Name (User Visible):      Windows NT File System (NTFS)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>OS Can Be Installed:      No
+</span></span><span class=line><span class=cl>Media Type:               Generic
+</span></span><span class=line><span class=cl>Protocol:                 USB
+</span></span><span class=line><span class=cl>SMART Status:             Not Supported
+</span></span><span class=line><span class=cl>Volume UUID:              C0F838DA-F857-9CC0-2CC1-9CE6F19CE668
+</span></span><span class=line><span class=cl>Disk / Partition UUID:    2E13FC4C-6FC4-469F-B8DE-FBBAA5F5907D
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Disk Size:                3.0 TB (3000273383424 Bytes) (exactly 5859908952 512-Byte-Units)
+</span></span><span class=line><span class=cl>Device Block Size:        512 Bytes
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Volume Total Space:       3.0 TB (3000273379328 Bytes) (exactly 5859908944 512-Byte-Units)
+</span></span><span class=line><span class=cl>Volume Used Space:        16.1 GB (16052121600 Bytes) (exactly 31351800 512-Byte-Units) (0.5%)
+</span></span><span class=line><span class=cl>Volume Available Space:   3.0 TB (2984221257728 Bytes) (exactly 5828557144 512-Byte-Units) (99.5%)
+</span></span><span class=line><span class=cl>Allocation Block Size:    4096 Bytes
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Read-Only Media:          No
+</span></span><span class=line><span class=cl>Read-Only Volume:         Yes
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Device Location:          External
+</span></span><span class=line><span class=cl>Removable Media:          Fixed
+</span></span></code></pre></td></tr></table></div></div><p>输出结果中<code>Volume UUID</code>即为<code>data</code>的UUID值。</p><p>3.在<code>/etc/fstab</code>中添加如下一行</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>UUID=C0F838DA-F857-9CC0-2CC1-9CE6F19CE668 none ntfs rw,auto,nobrowse
+</span></span></code></pre></td></tr></table></div></div><p>具体操作如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ sudo vim /etc/fstab
+</span></span></code></pre></td></tr></table></div></div><p>然后输入刚才那一行（UUID值根据自己电脑的情况更改），最后保存退出（<code>wq</code>）.</p><p>4.退出自己的移动硬盘，然后拔出移动硬盘，再重新插上移动硬盘。这时，在桌面上不再显示移动硬盘的图标，但我们打开<code>terminal</code>，进入<code>/Volumes</code>文件夹就能看到了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ cd /Volumes
-$ ls
-Macintosh HD	data		macOSbackup
-</code></pre></td></tr></table>
-</div>
-</div><p>5.通过软链接建立桌面快捷方式</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ cd /Volumes
+</span></span><span class=line><span class=cl>$ ls
+</span></span><span class=line><span class=cl>Macintosh HD	data		macOSbackup
+</span></span></code></pre></td></tr></table></div></div><p>5.通过软链接建立桌面快捷方式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ mkdir -p ~/Desktop/data
-$ ln -s /Volumes/data ~/Desktop/data
-</code></pre></td></tr></table>
-</div>
-</div><p>在桌面上，我们就能看到其快捷方式了。</p>
-<h2 id=方法二>方法二.</h2>
-<p><a href=https://blog.plcent.com/archives/209>https://blog.plcent.com/archives/209</a>
-目前暂未测试该方法，所以没有把详细过程记录下来。</p>
-<h2 id=补充说明>补充说明</h2>
-<p>方法一对于最新的系统macOS High Sierra是有效的。</p>
-<h2 id=参考资料>参考资料</h2>
-<p><a href=https://techsviewer.com/write-ntfs-driver-macos-high-sierra/>https://techsviewer.com/write-ntfs-driver-macos-high-sierra/</a></p>
-<p><a href=https://blog.plcent.com/archives/209>https://blog.plcent.com/archives/209</a></p>
-<p><a href=https://www.zhihu.com/question/19571334>aijiv提供的答案</a></p>
-<h2 id=修订历史>修订历史</h2>
-<ul>
-<li>2018-04-06： 初稿；</li>
-<li>2018-08-05： 重排格式；</li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Nick</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2018-04-06
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/macos/>macOS</a>
-<a href=/tags/ntfs/>NTFS</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2018-04-23-linear-events/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ mkdir -p ~/Desktop/data
+</span></span><span class=line><span class=cl>$ ln -s /Volumes/data ~/Desktop/data
+</span></span></code></pre></td></tr></table></div></div><p>在桌面上，我们就能看到其快捷方式了。</p><h2 id=方法二>方法二.</h2><p><a href=https://blog.plcent.com/archives/209>https://blog.plcent.com/archives/209</a>
+目前暂未测试该方法，所以没有把详细过程记录下来。</p><h2 id=补充说明>补充说明</h2><p>方法一对于最新的系统macOS High Sierra是有效的。</p><h2 id=参考资料>参考资料</h2><p><a href=https://techsviewer.com/write-ntfs-driver-macos-high-sierra/>https://techsviewer.com/write-ntfs-driver-macos-high-sierra/</a></p><p><a href=https://blog.plcent.com/archives/209>https://blog.plcent.com/archives/209</a></p><p><a href=https://www.zhihu.com/question/19571334>aijiv提供的答案</a></p><h2 id=修订历史>修订历史</h2><ul><li>2018-04-06： 初稿；</li><li>2018-08-05： 重排格式；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Nick</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-04-06</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/macos/>macOS</a>
+<a href=/tags/ntfs/>NTFS</a></div><nav class=post-nav><a class=prev href=/post/2018-04-23-linear-events/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">合成地震事件</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2018-03-31-rsf-plot/>
-<span class="next-text nav-default">Madagascar绘图总结</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2018-03-31-rsf-plot/><span class="next-text nav-default">Madagascar绘图总结</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

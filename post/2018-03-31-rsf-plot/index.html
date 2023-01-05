@@ -1,148 +1,10 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Madagascar绘图总结 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Nick"><meta name=description content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/2018-03-31-rsf-plot/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Madagascar绘图总结">
-<meta property="og:description" content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/2018-03-31-rsf-plot/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-03-31T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-03-31T00:00:00+00:00">
-<meta itemprop=name content="Madagascar绘图总结">
-<meta itemprop=description content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><meta itemprop=datePublished content="2018-03-31T00:00:00+00:00">
-<meta itemprop=dateModified content="2018-03-31T00:00:00+00:00">
-<meta itemprop=wordCount content="566">
-<meta itemprop=keywords content="Madagascar,绘图,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Madagascar绘图总结">
-<meta name=twitter:description content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Madagascar绘图总结 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Nick"><meta name=description content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/2018-03-31-rsf-plot/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Madagascar绘图总结"><meta property="og:description" content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/2018-03-31-rsf-plot/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-03-31T00:00:00+00:00"><meta property="article:modified_time" content="2018-03-31T00:00:00+00:00"><meta itemprop=name content="Madagascar绘图总结"><meta itemprop=description content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><meta itemprop=datePublished content="2018-03-31T00:00:00+00:00"><meta itemprop=dateModified content="2018-03-31T00:00:00+00:00"><meta itemprop=wordCount content="568"><meta itemprop=keywords content="Madagascar,绘图,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Madagascar绘图总结"><meta name=twitter:description content="波形图 比如，绘制子波形态，单道地震记录等。采用sfgraph来绘图，类似与Matlab的plot命令。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Madagascar绘图总结</h1>
-<div class=post-meta>
-<span class=post-time> 2018-03-31 </span>
-<div class=post-category>
-<a href=/categories/%E7%BB%98%E5%9B%BE/> 绘图 </a>
-</div>
-<span class=more-meta> 约 566 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#波形图>波形图</a></li>
-<li><a href=#3d图>3D图</a></li>
-<li><a href=#绘制box>绘制box</a></li>
-<li><a href=#半圆>半圆</a>
-<ul>
-<li><a href=#给定参数>给定参数</a></li>
-<li><a href=#绘图>绘图</a></li>
-<li><a href=#结果>结果</a></li>
-</ul>
-</li>
-<li><a href=#椭圆>椭圆</a></li>
-<li><a href=#椭圆坐标系>椭圆坐标系</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h2 id=波形图>波形图</h2>
-<p>比如，绘制子波形态，单道地震记录等。采用<code>sfgraph</code>来绘图，类似与Matlab的<code>plot</code>命令。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Madagascar绘图总结</h1><div class=post-meta><span class=post-time>2018-03-31</span><div class=post-category><a href=/categories/%E7%BB%98%E5%9B%BE/>绘图</a></div><span class=more-meta>约 568 字</span>
+<span class=more-meta>预计阅读 2 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#波形图>波形图</a></li><li><a href=#3d图>3D图</a></li><li><a href=#绘制box>绘制box</a></li><li><a href=#半圆>半圆</a><ul><li><a href=#给定参数>给定参数</a></li><li><a href=#绘图>绘图</a></li><li><a href=#结果>结果</a></li></ul></li><li><a href=#椭圆>椭圆</a></li><li><a href=#椭圆坐标系>椭圆坐标系</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=波形图>波形图</h2><p>比如，绘制子波形态，单道地震记录等。采用<code>sfgraph</code>来绘图，类似与Matlab的<code>plot</code>命令。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -166,42 +28,31 @@
 </span><span class=lnt>22
 </span><span class=lnt>23
 </span><span class=lnt>24
-</span><span class=lnt>25
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># plot wavelet</span>
-<span class=kn>from</span> <span class=nn>rsf.proj</span> <span class=kn>import</span> <span class=o>*</span>
-
-<span class=n>par</span><span class=o>=</span><span class=p>{</span>
-<span class=p>}</span>
-
-<span class=k>def</span> <span class=nf>waveplot</span><span class=p>(</span><span class=n>custom</span><span class=p>,</span><span class=n>par</span><span class=p>):</span>
-    <span class=k>return</span> <span class=s1>&#39;&#39;&#39;
-</span><span class=s1>    graph title=&#34;&#34; min1=</span><span class=si>%g</span><span class=s1> min2=0 max2=+1
-</span><span class=s1>    plotfat=5 plotcol=5
-</span><span class=s1>    label1=</span><span class=si>%s</span><span class=s1> unit1=</span><span class=si>%s</span><span class=s1>
-</span><span class=s1>    label2=&#34;Amplitude&#34; unit2=&#34;&#34;
-</span><span class=s1>    parallel2=n screenratio=0.5 screenht=7
-</span><span class=s1>    </span><span class=si>%s</span><span class=s1>
-</span><span class=s1>    &#39;&#39;&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>par</span><span class=p>[</span><span class=s1>&#39;oxx&#39;</span><span class=p>],</span><span class=n>par</span><span class=p>[</span><span class=s1>&#39;lxx&#39;</span><span class=p>],</span><span class=n>par</span><span class=p>[</span><span class=s1>&#39;uxx&#39;</span><span class=p>],</span>
-           <span class=n>par</span><span class=p>[</span><span class=s1>&#39;labelattr&#39;</span><span class=p>]</span><span class=o>+</span><span class=s1>&#39; &#39;</span><span class=o>+</span><span class=n>custom</span><span class=p>)</span>
-
-<span class=n>par</span><span class=p>[</span><span class=s1>&#39;labelattr&#39;</span><span class=p>]</span><span class=o>=</span><span class=s1>&#39; parallel2=n labelsz=6 labelfat=3 titlesz=12 titlefat=3 &#39;</span>
-
-<span class=n>par</span><span class=p>[</span><span class=s1>&#39;lxx&#39;</span><span class=p>]</span><span class=o>=</span><span class=s1>&#39;x&#39;</span>
-<span class=n>par</span><span class=p>[</span><span class=s1>&#39;uxx&#39;</span><span class=p>]</span><span class=o>=</span><span class=s1>&#39;m&#39;</span>
-<span class=n>par</span><span class=p>[</span><span class=s1>&#39;oxx&#39;</span><span class=p>]</span><span class=o>=</span> <span class=mf>0.</span>
-
-<span class=n>Result</span><span class=p>(</span><span class=s1>&#39;wav&#39;</span><span class=p>,</span><span class=s1>&#39;transp |&#39;</span> <span class=o>+</span> <span class=n>waveplot</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span><span class=n>par</span><span class=p>))</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>说明<code>wav</code>为绘图的数据，其维度必须为1xn2的形式。</strong></p>
-<p>示例：暂缺</p>
-<h2 id=3d图>3D图</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># plot wavelet</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>rsf.proj</span> <span class=kn>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>par</span><span class=o>=</span><span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>waveplot</span><span class=p>(</span><span class=n>custom</span><span class=p>,</span><span class=n>par</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    graph title=&#34;&#34; min1=</span><span class=si>%g</span><span class=s1> min2=0 max2=+1
+</span></span></span><span class=line><span class=cl><span class=s1>    plotfat=5 plotcol=5
+</span></span></span><span class=line><span class=cl><span class=s1>    label1=</span><span class=si>%s</span><span class=s1> unit1=</span><span class=si>%s</span><span class=s1>
+</span></span></span><span class=line><span class=cl><span class=s1>    label2=&#34;Amplitude&#34; unit2=&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s1>    parallel2=n screenratio=0.5 screenht=7
+</span></span></span><span class=line><span class=cl><span class=s1>    </span><span class=si>%s</span><span class=s1>
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>par</span><span class=p>[</span><span class=s1>&#39;oxx&#39;</span><span class=p>],</span><span class=n>par</span><span class=p>[</span><span class=s1>&#39;lxx&#39;</span><span class=p>],</span><span class=n>par</span><span class=p>[</span><span class=s1>&#39;uxx&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>           <span class=n>par</span><span class=p>[</span><span class=s1>&#39;labelattr&#39;</span><span class=p>]</span><span class=o>+</span><span class=s1>&#39; &#39;</span><span class=o>+</span><span class=n>custom</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>par</span><span class=p>[</span><span class=s1>&#39;labelattr&#39;</span><span class=p>]</span><span class=o>=</span><span class=s1>&#39; parallel2=n labelsz=6 labelfat=3 titlesz=12 titlefat=3 &#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>par</span><span class=p>[</span><span class=s1>&#39;lxx&#39;</span><span class=p>]</span><span class=o>=</span><span class=s1>&#39;x&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>par</span><span class=p>[</span><span class=s1>&#39;uxx&#39;</span><span class=p>]</span><span class=o>=</span><span class=s1>&#39;m&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>par</span><span class=p>[</span><span class=s1>&#39;oxx&#39;</span><span class=p>]</span><span class=o>=</span> <span class=mf>0.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Result</span><span class=p>(</span><span class=s1>&#39;wav&#39;</span><span class=p>,</span><span class=s1>&#39;transp |&#39;</span> <span class=o>+</span> <span class=n>waveplot</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span><span class=n>par</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>说明<code>wav</code>为绘图的数据，其维度必须为1xn2的形式。</strong></p><p>示例：暂缺</p><h2 id=3d图>3D图</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -217,35 +68,23 @@
 </span><span class=lnt>14
 </span><span class=lnt>15
 </span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>par = {
-    &#39;nx&#39;:41, &#39;ox&#39;:0, &#39;dx&#39;:0.05,  &#39;lx&#39;:&#39;x&#39;, &#39;ux&#39;:&#39;km&#39;,
-    &#39;ny&#39;:41, &#39;oy&#39;:0, &#39;dy&#39;:0.05,  &#39;ly&#39;:&#39;y&#39;, &#39;uy&#39;:&#39;km&#39;,
-    &#39;nz&#39;:41, &#39;oz&#39;:0, &#39;dz&#39;:0.05,  &#39;lz&#39;:&#39;z&#39;, &#39;uz&#39;:&#39;km&#39;
-    }
-# 生成三维数据
-Flow(&#39;data&#39;,None,&#39;&#39;&#39;math n1=41 n2=41 n3=41 o1=-1 o2=-1 o3=-1
-     d1=0.05 d2=0.05 d3=0.05 output=&#34;exp(-2*(x1^2+x2^2+x3^2))&#34;&#39;&#39;&#39;)
-# 绘图
-fdmod.param(par)
-# 立体图
-Result(&#39;data&#39;, &#39;byte gainpanel=a pclip=95 |&#39;
-+fdmod.cgrey3d(&#39;flat=y &#39;,par))
-# 三视图
-Result(&#39;data1&#39;,&#39;data&#39;,&#39;byte gainpanel=a pclip=95 |&#39;
-+fdmod.cgrey3d(&#39;flat=n &#39;,par))
-</code></pre></td></tr></table>
-</div>
-</div><p>立体图</p>
-<p><img src=https://i.postimg.cc/3xPJXs3x/cube.png alt=立体图.png></p>
-<p>三视图</p>
-<p><img src=https://i.postimg.cc/kgVgtJ3H/flat.png alt=三视图.png></p>
-<h2 id=绘制box>绘制box</h2>
-<p>常用于论文中的局部比较</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>par = {
+</span></span><span class=line><span class=cl>    &#39;nx&#39;:41, &#39;ox&#39;:0, &#39;dx&#39;:0.05,  &#39;lx&#39;:&#39;x&#39;, &#39;ux&#39;:&#39;km&#39;,
+</span></span><span class=line><span class=cl>    &#39;ny&#39;:41, &#39;oy&#39;:0, &#39;dy&#39;:0.05,  &#39;ly&#39;:&#39;y&#39;, &#39;uy&#39;:&#39;km&#39;,
+</span></span><span class=line><span class=cl>    &#39;nz&#39;:41, &#39;oz&#39;:0, &#39;dz&#39;:0.05,  &#39;lz&#39;:&#39;z&#39;, &#39;uz&#39;:&#39;km&#39;
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl># 生成三维数据
+</span></span><span class=line><span class=cl>Flow(&#39;data&#39;,None,&#39;&#39;&#39;math n1=41 n2=41 n3=41 o1=-1 o2=-1 o3=-1
+</span></span><span class=line><span class=cl>     d1=0.05 d2=0.05 d3=0.05 output=&#34;exp(-2*(x1^2+x2^2+x3^2))&#34;&#39;&#39;&#39;)
+</span></span><span class=line><span class=cl># 绘图
+</span></span><span class=line><span class=cl>fdmod.param(par)
+</span></span><span class=line><span class=cl># 立体图
+</span></span><span class=line><span class=cl>Result(&#39;data&#39;, &#39;byte gainpanel=a pclip=95 |&#39;
+</span></span><span class=line><span class=cl>+fdmod.cgrey3d(&#39;flat=y &#39;,par))
+</span></span><span class=line><span class=cl># 三视图
+</span></span><span class=line><span class=cl>Result(&#39;data1&#39;,&#39;data&#39;,&#39;byte gainpanel=a pclip=95 |&#39;
+</span></span><span class=line><span class=cl>+fdmod.cgrey3d(&#39;flat=n &#39;,par))
+</span></span></code></pre></td></tr></table></div></div><p>立体图</p><p><img src=https://i.postimg.cc/3xPJXs3x/cube.png alt=立体图.png></p><p>三视图</p><p><img src=https://i.postimg.cc/kgVgtJ3H/flat.png alt=三视图.png></p><h2 id=绘制box>绘制box</h2><p>常用于论文中的局部比较</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -266,56 +105,38 @@ Result(&#39;data1&#39;,&#39;data&#39;,&#39;byte gainpanel=a pclip=95 |&#39;
 </span><span class=lnt>19
 </span><span class=lnt>20
 </span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>from rsf.proj import *
-from rsf.recipes import fdmod,rwezo
-from math import pi
-
-zmin=0
-zmax=1
-xmin=0
-xmax=1
-
-# make box data
-fdmod.makebox(&#39;box&#39;,zmin,zmax,xmin,xmax,par)
-
-#           __________________                      zmin
-#          |                  |
-#          |                  |
-#          |                  |
-#          |                  |
-# xmin     |__________________|  xmax               zmax
-
-# draw box
-Plot(&#39;box&#39;,fdmod.bbplot(&#39;&#39;,par))
-
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/D0Bw1mw9/box.png alt=box.png></p>
-<h2 id=半圆>半圆</h2>
-<p>常用于脉冲响应的绘制。</p>
-<h3 id=给定参数>给定参数</h3>
-<pre><code>``` {.py}
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>from rsf.proj import *
+</span></span><span class=line><span class=cl>from rsf.recipes import fdmod,rwezo
+</span></span><span class=line><span class=cl>from math import pi
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>zmin=0
+</span></span><span class=line><span class=cl>zmax=1
+</span></span><span class=line><span class=cl>xmin=0
+</span></span><span class=line><span class=cl>xmax=1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># make box data
+</span></span><span class=line><span class=cl>fdmod.makebox(&#39;box&#39;,zmin,zmax,xmin,xmax,par)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>#           __________________                      zmin
+</span></span><span class=line><span class=cl>#          |                  |
+</span></span><span class=line><span class=cl>#          |                  |
+</span></span><span class=line><span class=cl>#          |                  |
+</span></span><span class=line><span class=cl>#          |                  |
+</span></span><span class=line><span class=cl># xmin     |__________________|  xmax               zmax
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># draw box
+</span></span><span class=line><span class=cl>Plot(&#39;box&#39;,fdmod.bbplot(&#39;&#39;,par))
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/D0Bw1mw9/box.png alt=box.png></p><h2 id=半圆>半圆</h2><p>常用于脉冲响应的绘制。</p><h3 id=给定参数>给定参数</h3><pre><code>``` {.py}
   xcenter = 1285.0　# 圆心x坐标
   zcenter = 0.0　　 # 圆心z坐标　
   sampling = 1000　# 采样点数
   radius = 768　　　# 半径
 ```
-</code></pre>
-<h3 id=绘图>绘图</h3>
-<pre><code>``` {.py}
+</code></pre><h3 id=绘图>绘图</h3><pre><code>``` {.py}
   fdmod.circle('cc',xcenter,zcenter,radius,sampling,par)
   Plot(  'cc',fdmod.ssplot('plotfat=7 plotcol=2 ',par))
 ```
-</code></pre>
-<h3 id=结果>结果</h3>
-<p><img src=https://i.postimg.cc/RCRFkpLg/circle.png alt=半圆图.png></p>
-<h2 id=椭圆>椭圆</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</code></pre><h3 id=结果>结果</h3><p><img src=https://i.postimg.cc/RCRFkpLg/circle.png alt=半圆图.png></p><h2 id=椭圆>椭圆</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -341,42 +162,33 @@ Plot(&#39;box&#39;,fdmod.bbplot(&#39;&#39;,par))
 </span><span class=lnt>24
 </span><span class=lnt>25
 </span><span class=lnt>26
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  #定义临时处理Flow
-  def Temp(o,i,r):
-    Flow(o,i,r+ &#39; datapath=%s &#39;%os.environ.get(&#39;TMPDATAPATH&#39;,os.environ.get(&#39;DATAPATH&#39;)))
-　#椭圆模块
-  def ellipse(cc,xcenter,zcenter,semiA,semiB,sampling,par):
-    Temp(cc+&#39;_x&#39;,None,
-         &#39;math n1=%d d1=%g o1=%g output=&#34;%g+%g*cos(%g*x1/180)&#34;&#39;
-         % (sampling,360./sampling,0.,xcenter,semiA,pi) )
-    Temp(cc+&#39;_z&#39;,None,
-         &#39;math n1=%d d1=%g o1=%g output=&#34;%g+%g*sin(%g*x1/180)&#34;&#39;
-         % (sampling,360./sampling,0.,zcenter,semiB,pi) )
-    Flow(cc,[cc+&#39;_x&#39;,cc+&#39;_z&#39;],
-         &#39;&#39;&#39;
-         cat axis=2 space=n
-         ${SOURCES[0]} ${SOURCES[1]} | transp |
-         put label1=&#34;&#34; unit1=&#34;&#34; label2=&#34;&#34; unit2=&#34;&#34;
-         &#39;&#39;&#39;, stdin=0)
-
-xcenter=(par[&#39;ox&#39;]+(par[&#39;nx&#39;]-1)*par[&#39;dx&#39;])/2.0　# 坐标系中心x
-zcenter=par[&#39;oz&#39;]  ＃坐标系中心z
-ab=par[&#39;dx&#39;]*(361-150)# 计算焦距
-semiA=(par[&#39;kt&#39;]-50)*par[&#39;dt&#39;]*1500　# 计算a
-semiB=np.sqrt(semiA**2.0-(ab/2.0)**2.0) # 计算b
-ellipse(&#39;ec&#39;,xcenter,zcenter,semiA,semiB,500,par) # 生成椭圆坐标
-
-Plot(  &#39;ec&#39;,fdmod.ssplot(&#39;plotfat=10 plotcol=2 symbol=.&#39;,par))　# 绘制椭圆
-</code></pre></td></tr></table>
-</div>
-</div><p>结果</p>
-<p><img src=https://i.postimg.cc/NfjMB8NB/ellipse.png alt=椭圆.png></p>
-<h2 id=椭圆坐标系>椭圆坐标系</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>  #定义临时处理Flow
+</span></span><span class=line><span class=cl>  def Temp(o,i,r):
+</span></span><span class=line><span class=cl>    Flow(o,i,r+ &#39; datapath=%s &#39;%os.environ.get(&#39;TMPDATAPATH&#39;,os.environ.get(&#39;DATAPATH&#39;)))
+</span></span><span class=line><span class=cl>　#椭圆模块
+</span></span><span class=line><span class=cl>  def ellipse(cc,xcenter,zcenter,semiA,semiB,sampling,par):
+</span></span><span class=line><span class=cl>    Temp(cc+&#39;_x&#39;,None,
+</span></span><span class=line><span class=cl>         &#39;math n1=%d d1=%g o1=%g output=&#34;%g+%g*cos(%g*x1/180)&#34;&#39;
+</span></span><span class=line><span class=cl>         % (sampling,360./sampling,0.,xcenter,semiA,pi) )
+</span></span><span class=line><span class=cl>    Temp(cc+&#39;_z&#39;,None,
+</span></span><span class=line><span class=cl>         &#39;math n1=%d d1=%g o1=%g output=&#34;%g+%g*sin(%g*x1/180)&#34;&#39;
+</span></span><span class=line><span class=cl>         % (sampling,360./sampling,0.,zcenter,semiB,pi) )
+</span></span><span class=line><span class=cl>    Flow(cc,[cc+&#39;_x&#39;,cc+&#39;_z&#39;],
+</span></span><span class=line><span class=cl>         &#39;&#39;&#39;
+</span></span><span class=line><span class=cl>         cat axis=2 space=n
+</span></span><span class=line><span class=cl>         ${SOURCES[0]} ${SOURCES[1]} | transp |
+</span></span><span class=line><span class=cl>         put label1=&#34;&#34; unit1=&#34;&#34; label2=&#34;&#34; unit2=&#34;&#34;
+</span></span><span class=line><span class=cl>         &#39;&#39;&#39;, stdin=0)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>xcenter=(par[&#39;ox&#39;]+(par[&#39;nx&#39;]-1)*par[&#39;dx&#39;])/2.0　# 坐标系中心x
+</span></span><span class=line><span class=cl>zcenter=par[&#39;oz&#39;]  ＃坐标系中心z
+</span></span><span class=line><span class=cl>ab=par[&#39;dx&#39;]*(361-150)# 计算焦距
+</span></span><span class=line><span class=cl>semiA=(par[&#39;kt&#39;]-50)*par[&#39;dt&#39;]*1500　# 计算a
+</span></span><span class=line><span class=cl>semiB=np.sqrt(semiA**2.0-(ab/2.0)**2.0) # 计算b
+</span></span><span class=line><span class=cl>ellipse(&#39;ec&#39;,xcenter,zcenter,semiA,semiB,500,par) # 生成椭圆坐标
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Plot(  &#39;ec&#39;,fdmod.ssplot(&#39;plotfat=10 plotcol=2 symbol=.&#39;,par))　# 绘制椭圆
+</span></span></code></pre></td></tr></table></div></div><p>结果</p><p><img src=https://i.postimg.cc/NfjMB8NB/ellipse.png alt=椭圆.png></p><h2 id=椭圆坐标系>椭圆坐标系</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -386,109 +198,38 @@ Plot(  &#39;ec&#39;,fdmod.ssplot(&#39;plotfat=10 plotcol=2 symbol=.&#39;,par))�
 </span><span class=lnt> 8
 </span><span class=lnt> 9
 </span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># 生成坐标系文件 rays.rsf
-Flow(&#39;rays&#39;,&#39;datRC velo&#39;,
-   &#39;&#39;&#39;
-   %(rays)slrays
-	vel=${SOURCES[1]}
-	dt=%(dt)g nt=%(nt)d
-	ot=%(ot)g minang=%(minang)g maxang=%(maxang)g
- &#39;&#39;&#39;%par)
-# 绘制椭圆坐标系
-rwezo.cos(&#39;rays&#39;,20,100,&#39;&#39;,par)
-</code></pre></td></tr></table>
-</div>
-</div><p><img src=https://i.postimg.cc/kXY54VZ8/rays.png alt=椭圆坐标系.png></p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Nick</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2018-03-31
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/madagascar/>Madagascar</a>
-<a href=/tags/%E7%BB%98%E5%9B%BE/>绘图</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2018-04-06-macos-ntfs/>
-<i class="iconfont icon-left"></i>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 生成坐标系文件 rays.rsf
+</span></span><span class=line><span class=cl>Flow(&#39;rays&#39;,&#39;datRC velo&#39;,
+</span></span><span class=line><span class=cl>   &#39;&#39;&#39;
+</span></span><span class=line><span class=cl>   %(rays)slrays
+</span></span><span class=line><span class=cl>	vel=${SOURCES[1]}
+</span></span><span class=line><span class=cl>	dt=%(dt)g nt=%(nt)d
+</span></span><span class=line><span class=cl>	ot=%(ot)g minang=%(minang)g maxang=%(maxang)g
+</span></span><span class=line><span class=cl> &#39;&#39;&#39;%par)
+</span></span><span class=line><span class=cl># 绘制椭圆坐标系
+</span></span><span class=line><span class=cl>rwezo.cos(&#39;rays&#39;,20,100,&#39;&#39;,par)
+</span></span></code></pre></td></tr></table></div></div><p><img src=https://i.postimg.cc/kXY54VZ8/rays.png alt=椭圆坐标系.png></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Nick</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-03-31</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/madagascar/>Madagascar</a>
+<a href=/tags/%E7%BB%98%E5%9B%BE/>绘图</a></div><nav class=post-nav><a class=prev href=/post/2018-04-06-macos-ntfs/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">macOS 挂载 NTFS 格式硬盘</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2018-02-04-boot-partition/>
-<span class="next-text nav-default">Linux /boot 重新分区</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2018-02-04-boot-partition/><span class="next-text nav-default">Linux /boot 重新分区</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

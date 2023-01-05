@@ -1,304 +1,63 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>在没有 root 权限的情况下安装 Madagascar - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Nick"><meta name=description content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/madagascar_noroot/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="在没有 root 权限的情况下安装 Madagascar">
-<meta property="og:description" content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/madagascar_noroot/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2020-08-13T00:00:00+00:00">
-<meta property="article:modified_time" content="2020-08-13T00:00:00+00:00">
-<meta itemprop=name content="在没有 root 权限的情况下安装 Madagascar">
-<meta itemprop=description content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><meta itemprop=datePublished content="2020-08-13T00:00:00+00:00">
-<meta itemprop=dateModified content="2020-08-13T00:00:00+00:00">
-<meta itemprop=wordCount content="1678">
-<meta itemprop=keywords content="Madagascar,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="在没有 root 权限的情况下安装 Madagascar">
-<meta name=twitter:description content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>在没有 root 权限的情况下安装 Madagascar - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Nick"><meta name=description content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/madagascar_noroot/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="在没有 root 权限的情况下安装 Madagascar"><meta property="og:description" content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/madagascar_noroot/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-08-13T00:00:00+00:00"><meta property="article:modified_time" content="2020-08-13T00:00:00+00:00"><meta itemprop=name content="在没有 root 权限的情况下安装 Madagascar"><meta itemprop=description content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><meta itemprop=datePublished content="2020-08-13T00:00:00+00:00"><meta itemprop=dateModified content="2020-08-13T00:00:00+00:00"><meta itemprop=wordCount content="1678"><meta itemprop=keywords content="Madagascar,"><meta name=twitter:card content="summary"><meta name=twitter:title content="在没有 root 权限的情况下安装 Madagascar"><meta name=twitter:description content="在有 root 的权限下安装 Madagascar 比较容易，请参考 https://blog.nickwhyy.top/post/madagascar/。 本文主要探讨在没有"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>在没有 root 权限的情况下安装 Madagascar</h1>
-<div class=post-meta>
-<span class=post-time> 2020-08-13 </span>
-<div class=post-category>
-<a href=/categories/%E5%AE%89%E8%A3%85/> 安装 </a>
-</div>
-<span class=more-meta> 约 1678 字 </span>
-<span class=more-meta> 预计阅读 4 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href=#编译安装libxaw>编译，安装<code>libXaw</code></a></li>
-<li><a href=#编译安装-madagascar>编译，安装 Madagascar</a></li>
-<li><a href=#libxaw安装方式2>libXaw安装方式2</a></li>
-<li><a href=#修订历史>修订历史</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>在有 root 的权限下安装 Madagascar 比较容易，请参考 <a href=https://blog.nickwhyy.top/post/madagascar/>https://blog.nickwhyy.top/post/madagascar/</a>。
-本文主要探讨在没有 root 权限的场合下（比如服务器上）安装 Madagascar。</p>
-<p>本人所用的服务器是 CentOS 7.5 系统，正常安装依赖包直接用 yum 安装即可，但在没有 root 的权限下
-无法直接安装各种依赖包，一般有两种方式来安装软件：</p>
-<ul>
-<li>1.去网上找一些 rpm 包，然后将其解压，并添加路径到<code>~/.bashrc</code>；</li>
-<li>2.找相关安装包的源代码，然后手动编译。</li>
-</ul>
-<p>一般而言，安装不带 <code>sfpen</code> 的 Madagascar 十分容易，直接在 <code>src</code>目录下运行 <code>./configure</code>然后
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>在没有 root 权限的情况下安装 Madagascar</h1><div class=post-meta><span class=post-time>2020-08-13</span><div class=post-category><a href=/categories/%E5%AE%89%E8%A3%85/>安装</a></div><span class=more-meta>约 1678 字</span>
+<span class=more-meta>预计阅读 4 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#编译安装libxaw>编译，安装<code>libXaw</code></a></li><li><a href=#编译安装-madagascar>编译，安装 Madagascar</a></li><li><a href=#libxaw安装方式2>libXaw安装方式2</a></li><li><a href=#修订历史>修订历史</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p>在有 root 的权限下安装 Madagascar 比较容易，请参考 <a href=https://blog.nickwhyy.top/post/madagascar/>https://blog.nickwhyy.top/post/madagascar/</a>。
+本文主要探讨在没有 root 权限的场合下（比如服务器上）安装 Madagascar。</p><p>本人所用的服务器是 CentOS 7.5 系统，正常安装依赖包直接用 yum 安装即可，但在没有 root 的权限下
+无法直接安装各种依赖包，一般有两种方式来安装软件：</p><ul><li>1.去网上找一些 rpm 包，然后将其解压，并添加路径到<code>~/.bashrc</code>；</li><li>2.找相关安装包的源代码，然后手动编译。</li></ul><p>一般而言，安装不带 <code>sfpen</code> 的 Madagascar 十分容易，直接在 <code>src</code>目录下运行 <code>./configure</code>然后
 再<code>make</code>, <code>make install</code>即可安装成功。但<code>sfpen</code>程序依赖于 <code>libXaw-devel</code> 图形库，因此，必须
-先安装该软件包，才能安装一个比较完整的 Madagascar。</p>
-<p><code>libX*</code>相关的源代码可在<a href=ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/>ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/</a>上进行
-下载。下面以安装<code>libXaw</code>为例，简单进行说明</p>
-<h3 id=编译安装libxaw>编译，安装<code>libXaw</code></h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+先安装该软件包，才能安装一个比较完整的 Madagascar。</p><p><code>libX*</code>相关的源代码可在<a href=ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/>ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/</a>上进行
+下载。下面以安装<code>libXaw</code>为例，简单进行说明</p><h3 id=编译安装libxaw>编译，安装<code>libXaw</code></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ tar -xvf libXaw-1.0.10.tar.gz
-$ cd libXaw-1.0.10
-$ ./configure --prefix=/home/lloyd/.local
-$ make
-$ make install
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-</blockquote>
-<p>这里大概率会提示缺少<code>xt</code>等，需要上<a href=ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/>ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/</a>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ tar -xvf libXaw-1.0.10.tar.gz
+</span></span><span class=line><span class=cl>$ cd libXaw-1.0.10
+</span></span><span class=line><span class=cl>$ ./configure --prefix=/home/lloyd/.local
+</span></span><span class=line><span class=cl>$ make
+</span></span><span class=line><span class=cl>$ make install
+</span></span></code></pre></td></tr></table></div></div><blockquote></blockquote><p>这里大概率会提示缺少<code>xt</code>等，需要上<a href=ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/>ftp://mirror.csclub.uwaterloo.ca/x.org/X11R7.7-RC1/src/lib/</a>
 下载<code>libXt*.tar.gz</code>,然后按照上面的步骤安装<code>libXt</code>，可能会提示缺少<code>ICE</code>等，继续按照上面的操作流程，
-补完对应缺少的依赖包，每一个依赖包都按照解压, <code>configure</code>， <code>make</code>， <code>make install</code>四部曲进行。</p>
-<blockquote>
-</blockquote>
-<p>可能遇到了问题是，比如<code>ICE</code>依赖<code>xtrans</code>，我装完了<code>xtrans</code>,回过来再装<code>ICE</code>,结果提示系统里找不到<code>xtrans</code>，
+补完对应缺少的依赖包，每一个依赖包都按照解压, <code>configure</code>， <code>make</code>， <code>make install</code>四部曲进行。</p><blockquote></blockquote><p>可能遇到了问题是，比如<code>ICE</code>依赖<code>xtrans</code>，我装完了<code>xtrans</code>,回过来再装<code>ICE</code>,结果提示系统里找不到<code>xtrans</code>，
 然后可能想到，把xtrans的安装路径下的<code>lib</code>添加到<code>LD_LIBRARY_PATH</code>中，结果发现还是没用。主要原因在于
 <code>configure</code>调用了系统的pkg_config程序，而系统的pkg_config程序不会搜索非标准目录(如<code>/usr/lib</code>)下安装的程序,
-因此，需要将<code>xtrans</code>的pkgconfig路径添加到系统的<code>PKG_CONFIG_PATH</code>中，具体操作如下,在<code>~/.bashrc</code>中添加：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+因此，需要将<code>xtrans</code>的pkgconfig路径添加到系统的<code>PKG_CONFIG_PATH</code>中，具体操作如下,在<code>~/.bashrc</code>中添加：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/share/pkgconfig
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig
-</code></pre></td></tr></table>
-</div>
-</div><p>重复刚才的所有操作，应该就能成功地安装libXaw了，然后开始安装 Madagascar。</p>
-<h3 id=编译安装-madagascar>编译，安装 Madagascar</h3>
-<p>进入Madagascar的源文件根目录，输入<code>configure API=c++,f90,matlab,python --prefix=/home/lloyd/.local/rsf</code>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/share/pkgconfig
+</span></span><span class=line><span class=cl>export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig
+</span></span></code></pre></td></tr></table></div></div><p>重复刚才的所有操作，应该就能成功地安装libXaw了，然后开始安装 Madagascar。</p><h3 id=编译安装-madagascar>编译，安装 Madagascar</h3><p>进入Madagascar的源文件根目录，输入<code>configure API=c++,f90,matlab,python --prefix=/home/lloyd/.local/rsf</code>
 ,结果发现configure的结果中<code>X11</code>是 no，但是刚才的那步确实是安装了libXaw，这时需要修改<code>framework/configure.py</code>,
 找到里面的xinc, xlib， 将自己刚才安装libXaw的路径补充进去，然后重新configure, 即可解决刚才的问题，从而安装
-一个比较完整的Madagascar，剩下的安装步骤见<a href=https://blog.nickwhyy.top/post/madagascar/>https://blog.nickwhyy.top/post/madagascar/</a>。</p>
-<h3 id=libxaw安装方式2>libXaw安装方式2</h3>
-<p>上这个https://centos.pkgs.org/7/centos-x86_64/libXaw-devel-1.0.13-4.el7.x86_64.rpm.html下载libXaw-devel*.rpm
+一个比较完整的Madagascar，剩下的安装步骤见<a href=https://blog.nickwhyy.top/post/madagascar/>https://blog.nickwhyy.top/post/madagascar/</a>。</p><h3 id=libxaw安装方式2>libXaw安装方式2</h3><p>上这个https://centos.pkgs.org/7/centos-x86_64/libXaw-devel-1.0.13-4.el7.x86_64.rpm.html下载libXaw-devel*.rpm
 包，然后查看该软件包所依赖的其它软件包(即网页中的Requires一栏)，逐个下载依赖包，然后check每个依赖包对应需要下载
-的其它依赖软件，将所有的依赖软件都下载下来。且放在同一个文件夹下，运行下面的命令，并将<code>libXaw-devel-1.0.13-4.el7.x86_64.rpm</code>换成刚才下载的其它软件包的名称，依次解压软件包到usr文件夹下。然后你会发现usr目录下会有<code>include</code>，<code>lib</code>等目录，
+的其它依赖软件，将所有的依赖软件都下载下来。且放在同一个文件夹下，运行下面的命令，并将<code>libXaw-devel-1.0.13-4.el7.x86_64.rpm </code>换成刚才下载的其它软件包的名称，依次解压软件包到usr文件夹下。然后你会发现usr目录下会有<code>include</code>，<code>lib</code>等目录，
 将<code>include</code>和<code>lib</code>分别添加到Madagascar的$RSFSRC/framework/configure.py中的xinc 和 xlib中，然后就可以安装
-完整的Madagascar了。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ rpm2cpio libXaw-devel-1.0.13-4.el7.x86_64.rpm | cpio -idvm
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-</blockquote>
-<p>注意，方法2仅仅是理论上可行，本人未进行测试。如果测试有问题，可转向方法1，进行源码编译，一般不会有太大的问题。</p>
-<h3 id=修订历史>修订历史</h3>
-<ul>
-<li>2020-08-13: 初稿；</li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Nick</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2020-08-13
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/madagascar/>Madagascar</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/axisem3d/>
-<i class="iconfont icon-left"></i>
+完整的Madagascar了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ rpm2cpio libXaw-devel-1.0.13-4.el7.x86_64.rpm | cpio -idvm
+</span></span></code></pre></td></tr></table></div></div><blockquote></blockquote><p>注意，方法2仅仅是理论上可行，本人未进行测试。如果测试有问题，可转向方法1，进行源码编译，一般不会有太大的问题。</p><h3 id=修订历史>修订历史</h3><ul><li>2020-08-13: 初稿；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Nick</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2020-08-13</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/madagascar/>Madagascar</a></div><nav class=post-nav><a class=prev href=/post/axisem3d/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Linux 下安装 AxiSEM3D</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/wireless/>
-<span class="next-text nav-default">Ubuntu 18.04 安装 RTL8821CE 无线网卡驱动</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/wireless/><span class="next-text nav-default">Ubuntu 18.04 安装 RTL8821CE 无线网卡驱动</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

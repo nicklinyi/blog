@@ -1,144 +1,10 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Linux /boot 重新分区 - Seismology</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Lloyd"><meta name=description content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.88.1 with theme even">
-<link rel=canonical href=https://blog.nickwhyy.top/post/2018-02-04-boot-partition/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/sass/main.min.154ed883776547b0e136be39b3037f61350da06f888d0868d1756a9463cd9520.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Linux /boot 重新分区">
-<meta property="og:description" content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.nickwhyy.top/post/2018-02-04-boot-partition/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-02-04T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-02-04T00:00:00+00:00">
-<meta itemprop=name content="Linux /boot 重新分区">
-<meta itemprop=description content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><meta itemprop=datePublished content="2018-02-04T00:00:00+00:00">
-<meta itemprop=dateModified content="2018-02-04T00:00:00+00:00">
-<meta itemprop=wordCount content="851">
-<meta itemprop=keywords content="Linux,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Linux /boot 重新分区">
-<meta name=twitter:description content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Seismology</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux /boot 重新分区 - Seismology</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Lloyd"><meta name=description content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.101.0 with theme even"><link rel=canonical href=https://blog.nickwhyy.top/post/2018-02-04-boot-partition/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Linux /boot 重新分区"><meta property="og:description" content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nickwhyy.top/post/2018-02-04-boot-partition/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-02-04T00:00:00+00:00"><meta property="article:modified_time" content="2018-02-04T00:00:00+00:00"><meta itemprop=name content="Linux /boot 重新分区"><meta itemprop=description content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><meta itemprop=datePublished content="2018-02-04T00:00:00+00:00"><meta itemprop=dateModified content="2018-02-04T00:00:00+00:00"><meta itemprop=wordCount content="851"><meta itemprop=keywords content="Linux,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux /boot 重新分区"><meta name=twitter:description content="由于之前装机时 /boot 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 /boot 空间不足， 然后发现 /boot下有两个系统内核文件，一个 44M 左右"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Seismology</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>主页</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>分类</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/collection/>
-<li class=mobile-menu-item>安装</li>
-</a><a href=/links/>
-<li class=mobile-menu-item>链接</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>关于</li>
-</a><a href=/search/>
-<li class=mobile-menu-item>🔍</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Seismology</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>主页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>分类</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/collection/>安装</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/links/>链接</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>关于</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/search/>🔍</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Linux /boot 重新分区</h1>
-<div class=post-meta>
-<span class=post-time> 2018-02-04 </span>
-<div class=post-category>
-<a href=/categories/%E7%BC%96%E7%A8%8B/> 编程 </a>
-</div>
-<span class=more-meta> 约 851 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>由于之前装机时 <code>/boot</code> 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 <code>/boot</code> 空间不足， 然后发现 <code>/boot</code>下有两个系统内核文件，一个 44M 左右， 再加上一些其他的文件，加起来足足占了 70% 的使用空间，后期如果再更新系统，将会十分不便。因此想到了扩大 <code>/boot</code> 空间。</p>
-<p>网上的一些博文都是简单的介绍了如何增大<code>/boot</code>, 没有提供一个详细的步骤，这里总结了各大博文的精华之处，整理出来供大家参考。</p>
-<ul>
-<li>运行<code>sudo cat /etc/fstab</code></li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/collection/><li class=mobile-menu-item>安装</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a><a href=/search/><li class=mobile-menu-item>🔍</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Seismology</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/collection/>安装</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li><li class=menu-item><a class=menu-item-link href=/search/>🔍</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Linux /boot 重新分区</h1><div class=post-meta><span class=post-time>2018-02-04</span><div class=post-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></div><span class=more-meta>约 851 字</span>
+<span class=more-meta>预计阅读 2 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p>由于之前装机时 <code>/boot</code> 只分配了 200MB 的空间，而 Ubuntu 16.04 LTS 会自动更新内核， 导致某次开机突然提示 <code>/boot</code> 空间不足， 然后发现 <code>/boot</code>下有两个系统内核文件，一个 44M 左右， 再加上一些其他的文件，加起来足足占了 70% 的使用空间，后期如果再更新系统，将会十分不便。因此想到了扩大 <code>/boot</code> 空间。</p><p>网上的一些博文都是简单的介绍了如何增大<code>/boot</code>, 没有提供一个详细的步骤，这里总结了各大博文的精华之处，整理出来供大家参考。</p><ul><li>运行<code>sudo cat /etc/fstab</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -152,30 +18,21 @@
 </span><span class=lnt>12
 </span><span class=lnt>13
 </span><span class=lnt>14
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>➜  ~ sudo cat /etc/fstab
-# /etc/fstab: static file system information.
-#
-# Use &#39;blkid&#39; to print the universally unique identifier for a
-# device; this may be used with UUID= as a more robust way to name devices
-# that works even if disks are added and removed. See fstab(5).
-#
-# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
-# / was on /dev/sda7 during installation
-UUID=50b02ca0-b7d6-47e7-b822-9d30caac57ec /               ext4    errors=remount-ro 0       1
-# /boot was on /dev/sda6 during installation
-UUID=c1a85b1e-b617-4f2f-82d4-0ed61e8347ba /boot           ext4    defaults        0       2
-# swap was on /dev/sda5 during installation
-UUID=3db90030-2801-4ba3-b126-7bb0af433172 none            swap    sw              0       0
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>运行<code>sudo ls -al /dev/disk/by-uuid/*</code></li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>➜  ~ sudo cat /etc/fstab
+</span></span><span class=line><span class=cl># /etc/fstab: static file system information.
+</span></span><span class=line><span class=cl>#
+</span></span><span class=line><span class=cl># Use &#39;blkid&#39; to print the universally unique identifier for a
+</span></span><span class=line><span class=cl># device; this may be used with UUID= as a more robust way to name devices
+</span></span><span class=line><span class=cl># that works even if disks are added and removed. See fstab(5).
+</span></span><span class=line><span class=cl>#
+</span></span><span class=line><span class=cl># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
+</span></span><span class=line><span class=cl># / was on /dev/sda7 during installation
+</span></span><span class=line><span class=cl>UUID=50b02ca0-b7d6-47e7-b822-9d30caac57ec /               ext4    errors=remount-ro 0       1
+</span></span><span class=line><span class=cl># /boot was on /dev/sda6 during installation
+</span></span><span class=line><span class=cl>UUID=c1a85b1e-b617-4f2f-82d4-0ed61e8347ba /boot           ext4    defaults        0       2
+</span></span><span class=line><span class=cl># swap was on /dev/sda5 during installation
+</span></span><span class=line><span class=cl>UUID=3db90030-2801-4ba3-b126-7bb0af433172 none            swap    sw              0       0
+</span></span></code></pre></td></tr></table></div></div><ul><li>运行<code>sudo ls -al /dev/disk/by-uuid/*</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -186,139 +43,44 @@ UUID=3db90030-2801-4ba3-b126-7bb0af433172 none            swap    sw            
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>➜  ~ sudo ls -al /dev/disk/by-uuid/*
-lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/041838F41838E678 -&gt; ../../sda4
-lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/3db90030-2801-4ba3-b126-7bb0af433172 -&gt; ../../sda5
-lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/40D69E0DD69E0378 -&gt; ../../sdb1
-lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/50b02ca0-b7d6-47e7-b822-9d30caac57ec -&gt; ../../sda7
-lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/6C7AC53E7AC505B4 -&gt; ../../sdc1
-lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/7AC85EFBC85EB4DB -&gt; ../../sda2
-lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/8646ADF646ADE6E1 -&gt; ../../sdb2
-lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/948E13708E134A5E -&gt; ../../sda1
-lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/a6686297-cdf6-4600-9465-dcf2de344662 -&gt; ../../sda8
-lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/c1a85b1e-b617-4f2f-82d4-0ed61e8347ba -&gt; ../../sda6
-</code></pre></td></tr></table>
-</div>
-</div><p>通过这个命令将自己的 <code>/boot</code> 与 硬盘编号<code>sd*</code> 以及 uuid 值对应起来。</p>
-<ul>
-<li>制作一个live 启动盘， 用它来启动系统。
-然后在 live 系统中运行<code>gparted</code>。</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$ sudo gparted
-</code></pre></td></tr></table>
-</div>
-</div><p>这时会出现一个图形界面。修改分区信息在图形界面很简单，我只说明一下我的分区策略：</p>
-<p>由于我的 <code>swap</code> 分区与 <code>/boot</code> 挨着， 而且 <code>swap</code> 分区空间也挺大，大概分了15GB。 这里采用的方式为直接将 <code>swap</code> 进行 <code>resize</code>, 然后将后面大概1gb的空间留出来。 接着对<code>/boot</code> 进行 <code>resize</code> 然后再刚才留出来的1gb 加进来即可。最后, 点击上面的绿色的√即可完成重新分区的过程。</p>
-<ul>
-<li>
-<p>确认 <code>/boot</code>等的 uuid 值是否改变
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>➜  ~ sudo ls -al /dev/disk/by-uuid/*
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/041838F41838E678 -&gt; ../../sda4
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/3db90030-2801-4ba3-b126-7bb0af433172 -&gt; ../../sda5
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/40D69E0DD69E0378 -&gt; ../../sdb1
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/50b02ca0-b7d6-47e7-b822-9d30caac57ec -&gt; ../../sda7
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/6C7AC53E7AC505B4 -&gt; ../../sdc1
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/7AC85EFBC85EB4DB -&gt; ../../sda2
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/8646ADF646ADE6E1 -&gt; ../../sdb2
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/948E13708E134A5E -&gt; ../../sda1
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:27 /dev/disk/by-uuid/a6686297-cdf6-4600-9465-dcf2de344662 -&gt; ../../sda8
+</span></span><span class=line><span class=cl>lrwxrwxrwx 1 root root 10 8月  13 10:28 /dev/disk/by-uuid/c1a85b1e-b617-4f2f-82d4-0ed61e8347ba -&gt; ../../sda6
+</span></span></code></pre></td></tr></table></div></div><p>通过这个命令将自己的 <code>/boot</code> 与 硬盘编号<code>sd*</code> 以及 uuid 值对应起来。</p><ul><li>制作一个live 启动盘， 用它来启动系统。
+然后在 live 系统中运行<code>gparted</code>。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ sudo gparted
+</span></span></code></pre></td></tr></table></div></div><p>这时会出现一个图形界面。修改分区信息在图形界面很简单，我只说明一下我的分区策略：</p><p>由于我的 <code>swap</code> 分区与 <code>/boot</code> 挨着， 而且 <code>swap</code> 分区空间也挺大，大概分了15GB。 这里采用的方式为直接将 <code>swap</code> 进行 <code>resize</code>, 然后将后面大概1gb的空间留出来。 接着对<code>/boot</code> 进行 <code>resize</code> 然后再刚才留出来的1gb 加进来即可。最后, 点击上面的绿色的√即可完成重新分区的过程。</p><ul><li><p>确认 <code>/boot</code>等的 uuid 值是否改变
 在 live 系统中看 <code>/boot</code> 的 uuid 值可通过 <code>gparted</code> 右键查看，然后与你之前在原来系统上运行的结果比较，看是否一致。
 <em><strong>使用<code>gparted</code> 右键查看的时候，不要选择 New uuid ，不然你得修改<code>/etc/fstab</code> 文件，将其对应上。</strong></em>
-如果在原来系统上运行的结果没有保存，可在 live 里访问原来系统的文件， 然后再查看<code>/etc/fstab</code> 文件。</p>
-</li>
-<li>
-<p>重启系统。</p>
-</li>
-</ul>
-<h4 id=参考资料>参考资料：</h4>
-<ul>
-<li><a href="http://forum.ubuntu.org.cn/viewtopic.php?t=481011">http://forum.ubuntu.org.cn/viewtopic.php?t=481011</a></li>
-<li><a href=http://blog.csdn.net/caz28/article/details/50827904>http://blog.csdn.net/caz28/article/details/50827904</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Lloyd</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2018-02-04
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>许可协议</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>捐赠支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/wechatpay.jpg>
-<span>微信捐赠</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/images/alipay.jpg>
-<span>支付宝捐赠</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/linux/>Linux</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/2018-03-31-rsf-plot/>
-<i class="iconfont icon-left"></i>
+如果在原来系统上运行的结果没有保存，可在 live 里访问原来系统的文件， 然后再查看<code>/etc/fstab</code> 文件。</p></li><li><p>重启系统。</p></li></ul><h4 id=参考资料>参考资料：</h4><ul><li><a href="http://forum.ubuntu.org.cn/viewtopic.php?t=481011">http://forum.ubuntu.org.cn/viewtopic.php?t=481011</a></li><li><a href=http://blog.csdn.net/caz28/article/details/50827904>http://blog.csdn.net/caz28/article/details/50827904</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Lloyd</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-02-04</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>捐赠支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay.jpg>
+<span>微信捐赠</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay.jpg>
+<span>支付宝捐赠</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux/>Linux</a></div><nav class=post-nav><a class=prev href=/post/2018-03-31-rsf-plot/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Madagascar绘图总结</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/post/2017-10-28-specfem2d-gmt/>
-<span class="next-text nav-default">采用 GMT 绘制 SPECFEM2D 波场快照</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/post/2017-10-28-specfem2d-gmt/><span class="next-text nav-default">采用 GMT 绘制 SPECFEM2D 波场快照</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='githubnick',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="githubnick",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:linyihanchuan@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/nicklinyi class="iconfont icon-github" title=github></a>
-<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
-</span>
+<a href=https://blog.nickwhyy.top/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
 <span class=division>|</span>
-<span class=theme-info>
-主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+2023<span class=heart><i class="iconfont icon-heart"></i></span><span>Nick</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script></body></html>

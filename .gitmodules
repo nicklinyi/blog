@@ -4,3 +4,6 @@
 [submodule "themes/hugo-search-fuse-js"]
 	path = themes/hugo-search-fuse-js
 	url = https://github.com/kaushalmodi/hugo-search-fuse-js.git
+[submodule "themes/mark-js"]
+	path = themes/mark-js
+	url = https://github.com/julmot/mark.js

@@ -5,7 +5,7 @@ title = "Seismology"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
-theme = ["hugo-search-fuse-js","even"]
+theme = ["even"]
 enableGitInfo = false # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
@@ -48,11 +48,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   weight = 30
   identifier = "categories"
   url = "/categories/"
-[[menu.main]]
-  name = "🔍"
-  weight = 70
-  identifier = "search"
-  url = "/search/"
+
 
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update

@@ -10,6 +10,9 @@ comments: false
 ### 科学研究代码
  - [https://seismo-learn.org/](https://seismo-learn.org/links/codes/)
 
+### absolute plate motion calculator
+- https://www.unavco.org/software/geodetic-utilities/plate-motion-calculator/plate-motion-calculator.html
+
 ### Listing of non-alphanumeric keys
   https://www.computerhope.com/keys.htm
 

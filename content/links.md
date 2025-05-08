@@ -13,6 +13,9 @@ comments: false
 ### absolute plate motion calculator
 - https://www.unavco.org/software/geodetic-utilities/plate-motion-calculator/plate-motion-calculator.html
 
+### Download waveform
+- https://service.iris.edu/fdsnws/dataselect/1/
+
 ### Listing of non-alphanumeric keys
   https://www.computerhope.com/keys.htm
 

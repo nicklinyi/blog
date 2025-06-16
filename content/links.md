@@ -1,26 +1,28 @@
 ---
 title: "链接" 
-author: Lloyd
+author: Nick
 weight: 60
 date: 2016-05-19
 menu: "main"
 comments: false
 ---
+## A
+- [Absolute plate motion calculator](https://www.unavco.org/software/geodetic-utilities/plate-motion-calculator/plate-motion-calculator.html)
+## D
+- [Download seismic waveform from IRIS](https://service.iris.edu/fdsnws/dataselect/1/)
+- [Documentation for visualization with Paraview](https://visualisation.gitlab-pages.dkrz.de/documentation/Paraview/index.html)
 
-### 科学研究代码
- - [https://seismo-learn.org/](https://seismo-learn.org/links/codes/)
+## E
+- [Ed Garnero's image gallery](http://garnero.asu.edu/research_images/)
+## L
+- [Listing of non-alphanumeric keys](https://www.computerhope.com/keys.htm)
+  
+## R
+-[Research code from seismo-learn.org](https://seismo-learn.org/links/codes/)
 
-### absolute plate motion calculator
-- https://www.unavco.org/software/geodetic-utilities/plate-motion-calculator/plate-motion-calculator.html
 
-### Download waveform
-- https://service.iris.edu/fdsnws/dataselect/1/
 
-### Listing of non-alphanumeric keys
-  https://www.computerhope.com/keys.htm
-
-### Ed Garnero's image gallery
-  http://garnero.asu.edu/research_images/
+  
 
 ### 正演模拟
 

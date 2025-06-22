@@ -20,7 +20,7 @@ menu: "main"
 如果觉得本站的内容对您有帮助，可以考虑给我买一杯咖啡。这将激励我在未来做更多的知识分享，谢谢！
 
 微信捐赠：
-![微信](/images/wechatpay.jpg =300)
+![微信](/images/wechatpay.jpg =300x)
 
 支付宝捐赠：
 ![支付宝](/images/alipay.jpg)

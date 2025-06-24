@@ -14,11 +14,15 @@ comments: false
 
 ## E
 - [Ed Garnero's image gallery](http://garnero.asu.edu/research_images/)
+
+## I
+- [IP ping](https://ping.chinaz.com/)
+- 
 ## L
 - [Listing of non-alphanumeric keys](https://www.computerhope.com/keys.htm)
   
 ## R
--[Research code from seismo-learn.org](https://seismo-learn.org/links/codes/)
+- [Research code from seismo-learn.org](https://seismo-learn.org/links/codes/)
 
 
 

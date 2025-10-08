@@ -17,12 +17,13 @@ comments: false
 
 ## I
 - [IP ping](https://ping.chinaz.com/)
-- 
+ 
 ## L
 - [Listing of non-alphanumeric keys](https://www.computerhope.com/keys.htm)
   
 ## R
 - [Research code from seismo-learn.org](https://seismo-learn.org/links/codes/)
+- [Relating density to velocity](https://www.ce.memphis.edu/7137/PDFs/Boore/daves_notes_on_relating_density_to_velocity_v1.2.pdf).
 
 
 
